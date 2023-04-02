@@ -1,0 +1,45 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "react", "import"],
+  "extends": ["prettier", "airbnb-typescript", "react-app", "plugin:import/recommended"],
+  "rules": {
+    "@typescript-eslint/indent": "off",
+    "no-var": "error",
+    "no-multiple-empty-lines": "error",
+    "eqeqeq": "error",
+    "no-unused-vars": "error",
+    "@typescript-eslint/comma-dangle": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": false }],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports"
+      }
+    ],
+    "react/function-component-definition": [2, { "namedComponents": "function-declaration" }],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "allowSeparatedGroups": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], "internal", "parent", "sibling", "index"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/default": "off",
+    "import/no-named-as-default-member": "off"
+  },
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
