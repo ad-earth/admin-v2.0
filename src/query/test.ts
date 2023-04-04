@@ -1,1 +1,1 @@
-//test
+export default function test() {}
