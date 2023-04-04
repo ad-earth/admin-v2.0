@@ -1,37 +1,29 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from 'react-router-dom';
-// import { routerData } from './RouteList';
+import { createBrowserRouter } from 'react-router-dom';
+import AuthLayout from '../../components/layout/AuthLayout';
+import MainLayout from '../../components/layout/MainLayout';
+import NotFoundPage from '../../pages/NotFoundPage';
+import ProtectedRoute from '../../pages/ProtectedRoute';
+import { AuthRouterData, MainRouterData } from './RouterList';
 
-const Router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      {/* {routerData.map(router => {
-        if (router.withAuth) {
-          return (
-            <Route
-              key={router.id}
-              path={router.path}
-              element={
-                <ProtectedRoute redirectPath={router.redirectPath}>
-                  {router.element}
-                </ProtectedRoute>
-              }
-            > */}
-    </Route>
-  )
-);
+const Router = createBrowserRouter([
+  {
+    path: '/',
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        element: <AuthLayout />,
+        children: AuthRouterData,
+      },
+      {
+        element: (
+          <ProtectedRoute redirectPath="login">
+            <MainLayout />
+          </ProtectedRoute>
+        ),
+        children: MainRouterData,
+      },
+    ],
+  },
+]);
 
 export default Router;
-
-function Layout() {
-  return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
-  );
-}
