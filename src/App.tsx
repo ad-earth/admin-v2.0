@@ -1,7 +1,6 @@
 import { QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { RouterProvider } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
 
 import { queryClient } from './shared/utils/queryClient';
@@ -12,7 +11,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
       <RecoilRoot>
-        <ToastContainer />
         <RouterProvider router={Router} />
       </RecoilRoot>
     </QueryClientProvider>
