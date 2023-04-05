@@ -1,1 +1,1 @@
-// 공통타입
+export interface Type {}
