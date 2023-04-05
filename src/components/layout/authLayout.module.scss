@@ -1,0 +1,21 @@
+@use '../../shared/styles/colors';
+@use '../../shared/styles/mixins';
+
+#authWrap {
+  @include mixins.layoutBase;
+  main {
+    width: 100vw;
+    display: flex;
+    height: 100vh;
+  }
+}
+.authSection {
+  width: 50vw;
+  height: 100vh;
+  background: colors.$bg_white;
+}
+.bannerSection {
+  width: 50vw;
+  height: 100vh;
+  background: #243369;
+}

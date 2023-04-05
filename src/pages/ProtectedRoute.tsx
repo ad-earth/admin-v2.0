@@ -1,11 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-interface IProps {
+type TProps = {
   children?: React.ReactNode;
   redirectPath: string;
-}
+};
 
-export default function ProtectedRoute({ children, redirectPath }: IProps) {
+export default function ProtectedRoute({ children, redirectPath }: TProps) {
   // const isAuth = !!localStorage.getItem('adminToken');
   const isAuth = true;
 

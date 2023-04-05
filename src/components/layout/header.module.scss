@@ -1,0 +1,31 @@
+@use '../../shared/styles/colors';
+
+$height_size: 80px;
+$pointer: pointer;
+%cursor_pointer {
+  cursor: pointer;
+}
+
+header {
+  width: 100%;
+  height: $height_size;
+  line-height: $height_size;
+  position: fixed;
+  z-index: 99;
+  background-color: colors.$bg_white;
+  border-bottom: 1px solid colors.$lc_gray400;
+  img {
+    @extend %cursor_pointer;
+    margin: calc((#{$height_size} - 35px) / 2) 53px;
+  }
+}
+.asideBtnMenu,
+.asideBtnMenu button {
+  margin-right: 40px;
+}
+.asideBtnMenu {
+  float: right;
+  span {
+    @extend %cursor_pointer;
+  }
+}
