@@ -8,7 +8,7 @@ const axiosConfig: AxiosRequestConfig = {
 };
 const axiosInstance = axios.create(axiosConfig);
 
-const token = localStorage.getItem('token');
+const token = localStorage.getItem('adminToken');
 
 axiosInstance.interceptors.request.use(
   config => {
