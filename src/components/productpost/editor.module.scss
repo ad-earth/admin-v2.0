@@ -1,0 +1,16 @@
+@use '../../shared/styles/mixins';
+
+#Editor {
+  @include mixins.size(100%, auto);
+  @include mixins.flex-row;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  p {
+    @include mixins.font(16px, 600);
+    @include mixins.size(120px, auto);
+    margin: 0px;
+  }
+  .reactQuill {
+    @include mixins.size(100%, 700px);
+  }
+}

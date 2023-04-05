@@ -4,3 +4,20 @@
   background-color: colors.$bg_gray200;
   color: colors.$fc_blue300;
 }
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+@mixin font($px, $wh) {
+  font-size: $px;
+  font-weight: $wh;
+}
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,14 @@
+@use '../shared/styles/mixins';
+@use '../shared/styles/colors';
+
+#ProductPost {
+  @include mixins.size(100%, auto);
+  display: flex;
+  flex-direction: column;
+  background-color: colors.$bg_gray200;
+  .title {
+    font-size: 30px;
+    font-weight: 800;
+    margin: 24px 0 40px 32px;
+  }
+}
