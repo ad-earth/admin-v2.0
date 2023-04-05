@@ -1,0 +1,6 @@
+@use '../styles/colors';
+
+@mixin layoutBase {
+  background-color: colors.$bg_gray200;
+  color: colors.$fc_blue300;
+}
