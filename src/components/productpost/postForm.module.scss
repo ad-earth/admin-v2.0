@@ -1,0 +1,83 @@
+@use '../../shared/styles/mixins';
+@use '../../shared/styles/colors';
+
+#PostForm {
+  @include mixins.size(100%, auto);
+  @include mixins.flex($d: column);
+  justify-content: center;
+  .container {
+    @include mixins.flex($d: column);
+    .form {
+      @include mixins.flex($d: column);
+      @include mixins.size(88%, auto);
+      background-color: colors.$bg_white;
+      margin: 0 auto;
+      padding: 60px;
+      .wrap {
+        @include mixins.flex($d: row);
+      }
+    }
+  }
+  .btnWrap {
+    justify-content: center;
+    margin: 60px auto;
+  }
+}
+
+section {
+  @include mixins.flex($d: column);
+  .left {
+    @include mixins.size(120px, auto);
+    ul {
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+      li {
+        @include mixins.font(16px, 600);
+        @include mixins.size(100%, 70px);
+      }
+      li:nth-child(4) {
+        @include mixins.size(100%, 120px);
+      }
+      li:nth-child(5) {
+        @include mixins.size(100%, 110px);
+      }
+    }
+  }
+  .right {
+    @include mixins.size(100%, auto);
+    .content {
+      @include mixins.flex($d: row);
+      @include mixins.size(100%, 70px);
+      span {
+        @include mixins.font(16px, 500);
+        color: colors.$fc_blue400;
+        margin: 10px 10px;
+      }
+      .label {
+        @include mixins.font(16px, 600);
+        margin: 4px 30px 0 54px;
+      }
+      .textArea {
+        @include mixins.size(100%, 90px);
+        box-sizing: border-box;
+        padding: 19px 20px;
+        border: 1px solid colors.$lc_gray400;
+        border-radius: 8px;
+        &::placeholder {
+          color: colors.$fc_blue400;
+        }
+      }
+    }
+    .content:nth-child(4) {
+      @include mixins.size(100%, 120px);
+    }
+    .content:nth-child(5) {
+      @include mixins.size(100%, 110px);
+    }
+    .content:nth-child(6) {
+      @include mixins.size(100%, auto);
+      margin-bottom: 40px;
+    }
+  }
+}
