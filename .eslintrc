@@ -1,7 +1,12 @@
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "react", "import"],
-  "extends": ["prettier", "airbnb-typescript", "react-app", "plugin:import/recommended"],
+  "extends": [
+    "prettier",
+    "airbnb-typescript",
+    "react-app",
+    "plugin:import/recommended"
+  ],
   "rules": {
     "@typescript-eslint/indent": "off",
     "no-var": "error",
@@ -9,14 +14,20 @@
     "eqeqeq": "error",
     "no-unused-vars": "error",
     "@typescript-eslint/comma-dangle": "off",
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": false }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": false }
+    ],
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
         "prefer": "type-imports"
       }
     ],
-    "react/function-component-definition": [2, { "namedComponents": "function-declaration" }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "function-declaration" }
+    ],
     "sort-imports": [
       "error",
       {
@@ -29,7 +40,13 @@
     "import/order": [
       "error",
       {
-        "groups": [["builtin", "external"], "internal", "parent", "sibling", "index"],
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true

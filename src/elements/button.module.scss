@@ -1,0 +1,20 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+button {
+  background: none;
+  border: none;
+  border-radius: 5px;
+  @include font(14px, 500, $fc_gray500);
+
+  &.big-blue {
+    background: $bg_blue100;
+    @include size(335px, 52px);
+    @include font(16px, 500, $fc_white);
+  }
+  &.big-gray {
+    background: $bg_gray200;
+    @include size(335px, 52px);
+    @include font(16px, 500, $fc_blue400);
+  }
+}

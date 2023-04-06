@@ -1,6 +1,25 @@
-@use '../styles/colors';
+@use '../styles/colors' as *;
 
 @mixin layoutBase {
-  background-color: colors.$bg_gray200;
-  color: colors.$fc_blue300;
+  background-color: $bg_gray200;
+  color: $fc_blue300;
+}
+
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+@mixin flex($d: row, $j: center, $a: center, $g: none) {
+  display: flex;
+  flex-direction: $d;
+  justify-content: $j;
+  align-items: $a;
+  gap: $g;
+}
+
+@mixin font($s, $w: 400, $c: fc_blue300) {
+  font-size: $s;
+  font-weight: $w;
+  color: $c;
 }
