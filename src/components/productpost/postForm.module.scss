@@ -49,7 +49,7 @@ section {
     .content {
       @include mixins.flex-row;
       @include mixins.size(100%, 70px);
-      .text {
+      span {
         @include mixins.font(16px, 500);
         color: colors.$fc_blue400;
         margin: 10px 10px;

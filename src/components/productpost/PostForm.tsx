@@ -43,10 +43,10 @@ export default function PostForm() {
               </div>
               <div className={styles.content}>
                 <Input placeholder="상품 가격" styleName="input200" />
-                <span className={styles.text}>원</span>
+                <span>원</span>
                 <p className={styles.label}>할인율</p>
                 <Input placeholder="0" styleName="input100" />
-                <span className={styles.text}>%</span>
+                <span>%</span>
               </div>
               <div className={styles.content}>
                 <textarea
