@@ -1,5 +1,6 @@
 import MainAdBanner from '../components/banner/MainAdBanner';
 import BoardContent from '../components/main/BoardContent';
+import KeywordRanking from '../components/main/KeywordRanking';
 import styles from './mainPage.module.scss';
 
 export default function MainPage() {
@@ -9,7 +10,9 @@ export default function MainPage() {
         <MainAdBanner />
         <BoardContent />
         <div className={styles.contentWrapper}>
-          <div className={styles.content_left}>{/* <KeywordRanking /> */}</div>
+          <div className={styles.content_left}>
+            <KeywordRanking />
+          </div>
           <div className={styles.content_right}>
             {/* <BizMoneyHome /> */}
             {/* <AdSummary /> */}
