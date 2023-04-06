@@ -1,0 +1,17 @@
+@use '../shared/styles/colors';
+@use '../shared/styles/mixins';
+
+.select {
+  @include mixins.size(250px, 40px);
+  color: colors.$fc_blue400;
+  border-color: colors.$lc_gray400;
+  border-radius: 8px;
+  .menuItem {
+    @include mixins.font(14px, 400);
+    color: colors.$fc_blue400;
+    z-index: 99999;
+    .Mui-selected {
+      background-color: colors.$bg_gray100;
+    }
+  }
+}
