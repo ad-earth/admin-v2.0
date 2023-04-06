@@ -1,5 +1,4 @@
-// api
+import axiosInstance from './instance';
 
-export default function apis() {
-  return;
-}
+export const login = (id: string, pwd: string) =>
+  axiosInstance.post('/admins/login', { a_Id: id, a_Pw: pwd });
