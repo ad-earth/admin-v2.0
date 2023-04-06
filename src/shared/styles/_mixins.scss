@@ -23,3 +23,13 @@
   font-weight: $w;
   color: $c;
 }
+
+@mixin filter_wrapper($g: 32px) {
+  width: 83vw;
+  display: flex;
+  background: $bg_white;
+  padding: 20px 24px;
+  border-radius: 5px;
+  margin-top: 16px;
+  gap: $g;
+}
