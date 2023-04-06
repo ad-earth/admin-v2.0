@@ -1,0 +1,11 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+#container {
+  @include size(50vw, 100vh);
+  @include flex($d: column);
+  > p {
+    margin-top: 25px;
+    @include font($s: 24px, $w: 500);
+  }
+}
