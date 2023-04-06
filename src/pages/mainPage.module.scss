@@ -10,11 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.container_right {
-  width: 40%;
-}
-
-#contentWrapper {
+.contentWrapper {
   display: flex;
   justify-content: space-between;
 }
@@ -26,4 +22,8 @@
   flex-basis: 57%;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.container_right {
+  width: 40%;
 }

@@ -1,5 +1,4 @@
-// api
+import axiosInstance from './instance';
 
-export default function apis() {
-  return;
-}
+export const getDashboard = (queryFnName: string) =>
+  axiosInstance.get(`/admin-main/${queryFnName}`);
