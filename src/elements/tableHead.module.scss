@@ -1,0 +1,24 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+.table_head {
+  @include size(83vw, 50px);
+  @include font(12px, 700);
+  background: $bg_gray300;
+  input {
+    @include size(12px, 12px);
+    border: 1px solid $lc_gray400;
+    cursor: pointer;
+    &:checked {
+      accent-color: $bg_blue100;
+    }
+  }
+  th {
+    &:first-child {
+      border-radius: 5px 0px 0px 0px;
+    }
+    &:last-child {
+      border-radius: 0px 5px 0px 0px;
+    }
+  }
+}
