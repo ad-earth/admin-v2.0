@@ -2,17 +2,16 @@
 @use '../../shared/styles/colors';
 
 #Option {
-  @include mixins.flex-column;
+  @include mixins.flex($d: column);
   ul {
-    @include mixins.flex-row;
+    @include mixins.flex($d: row);
     list-style: none;
     padding: 0px;
     margin: 0px;
     li {
       @include mixins.font(16px, 700);
-      @include mixins.size(262px, auto);
-      display: flex;
-      align-items: center;
+      @include mixins.size(220px, auto);
+      @include mixins.flex($d: row, $a: center);
       color: colors.$fc_blue400;
       input {
         @include mixins.size(15px, 15px);
@@ -20,11 +19,11 @@
       }
     }
     li:nth-child(1) {
-      @include mixins.size(320px, auto);
+      @include mixins.size(280px, auto);
     }
   }
   .wrap {
-    @include mixins.flex-row;
+    @include mixins.flex($d: row);
     gap: 20px;
     margin-top: 10px;
     margin-bottom: 20px;
