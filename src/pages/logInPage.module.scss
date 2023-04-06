@@ -3,9 +3,13 @@
 
 #container {
   @include size(50vw, 100vh);
-  @include flex($d: column);
+  @include flex(column, center, center);
+  > img {
+    width: 200px;
+    height: 50px;
+  }
   > p {
     margin-top: 25px;
-    @include font($s: 24px, $w: 500);
+    @include font(24px, 500);
   }
 }

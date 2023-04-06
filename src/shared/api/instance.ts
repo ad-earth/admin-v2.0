@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(
   response => response,
   error => {
     const { response } = error;
-    if (response) toast.error(response.data.errorMessage.toString());
+    if (response) toast.error(response.data.message);
     return Promise.reject(error);
   }
 );
