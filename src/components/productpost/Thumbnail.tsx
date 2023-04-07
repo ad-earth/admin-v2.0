@@ -4,10 +4,10 @@ import { thumbnailUploader } from '../../shared/api/imageUploader';
 import styles from './thumbnail.module.scss';
 
 export interface IProps {
-  thumb1Url: string | undefined;
-  setThumb1Url: Dispatch<SetStateAction<string | undefined>>;
-  thumb2Url: string | undefined;
-  setThumb2Url: Dispatch<SetStateAction<string | undefined>>;
+  thumb1Url: string;
+  setThumb1Url: Dispatch<SetStateAction<string>>;
+  thumb2Url: string;
+  setThumb2Url: Dispatch<SetStateAction<string>>;
 }
 
 export default function Thumbnail({
@@ -24,11 +24,11 @@ export default function Thumbnail({
 
   const handleChangeThumb1 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    thumbnailUploader(e.target.files).then(url => setThumb1Url(url));
+    thumbnailUploader(e.target.files).then(url => setThumb1Url(url as string));
   };
   const handleChangeThumb2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    thumbnailUploader(e.target.files).then(url => setThumb2Url(url));
+    thumbnailUploader(e.target.files).then(url => setThumb2Url(url as string));
   };
 
   return (

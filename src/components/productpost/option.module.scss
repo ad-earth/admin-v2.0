@@ -25,15 +25,14 @@
     @include flex($d: row, $g: 20px);
     margin-top: 10px;
     margin-bottom: 20px;
-    .colorPicker {
+    .color_picker {
       @include size(40px, 40px);
       border: 1px solid $lc_gray400;
       border-radius: 8px;
       padding: 2px;
     }
-    p {
+    button {
       @include font(16px, 700, $fc_blue100);
-      margin: 10px 0;
     }
   }
   .btnWrap {

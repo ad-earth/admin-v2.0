@@ -8,7 +8,7 @@
     @include flex($d: column);
     .form {
       @include flex($d: column);
-      @include size(88%, auto);
+      @include size(95%, auto);
       background-color: $bg_white;
       margin: 0 auto;
       padding: 60px;
@@ -52,16 +52,21 @@ section {
         @include font(16px, 500, $fc_blue400);
         margin: 10px 10px;
       }
+      p {
+        @include font(16px, 500);
+        margin: 10px 10px;
+      }
       .label {
         @include font(16px, 600);
         margin: 4px 30px 0 54px;
       }
       .textArea {
-        @include size(100%, 90px);
+        @include size(50%, 90px);
         box-sizing: border-box;
         padding: 19px 20px;
         border: 1px solid $lc_gray400;
         border-radius: 8px;
+        resize: none;
         &::placeholder {
           color: $fc_blue400;
         }
