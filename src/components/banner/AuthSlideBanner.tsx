@@ -22,7 +22,7 @@ export default function AuthSlideBanner() {
     if (!isFocused) intervalId = setInterval(handleNext, 2000);
     return () => clearInterval(intervalId);
   }, [isFocused]);
-  console.log('activeIndex' + activeIndex);
+
   return (
     <div
       className={styles.base}
