@@ -14,3 +14,11 @@ export const resetPwd = (confirmId: number, newPassword: string) =>
     a_Idx: confirmId,
     a_Pw: newPassword,
   });
+
+export const getDashboard = (queryFnName: string) =>
+  axiosInstance.get(`/admin-main/${queryFnName}`);
+
+export const getBiz = () => axiosInstance.get('/admin-main/charge');
+export const putBiz = () => axiosInstance.put('/admin-main/charge');
+
+export const delUser = () => axiosInstance.delete('/admins');
