@@ -1,3 +1,4 @@
+import MainAccordionBanner from '../components/banner/MainAccordionBanner';
 import MainAdBanner from '../components/banner/MainAdBanner';
 import AdSummary from '../components/main/AdSummary';
 import BoardContent from '../components/main/BoardContent';
@@ -20,7 +21,9 @@ export default function MainPage() {
           </div>
         </div>
       </div>
-      <div className={styles.container_right}>{/* <MainBanner /> */}</div>
+      <div className={styles.container_right}>
+        <MainAccordionBanner />
+      </div>
     </div>
   );
 }
