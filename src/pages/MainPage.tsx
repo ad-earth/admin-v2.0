@@ -1,6 +1,7 @@
 import MainAccordionBanner from '../components/banner/MainAccordionBanner';
 import MainAdBanner from '../components/banner/MainAdBanner';
 import AdSummary from '../components/main/AdSummary';
+import { BizMoneyHome } from '../components/main/BizMoney';
 import BoardContent from '../components/main/BoardContent';
 import KeywordRanking from '../components/main/KeywordRanking';
 import styles from './mainPage.module.scss';
@@ -16,7 +17,7 @@ export default function MainPage() {
             <KeywordRanking />
           </div>
           <div className={styles.content_right}>
-            {/* <BizMoneyHome /> */}
+            <BizMoneyHome />
             <AdSummary />
           </div>
         </div>

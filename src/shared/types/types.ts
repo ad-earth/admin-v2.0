@@ -18,3 +18,6 @@ interface ISummary {
 export interface IAdSummaryRes {
   data: ISummary[];
 }
+export interface IBizMoneyRes {
+  a_Charge: number;
+}

@@ -1,11 +1,14 @@
 import { NavLink } from 'react-router-dom';
+import { BizMoneyNav } from '../main/BizMoney';
 import styles from './nav.module.scss';
 
 export default function Nav() {
   const withdrawalClcik = () => {};
   return (
     <nav id={styles.navWrap}>
-      <div className={styles.bizMoneyBox}>{/* <BizMoneyNav /> */}</div>
+      <div className={styles.bizMoneyBox}>
+        <BizMoneyNav />
+      </div>
       <ul className={styles.navListBox}>
         {nav.map(link => (
           <li key={link.id}>
