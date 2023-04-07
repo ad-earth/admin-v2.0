@@ -1,9 +1,18 @@
 import { useNavigate } from 'react-router-dom';
+import useModal from '../../hooks/useModal';
 import styles from './header.module.scss';
 
 export default function Header() {
   const navigate = useNavigate();
-  const logoutClcik = () => {};
+  const { showModal } = useModal();
+
+  const logoutClcik = () =>
+    showModal({
+      modalType: 'LogoutModal',
+      modalProps: {
+        title: '로그아웃 하시겠습니까?',
+      },
+    });
 
   return (
     <header>
