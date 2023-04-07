@@ -1,16 +1,16 @@
-@use '../../shared/styles/mixins';
+@use '../../shared/styles/mixins' as *;
 
 #Editor {
-  @include mixins.size(100%, auto);
-  @include mixins.flex($d: row);
+  @include size(100%, auto);
+  @include flex($d: row);
   box-sizing: border-box;
   margin-bottom: 20px;
   p {
-    @include mixins.font(16px, 600);
-    @include mixins.size(120px, auto);
+    @include font(16px, 600);
+    @include size(120px, auto);
     margin: 0px;
   }
   .reactQuill {
-    @include mixins.size(100%, 700px);
+    @include size(100%, 700px);
   }
 }

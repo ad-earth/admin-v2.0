@@ -8,8 +8,4 @@
     width: 200px;
     height: 50px;
   }
-  > p {
-    margin-top: 25px;
-    @include font(24px, 500);
-  }
 }

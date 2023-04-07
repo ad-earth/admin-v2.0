@@ -1,35 +1,34 @@
-@use '../shared/styles/colors';
-@use '../shared/styles/mixins';
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
 
 input {
-  @include mixins.font(14px, 400);
+  @include font(14px, 400, $fc_blue300);
   padding: 0px 20px;
-  border: 1px solid colors.$lc_gray400;
+  border: 1px solid $lc_gray400;
   border-radius: 8px;
-  color: colors.$fc_blue300;
   &::placeholder {
-    color: colors.$fc_blue400;
+    color: $fc_blue400;
   }
   &:focus {
     outline: none;
   }
   &.login {
-    @include mixins.size(335px, 60px);
+    @include size(335px, 60px);
   }
   &.input100 {
     text-align: center;
-    @include mixins.size(100px, 40px);
+    @include size(100px, 40px);
   }
   &.input200 {
-    @include mixins.size(200px, 40px);
+    @include size(200px, 40px);
   }
   &.input250 {
-    @include mixins.size(250px, 40px);
+    @include size(250px, 40px);
   }
   &.input290 {
-    @include mixins.size(290px, 40px);
+    @include size(290px, 40px);
   }
   &.input500 {
-    @include mixins.size(500px, 40px);
+    @include size(500px, 40px);
   }
 }
