@@ -1,5 +1,6 @@
-// 쿼리키
+const queryKeys = {
+  FIND_ID: 'find_id',
+  FIND_PWD: 'find_pwd',
+};
 
-export default function queryKeys() {
-  return;
-}
+export default queryKeys;

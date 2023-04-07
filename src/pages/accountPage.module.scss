@@ -1,0 +1,11 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+#container {
+  @include size(50vw, 100vh);
+  @include flex(column, center, center);
+  > img {
+    width: 200px;
+    height: 50px;
+  }
+}

@@ -6,6 +6,7 @@ type TProps = {
   text?: string;
   styleClass?: string;
   type?: 'button' | 'submit' | 'reset' | undefined;
+  disabled?: boolean;
   onClick?: () => void;
 };
 
@@ -14,10 +15,16 @@ export default function Button({
   children,
   text,
   type,
+  disabled,
   onClick,
 }: TProps) {
   return (
-    <button className={styles[`${styleClass}`]} type={type} onClick={onClick}>
+    <button
+      className={styles[`${styleClass}`]}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {text ? text : children}
     </button>
   );
