@@ -14,9 +14,9 @@ function LogoutModal(props: LogoutType) {
 
   const logoutClick = () => {
     localStorage.clear();
-    navigate('/', { replace: true });
     queryCache.clear();
     hideModal();
+    navigate('/login', { replace: true });
   };
 
   return (
