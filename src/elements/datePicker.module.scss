@@ -1,0 +1,32 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+#Date_picker {
+  @include flex($a: center);
+  #start,
+  #end {
+    @include size(120px, 40px);
+    @include font(12px, 400, $fc_blue400);
+    text-align: center;
+    line-height: 12px;
+    padding: 10px;
+    border: 1px solid $lc_gray400;
+    border-radius: 5px;
+    input[type='date']::-webkit-clear-button,
+    input[type='date']::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+  #start:focus,
+  #end:focus {
+    outline: none;
+  }
+  #end:disabled {
+    background: $bg_gray300;
+    color: $fc_gray400;
+  }
+  img {
+    @include size(20px, 20px);
+    margin: 0 10px;
+  }
+}
