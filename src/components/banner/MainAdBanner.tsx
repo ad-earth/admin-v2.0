@@ -10,7 +10,7 @@ const subText2 =
 export default function MainAdBanner() {
   const navigate = useNavigate();
   return (
-    <article id={styles.base} onClick={() => navigate('/setAd')}>
+    <article className={styles.base} onClick={() => navigate('/setAd')}>
       <h2 className={styles.title}>{title}</h2>
       <p className={styles.subText}>
         {subText1}
