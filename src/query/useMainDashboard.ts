@@ -46,18 +46,29 @@ const useMainDashboard = () => {
 
   const isLoading = results.some(result => result.isLoading);
 
-  const { boardData, rankingData } = useMemo(
-    () => ({
-      boardData: [
-        results[0]?.data || 0,
-        results[1]?.data || 0,
-        results[2]?.data || 0,
-      ],
-      rankingData: results[3]?.data || [],
-    }),
-    [results]
-  );
+  const { boardData, rankingData, monthData, adCostData, salesCostData } =
+    useMemo(
+      () => ({
+        boardData: [
+          results[0]?.data || 0,
+          results[1]?.data || 0,
+          results[2]?.data || 0,
+        ],
+        rankingData: results[3]?.data || [],
+        monthData: results[4]?.data?.map(data => data.month) || ['월'],
+        adCostData: results[4]?.data?.map(data => data.adCost) || [0],
+        salesCostData: results[4]?.data?.map(data => data.salesCost) || [0],
+      }),
+      [results]
+    );
 
-  return { isLoading, boardData, rankingData };
+  return {
+    isLoading,
+    boardData,
+    rankingData,
+    monthData,
+    adCostData,
+    salesCostData,
+  };
 };
 export default useMainDashboard;

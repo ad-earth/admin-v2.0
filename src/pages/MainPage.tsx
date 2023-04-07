@@ -1,4 +1,5 @@
 import MainAdBanner from '../components/banner/MainAdBanner';
+import AdSummary from '../components/main/AdSummary';
 import BoardContent from '../components/main/BoardContent';
 import KeywordRanking from '../components/main/KeywordRanking';
 import styles from './mainPage.module.scss';
@@ -15,7 +16,7 @@ export default function MainPage() {
           </div>
           <div className={styles.content_right}>
             {/* <BizMoneyHome /> */}
-            {/* <AdSummary /> */}
+            <AdSummary />
           </div>
         </div>
       </div>
