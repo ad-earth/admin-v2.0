@@ -1,9 +1,20 @@
 import { NavLink } from 'react-router-dom';
+import useModal from '../../hooks/useModal';
 import { BizMoneyNav } from '../main/BizMoney';
 import styles from './nav.module.scss';
 
 export default function Nav() {
-  const withdrawalClcik = () => {};
+  const { showModal } = useModal();
+
+  const withdrawalClcik = () =>
+    showModal({
+      modalType: 'WithdrawalModal',
+      modalProps: {
+        title:
+          '가입된 회원정보가 모두 삭제됩니다.회원 탈퇴를 진행하시겠습니까?',
+      },
+    });
+
   return (
     <nav id={styles.navWrap}>
       <div className={styles.bizMoneyBox}>
