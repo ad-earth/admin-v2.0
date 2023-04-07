@@ -70,3 +70,12 @@ export const deleteProd = (p_No: number[]) =>
 
 export const getProdInfo = (p_No: number) =>
   axiosInstance.get(`/admin-products/${p_No}`);
+
+export const getDashboard = (queryFnName: string) =>
+  axiosInstance.get(`/admin-main/${queryFnName}`);
+
+export const getBiz = () => axiosInstance.get('/admin-main/charge');
+export const putBiz = () => axiosInstance.put('/admin-main/charge');
+
+export const delUser = () => axiosInstance.delete('/admins');
+
