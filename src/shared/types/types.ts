@@ -1,1 +1,3 @@
-export interface Type {}
+export interface IdResponseType {
+  a_Id: string;
+}

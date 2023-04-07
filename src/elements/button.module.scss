@@ -6,6 +6,9 @@ button {
   border: none;
   border-radius: 5px;
   @include font(14px, 500, $fc_gray500);
+  &:disabled {
+    background: $bg_gray200;
+  }
 
   &.big_blue {
     background: $bg_blue100;

@@ -1,0 +1,11 @@
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
+
+form {
+  @include size(100%, auto);
+  @include flex($d: column, $a: center, $g: 18px);
+
+  & .bold {
+    @include font($w: 600);
+  }
+}
