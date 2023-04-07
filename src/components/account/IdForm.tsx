@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import Button from '../../elements/Button';
 import Input from '../../elements/Input';
-import useAccount from '../../query/useAccount';
+import useId from '../../query/useId';
 import styles from './idForm.module.scss';
 
 export default function IdForm() {
   const [brand, setBrand] = useState('');
   const [bNumber, setBNumber] = useState('');
 
-  const { refetch, isSuccess, id } = useAccount(brand, bNumber);
+  const { refetch, isSuccess, id } = useId(brand, bNumber);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

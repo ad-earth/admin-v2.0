@@ -7,7 +7,6 @@
     width: 0px 1px 1px 1px;
     style: solid;
     color: $lc_blue100;
-    radius: 0px 5px 5px 5px;
   }
   & .wrapper {
     @include flex($d: column, $a: center, $j: center, $g: 18px);
