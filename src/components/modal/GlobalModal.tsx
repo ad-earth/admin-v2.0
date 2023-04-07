@@ -19,12 +19,11 @@ const modalComponents = {
 
 function GlobalModal() {
   const { modalType, modalProps } = useRecoilState(modalState)[0] || {};
-  // console.log('sss');
-  // console.log(modalProps);
+
   const renderComponent = () => {
     if (!modalType) return null;
     const ModalComponent = modalComponents[modalType];
-    console.log(modalType);
+
     return <ModalComponent {...modalProps} />;
   };
   return <>{renderComponent()}</>;
