@@ -6,8 +6,7 @@ type TProps = {
 };
 
 export default function ProtectedRoute({ children, redirectPath }: TProps) {
-  // const isAuth = !!localStorage.getItem('adminToken');
-  const isAuth = true;
+  const isAuth = !!localStorage.getItem('adminToken');
 
   if (!isAuth) {
     return <Navigate to={redirectPath} replace />;
