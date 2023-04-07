@@ -13,7 +13,7 @@
       margin: 0 auto;
       padding: 60px;
       .wrap {
-        @include flex($d: row);
+        @include flex;
       }
     }
   }
@@ -46,7 +46,7 @@ section {
   .right {
     @include size(100%, auto);
     .content {
-      @include flex($d: row);
+      @include flex;
       @include size(100%, 70px);
       span {
         @include font(16px, 500, $fc_blue400);

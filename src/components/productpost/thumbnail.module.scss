@@ -2,7 +2,7 @@
 @use '../../shared/styles/colors';
 
 #Thumbnail {
-  @include mixins.flex($d: row);
+  @include mixins.flex;
   img {
     @include mixins.size(80px, 80px);
     object-fit: contain;

@@ -4,14 +4,14 @@
 #Option {
   @include flex($d: column);
   ul {
-    @include flex($d: row);
+    @include flex;
     list-style: none;
     padding: 0px;
     margin: 0px;
     li {
       @include font(16px, 700, $fc_blue400);
       @include size(220px, auto);
-      @include flex($d: row, $a: center);
+      @include flex($a: center);
       input {
         @include size(15px, 15px);
         margin-right: 10px;
@@ -22,7 +22,7 @@
     }
   }
   .wrap {
-    @include flex($d: row, $g: 20px);
+    @include flex($g: 20px);
     margin-top: 10px;
     margin-bottom: 20px;
     .color_picker {

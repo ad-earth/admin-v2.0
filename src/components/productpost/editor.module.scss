@@ -2,7 +2,7 @@
 
 #Editor {
   @include size(100%, auto);
-  @include flex($d: row);
+  @include flex;
   box-sizing: border-box;
   margin-bottom: 20px;
   p {
