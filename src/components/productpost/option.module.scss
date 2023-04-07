@@ -1,41 +1,38 @@
-@use '../../shared/styles/mixins';
-@use '../../shared/styles/colors';
+@use '../../shared/styles/mixins' as *;
+@use '../../shared/styles/colors' as *;
 
 #Option {
-  @include mixins.flex($d: column);
+  @include flex($d: column);
   ul {
-    @include mixins.flex($d: row);
+    @include flex($d: row);
     list-style: none;
     padding: 0px;
     margin: 0px;
     li {
-      @include mixins.font(16px, 700);
-      @include mixins.size(220px, auto);
-      @include mixins.flex($d: row, $a: center);
-      color: colors.$fc_blue400;
+      @include font(16px, 700, $fc_blue400);
+      @include size(220px, auto);
+      @include flex($d: row, $a: center);
       input {
-        @include mixins.size(15px, 15px);
+        @include size(15px, 15px);
         margin-right: 10px;
       }
     }
     li:nth-child(1) {
-      @include mixins.size(280px, auto);
+      @include size(280px, auto);
     }
   }
   .wrap {
-    @include mixins.flex($d: row);
-    gap: 20px;
+    @include flex($d: row, $g: 20px);
     margin-top: 10px;
     margin-bottom: 20px;
     .colorPicker {
-      @include mixins.size(40px, 40px);
-      border: 1px solid colors.$lc_gray400;
+      @include size(40px, 40px);
+      border: 1px solid $lc_gray400;
       border-radius: 8px;
       padding: 2px;
     }
     p {
-      @include mixins.font(16px, 700);
-      color: colors.$fc_blue100;
+      @include font(16px, 700, $fc_blue100);
       margin: 10px 0;
     }
   }
