@@ -1,44 +1,52 @@
-import { useState } from 'react';
-import { useMinDate, useToday } from '../hooks/useDate';
+import type { ChangeEvent } from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import useMinDate from '../hooks/useMinDate';
 import styles from './datePicker.module.scss';
 
 export default function DatePicker() {
-  const [selectedStartDate, setSelectedStartDate] = useState();
-  const [selectedEndDate, setSelectedEndDate] = useState();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const startDate = searchParams.get('start');
+  const endDate = searchParams.get('end');
 
   const minDate = useMinDate();
-  const today = useToday();
 
-  const onStartChange = (e: any) => {
-    setSelectedStartDate(e.target.value);
-    setSelectedEndDate(e.target.value);
+  const today = useMemo(() => new Date().toISOString().substring(0, 10), []);
+
+  useEffect(() => {
+    searchParams.set('start', minDate);
+    searchParams.set('end', today);
+    setSearchParams(searchParams);
+  }, []);
+
+  const handleStartDate = (e: ChangeEvent<HTMLInputElement>) => {
+    searchParams.set('start', e.target.value);
+    setSearchParams(searchParams);
   };
-  const onEndChange = (e: any) => {
-    setSelectedEndDate(e.target.value);
+
+  const handleEndDate = (e: ChangeEvent<HTMLInputElement>) => {
+    searchParams.set('end', e.target.value);
+    setSearchParams(searchParams);
   };
 
   return (
-    <div id={styles.Date_picker}>
+    <div id={styles.container}>
       <input
-        id={styles.start}
         type="date"
-        value={selectedStartDate}
-        min={minDate}
-        max={selectedEndDate}
-        onChange={onStartChange}
-      />
-      <img
-        src={process.env.PUBLIC_URL + './assets/rightarrow.png'}
-        alt="arrowIcon"
-      />
-      <input
-        id={styles.end}
         className={styles.date}
+        value={startDate}
+        min={minDate}
+        max={endDate}
+        onChange={handleStartDate}
+      />
+      →
+      <input
         type="date"
-        value={selectedEndDate}
-        min={selectedStartDate}
+        className={styles.date}
+        value={endDate}
+        min={startDate}
         max={today}
-        onChange={onEndChange}
+        onChange={handleEndDate}
       />
     </div>
   );

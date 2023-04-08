@@ -1,0 +1,63 @@
+@use '../../shared/styles/colors';
+
+.base {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.carouselList {
+  position: absolute;
+  list-style: none;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.carouselListItem {
+  width: 100%;
+  flex: 1 0 100%;
+  transition: 200ms ease;
+  img {
+    flex: 1 0 100%;
+    width: 100%;
+    transition: 200ms ease;
+  }
+}
+.activeIndex0 {
+  transform: translateX(0);
+}
+.activeIndex1 {
+  transform: translateX(-100%);
+}
+.activeIndex2 {
+  transform: translateX(-200%);
+}
+.nav {
+  position: absolute;
+  list-style: none;
+  left: calc(50% - 30px);
+  top: 20px;
+}
+.navItem {
+  display: inline-block;
+}
+.navBtn {
+  width: 15px;
+  height: 15px;
+  border-radius: 80%;
+  background-color: colors.$bg_white;
+  opacity: 0.3;
+  margin-left: 5px;
+}
+.activeNav {
+  opacity: 1;
+}

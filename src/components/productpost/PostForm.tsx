@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { useRecoilValue } from 'recoil';
 import { CATEGORY } from '../../constants';
 import Button from '../../elements/Button';
-import { MediumDropdown } from '../../elements/DropDown';
+import { GeneralDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
 import useProduct from '../../query/useProduct';
 import { optionList } from '../../store/option';
@@ -90,7 +90,7 @@ export default function PostForm() {
             </section>
             <section className={styles.right}>
               <div className={styles.content}>
-                <MediumDropdown
+                <GeneralDropdown
                   id="상품선택"
                   placeholder="상품선택"
                   itemList={CATEGORY}

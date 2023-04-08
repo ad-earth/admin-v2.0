@@ -1,0 +1,23 @@
+@use '../../shared/styles/colors';
+
+.base {
+  background-color: colors.$bg_white;
+  height: 100%;
+  border-radius: 5px;
+}
+.article {
+  width: 90%;
+  margin: 0 auto;
+}
+.heading {
+  padding: 40px 0;
+  text-align: center;
+  font-size: 14px;
+  color: colors.$bg_blue200;
+  font-weight: normal;
+  span {
+    font-size: 30px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+}

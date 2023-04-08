@@ -1,12 +1,11 @@
 @use '../shared/styles/colors' as *;
 @use '../shared/styles/mixins' as *;
 
-#Date_picker {
-  @include flex($a: center);
-  #start,
-  #end {
+#container {
+  @include flex($a: center, $g: 10px);
+  .date {
     @include size(120px, 40px);
-    @include font(12px, 400, $fc_blue400);
+    @include font($s: 12px, $c: $fc_blue400);
     text-align: center;
     line-height: 12px;
     padding: 10px;
@@ -16,17 +15,6 @@
     input[type='date']::-webkit-inner-spin-button {
       display: none;
     }
-  }
-  #start:focus,
-  #end:focus {
-    outline: none;
-  }
-  #end:disabled {
-    background: $bg_gray300;
-    color: $fc_gray400;
-  }
-  img {
-    @include size(20px, 20px);
-    margin: 0 10px;
+    cursor: pointer;
   }
 }

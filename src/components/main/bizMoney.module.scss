@@ -1,0 +1,77 @@
+@use '../../shared/styles/colors';
+
+$fc_color_home: colors.$fc_white;
+$bg_color_home: colors.$bg_blue200;
+$fc_color_nav: colors.$fc_blue300;
+$bg_color_nav: colors.$bg_white;
+$radius: 5px;
+
+@mixin font($color, $size, $height, $weight) {
+  color: $color;
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+@mixin flex_center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bizMoney {
+  border-radius: $radius;
+}
+//--bizMoney (home,nav) --
+.bizMoney.home {
+  width: 100%;
+  height: 205px;
+  padding: 20px;
+  background-color: $bg_color_home;
+  background-repeat: no-repeat;
+  background-position: right center;
+  margin-bottom: 20px;
+}
+.bizMoney.nav {
+  width: calc(100% - 32px);
+  background-color: $bg_color_nav;
+  padding: 12px;
+}
+
+//-- title (home,nav)
+.home h3 {
+  @include font($fc_color_home, 26px, 26px, 500);
+}
+.nav h3 {
+  @include font($fc_color_nav, 14px, 20px, 500);
+  margin-left: 4px;
+}
+.titleBox {
+  overflow: hidden;
+  margin-bottom: 10px;
+  h3,
+  img {
+    float: left;
+  }
+}
+//home subtitle
+.home .subtitle {
+  @include font($fc_color_home, 14px, 14px, 300);
+  margin: 12px 0 40px;
+}
+
+//-- money (home,nav)
+.money {
+  @include flex_center;
+}
+.home .money {
+  @include font($fc_color_home, 36px, 36px, 500);
+  span {
+    @include font($fc_color_home, 24px, 24px, 400);
+  }
+}
+.nav .money {
+  @include font($fc_color_nav, 16px, 16px, 500);
+  span {
+    @include font($fc_color_nav, 16px, 16px, 400);
+  }
+}

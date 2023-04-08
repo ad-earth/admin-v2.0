@@ -1,0 +1,28 @@
+@use '../shared/styles/colors';
+
+#container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  h1 {
+    font-size: 200px;
+    line-height: 200px;
+    color: colors.$fc_blue100;
+  }
+  h3 {
+    font-size: 50px;
+  }
+  p {
+    font-size: 20px;
+    margin: 42px 0 62px 0;
+  }
+}
+.btnBox {
+  width: 424px;
+  display: flex;
+  justify-content: space-between;
+}
