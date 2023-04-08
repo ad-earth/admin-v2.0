@@ -1,5 +1,30 @@
-import React from 'react';
+import MainAccordionBanner from '../components/banner/MainAccordionBanner';
+import MainAdBanner from '../components/banner/MainAdBanner';
+import AdSummary from '../components/main/AdSummary';
+import { BizMoneyHome } from '../components/main/BizMoney';
+import BoardContent from '../components/main/BoardContent';
+import KeywordRanking from '../components/main/KeywordRanking';
+import styles from './mainPage.module.scss';
 
 export default function MainPage() {
-  return <>메인페이지</>;
+  return (
+    <div id={styles.container}>
+      <div className={styles.container_left}>
+        <MainAdBanner />
+        <BoardContent />
+        <div className={styles.contentWrapper}>
+          <div className={styles.content_left}>
+            <KeywordRanking />
+          </div>
+          <div className={styles.content_right}>
+            <BizMoneyHome />
+            <AdSummary />
+          </div>
+        </div>
+      </div>
+      <div className={styles.container_right}>
+        <MainAccordionBanner />
+      </div>
+    </div>
+  );
 }
