@@ -27,4 +27,3 @@ export const getBiz = () => axiosInstance.get('/admin-main/charge');
 export const putBiz = () => axiosInstance.put('/admin-main/charge');
 
 export const delUser = () => axiosInstance.delete('/admins');
-

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import Chart from 'react-apexcharts';
 import { useSearchParams } from 'react-router-dom';
+import useTerm from '../../hooks/useTerm';
 import type { IList } from '../../shared/types/types';
 import styles from './adChart.module.scss';
 
@@ -10,10 +11,8 @@ type TProps = {
 
 export default function AdChart({ dataList }: TProps) {
   const [searchParams] = useSearchParams();
-  const selectedProduct = searchParams.get('products');
-  const startDate = searchParams.get('start');
-  const endDate = searchParams.get('end');
-
+  const selectedProduct = searchParams.get('product');
+  const { startDate, endDate } = useTerm();
   const { keywordList, clickList, conversionList } = useMemo(
     () => ({
       keywordList: dataList?.map(el => el.keyword),
@@ -70,8 +69,8 @@ export default function AdChart({ dataList }: TProps) {
   return (
     <div id={styles.container}>
       <h3>
-        "{selectedProduct}" 광고 키워드 클릭 수 & 전환 수 ({startDate} ~{' '}
-        {endDate})
+        {selectedProduct && `"${selectedProduct}"`} 광고 키워드 클릭 수 & 전환
+        수 {startDate && `(${startDate} ~ ${endDate})`}
       </h3>
       <Chart
         options={options}
