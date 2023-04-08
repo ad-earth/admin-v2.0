@@ -33,3 +33,9 @@
   margin-top: 16px;
   gap: $g;
 }
+
+@mixin title {
+  @include size(100%, auto);
+  @include font($s: 30px, $w: 700);
+  padding: 24px 32px;
+}

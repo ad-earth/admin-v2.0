@@ -1,0 +1,20 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+#container {
+  @include flex($a: center, $g: 10px);
+  .date {
+    @include size(120px, 40px);
+    @include font($s: 12px, $c: $fc_blue400);
+    text-align: center;
+    line-height: 12px;
+    padding: 10px;
+    border: 1px solid $lc_gray400;
+    border-radius: 5px;
+    input[type='date']::-webkit-clear-button,
+    input[type='date']::-webkit-inner-spin-button {
+      display: none;
+    }
+    cursor: pointer;
+  }
+}

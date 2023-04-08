@@ -1,0 +1,33 @@
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
+
+#table {
+  @include size(83vw, none);
+  border-collapse: collapse;
+  background: $bg_white;
+  border-radius: 5px;
+  position: relative;
+  margin-top: 40px;
+  tbody {
+    min-height: 550px;
+    tr {
+      height: 50px;
+      border-bottom: 1px solid $lc_gray300;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    td {
+      @include font($s: 12px);
+      text-align: center;
+      &.nodata {
+        @include size(83vw, auto);
+        @include font($c: $fc_gray500);
+        display: inline-block;
+        position: absolute;
+        margin: 12px auto;
+        border-bottom: none;
+      }
+    }
+  }
+}
