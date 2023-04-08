@@ -15,7 +15,7 @@ export default function AdTable({ dataList }: TProps) {
       {dataList?.length ? (
         <tbody>
           {dataList?.map((data, idx) => (
-            <tr>
+            <tr key={idx}>
               <td>{idx + 1}</td>
               <td>{data.keyword}</td>
               <td>{data.k_Click}</td>

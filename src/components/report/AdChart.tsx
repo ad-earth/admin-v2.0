@@ -31,7 +31,29 @@ export default function AdChart({ dataList }: TProps) {
       toolbar: {
         show: false,
       },
+      zoom: {
+        enabled: false,
+      },
     },
+    yaxis: [
+      {
+        labels: {
+          formatter: (val: number) => val.toFixed(0),
+        },
+        title: {
+          text: '키워드 별 클릭 수',
+        },
+      },
+      {
+        labels: {
+          formatter: (val: number) => val.toFixed(0),
+        },
+        opposite: true,
+        title: {
+          text: '키워드 별 전환 수',
+        },
+      },
+    ],
   };
 
   let series = [
