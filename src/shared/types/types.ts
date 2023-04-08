@@ -26,6 +26,7 @@ export interface IList {
   k_Cost: number;
   k_Trans: number;
   p_Price: number;
+}
 
 export interface INewOrdersRes {
   newOrders: number;
