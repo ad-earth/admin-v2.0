@@ -5,6 +5,9 @@ import styles from './tableHead.module.scss';
 interface IProps {
   headList: THead[];
   isCheck: boolean;
+  dataLenght?: number;
+  checkedLength?: number;
+  AllCheckedHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 type THead = {
@@ -13,13 +16,23 @@ type THead = {
   tooltip?: string;
 };
 
-export default function TableHead({ headList, isCheck }: IProps) {
+export default function TableHead({
+  headList,
+  isCheck,
+  dataLenght,
+  checkedLength,
+  AllCheckedHandler,
+}: IProps) {
   return (
     <thead className={styles.table_head}>
       <tr>
         {isCheck && (
           <th>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              checked={checkedLength !== 0 && dataLenght === checkedLength}
+              onChange={AllCheckedHandler}
+            />
           </th>
         )}
         {headList.map(({ id, val, tooltip }) => (
