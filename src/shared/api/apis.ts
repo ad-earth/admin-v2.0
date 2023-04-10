@@ -83,3 +83,21 @@ export const getBiz = () => axiosInstance.get('/admin-main/charge');
 export const putBiz = () => axiosInstance.put('/admin-main/charge');
 
 export const delUser = () => axiosInstance.delete('/admins');
+
+export const getOrders = (
+  page: number,
+  postQty: string,
+  date: string,
+  product: string,
+  status: string
+) =>
+  axiosInstance.get(
+    `/order-list?page=${page}&maxpost=${postQty}&date=${date}&p_Name=${product}&o_Status=${status}`
+  );
+
+export const putOrderConfirm = (
+  confirmList: { o_No: number; p_No: number }[]
+) =>
+  axiosInstance.put('/order-list', {
+    confirm: confirmList,
+  });
