@@ -9,18 +9,54 @@ export const CATEGORY = [
 ];
 export const PARCEL_STATUS = ['전체', '신규주문', '배송완료', '주문취소'];
 export const SERVICE_HEAD_LIST = [
-  'No',
-  '주문번호',
-  '상품번호',
-  '상품명',
-  '수량',
-  '아이디',
-  '수령인',
-  '주소',
-  '연락처',
-  '배송메시지',
-  '주문일자',
-  '배송상태',
+  {
+    id: 0,
+    val: 'NO',
+  },
+  {
+    id: 1,
+    val: '주문번호',
+  },
+  {
+    id: 2,
+    val: '상품번호',
+  },
+  {
+    id: 3,
+    val: '상품명',
+  },
+  {
+    id: 4,
+    val: '수량',
+  },
+  {
+    id: 5,
+    val: '아이디',
+  },
+  {
+    id: 6,
+    val: '수령인',
+  },
+  {
+    id: 7,
+    val: '주소',
+  },
+  {
+    id: 8,
+    val: '연락처',
+  },
+  {
+    id: 9,
+    val: '배송메시지',
+  },
+  {
+    id: 10,
+    val: '주문일자',
+  },
+  {
+    id: 11,
+    val: '배송상태',
+  },
 ];
 export const EXCEL_HEAD_LIST = [
   { label: '주문번호', key: 'orderNo' },
