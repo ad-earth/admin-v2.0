@@ -71,3 +71,27 @@ export interface IAdSummaryRes {
 export interface IBizMoneyRes {
   a_Charge: number;
 }
+
+//배송관리 조회
+export interface IServiceList {
+  id: number;
+  o_No: number;
+  p_No: number;
+  p_Name: string;
+  p_Cnt: number;
+  u_Id: string;
+  d_Name: string;
+  d_Address1: string;
+  d_Address2: string;
+  d_Address3: string;
+  d_Phone: string;
+  d_Memo: string;
+  o_Date: string;
+  o_Status: string;
+  p_Option: TOptionList[];
+  p_Price: number;
+}
+export interface IServiceResponse {
+  cnt: number;
+  list: IServiceList[];
+}
