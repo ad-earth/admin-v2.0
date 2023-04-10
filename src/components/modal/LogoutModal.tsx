@@ -1,7 +1,8 @@
 import { QueryCache } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import Button from '../../elements/Button';
 import useModal from '../../hooks/useModal';
-import styles from './logoutModal.module.scss';
+import styles from './confirmModal.module.scss';
 
 export interface ILogoutType {
   title: string;
@@ -24,8 +25,16 @@ function LogoutModal(props: ILogoutType) {
       <div className={styles.modalContent}>
         <h2>{props.title}</h2>
         <div className={styles.btnBox}>
-          <button onClick={hideModal}>취소</button>
-          <button onClick={logoutClick}>로그아웃</button>
+          <Button
+            styleClass="medium_modal_hide"
+            text="취소"
+            onClick={hideModal}
+          />
+          <Button
+            styleClass="medium_modal_success"
+            text="로그아웃"
+            onClick={logoutClick}
+          />
         </div>
       </div>
     </div>
