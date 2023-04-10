@@ -1,28 +1,22 @@
-@use '../shared/styles/colors';
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
 
 #container {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  @include size(100vw, 100vh);
+  @include flex($a: center, $j: center, $d: column);
   text-align: center;
   h1 {
-    font-size: 200px;
-    line-height: 200px;
-    color: colors.$fc_blue100;
+    @include font(200px, bold, $fc_blue100);
   }
   h3 {
-    font-size: 50px;
+    @include font(50px, bold);
   }
   p {
-    font-size: 20px;
+    @include font(20px, normal);
     margin: 42px 0 62px 0;
   }
 }
 .btnBox {
-  width: 424px;
-  display: flex;
-  justify-content: space-between;
+  @include size(424px, auto);
+  @include flex($j: space-between);
 }

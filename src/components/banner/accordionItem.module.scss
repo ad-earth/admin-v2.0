@@ -1,30 +1,25 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 .base {
   margin-bottom: 15px;
 }
 .accordion_titleBox {
-  width: 100%;
-  font-size: 16px;
-  font-weight: bold;
-
+  @include size(100%, auto);
   border-radius: 5px;
   cursor: pointer;
   button {
-    width: 100%;
-    padding: 14px 20px;
-    color: colors.$bg_white;
+    @include size(inherit, auto);
+    @include font(16px, bold, $bg_white);
     text-align: left;
+    padding: 14px 20px;
   }
   .active {
-    background-color: colors.$bg_blue200;
+    background-color: $bg_blue200;
   }
   .inactive {
-    background-color: colors.$bg_gray400;
+    background-color: $bg_gray400;
   }
-}
-.title {
-  font-size: 16px;
 }
 
 .plus::after {
@@ -39,7 +34,7 @@
 }
 
 .accordion_panel p {
-  font-size: 14px;
+  @include font(14px, 400, $fc_blue300);
 }
 .panel_close {
   display: none;

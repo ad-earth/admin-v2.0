@@ -1,46 +1,41 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 .base {
-  display: flex;
+  @include flex;
   flex-basis: 32%;
   border-radius: 5px;
-  background-color: colors.$bg_white;
+  background-color: $bg_white;
   padding: 20px;
 }
 .iconBox {
-  width: 60px;
-  height: 60px;
+  @include size(60px, 60px);
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
+  @include flex($j: center);
   img {
-    width: 26px;
-    height: auto;
+    @include size(26px, 26px);
     margin: auto;
   }
 }
 .newOrder {
-  background-color: colors.$bg_green;
+  background-color: $bg_green;
 }
 .lastMonth {
-  background-color: colors.$bg_yellow;
+  background-color: $bg_yellow;
 }
 .exposedProd {
-  background-color: colors.$bg_purple;
+  background-color: $bg_purple;
 }
 .info {
-  display: flex;
+  @include flex($d: column);
   flex: 26px 1;
-  flex-direction: column;
   text-align: left;
   padding-left: 12px;
 }
 .title {
-  font-size: 14px;
-  font-weight: 500;
+  @include font(14px, bold, $fc_blue300);
 }
 .contentText {
-  font-size: 22px;
-  font-weight: bold;
+  @include font(22px, bold, $fc_blue300);
   padding-top: 2px;
 }

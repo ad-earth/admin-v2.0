@@ -1,29 +1,26 @@
+@use '../shared/styles/mixins' as *;
+
 #container {
-  display: flex;
-  justify-content: space-between;
+  @include flex($j: space-between);
   margin: 40px 32px;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .container_left {
-  width: 58%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include size(58%, auto);
+  @include flex($j: space-between, $d: column);
 }
 .contentWrapper {
-  display: flex;
-  justify-content: space-between;
+  @include flex($j: space-between);
 }
 .content_left {
   flex-basis: 40%;
 }
 .content_right {
-  display: flex;
+  @include flex($j: space-between, $d: column);
   flex-basis: 57%;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .container_right {
-  width: 40%;
+  @include size(40%, auto);
 }

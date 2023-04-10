@@ -1,5 +1,6 @@
+@use '../../shared/styles/mixins' as *;
+
 .boardWrapper {
-  display: flex;
-  justify-content: space-between;
+  @include flex($j: space-between);
   margin-bottom: 20px;
 }

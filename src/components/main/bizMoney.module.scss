@@ -1,30 +1,18 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
-$fc_color_home: colors.$fc_white;
-$bg_color_home: colors.$bg_blue200;
-$fc_color_nav: colors.$fc_blue300;
-$bg_color_nav: colors.$bg_white;
+$fc_color_home: $fc_white;
+$bg_color_home: $bg_blue200;
+$fc_color_nav: $fc_blue300;
+$bg_color_nav: $bg_white;
 $radius: 5px;
-
-@mixin font($color, $size, $height, $weight) {
-  color: $color;
-  font-size: $size;
-  line-height: $height;
-  font-weight: $weight;
-}
-@mixin flex_center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .bizMoney {
   border-radius: $radius;
 }
 //--bizMoney (home,nav) --
 .bizMoney.home {
-  width: 100%;
-  height: 205px;
+  @include size(100%, 205px);
   padding: 20px;
   background-color: $bg_color_home;
   background-repeat: no-repeat;
@@ -32,17 +20,17 @@ $radius: 5px;
   margin-bottom: 20px;
 }
 .bizMoney.nav {
-  width: calc(100% - 32px);
+  @include size(calc(100% - 32px), auto);
   background-color: $bg_color_nav;
   padding: 12px;
 }
 
 //-- title (home,nav)
 .home h3 {
-  @include font($fc_color_home, 26px, 26px, 500);
+  @include font(26px, 500, $fc_color_home);
 }
 .nav h3 {
-  @include font($fc_color_nav, 14px, 20px, 500);
+  @include font(14px, 500, $fc_color_nav);
   margin-left: 4px;
 }
 .titleBox {
@@ -55,23 +43,23 @@ $radius: 5px;
 }
 //home subtitle
 .home .subtitle {
-  @include font($fc_color_home, 14px, 14px, 300);
+  @include font(14px, 300, $fc_color_home);
   margin: 12px 0 40px;
 }
 
 //-- money (home,nav)
 .money {
-  @include flex_center;
+  @include flex($j: space-between, $a: center);
 }
 .home .money {
-  @include font($fc_color_home, 36px, 36px, 500);
+  @include font(36px, 500, $fc_color_home);
   span {
-    @include font($fc_color_home, 24px, 24px, 400);
+    @include font(24px, 400, $fc_color_home);
   }
 }
 .nav .money {
-  @include font($fc_color_nav, 16px, 16px, 500);
+  @include font(16px, 500, $fc_color_nav);
   span {
-    @include font($fc_color_nav, 16px, 16px, 400);
+    @include font(16px, 400, $fc_color_nav);
   }
 }
