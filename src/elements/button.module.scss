@@ -25,6 +25,11 @@ button {
     @include size(200px, 40px);
     @include font(14px, 500, $fc_white);
   }
+  &.medium_gray {
+    background: $bg_gray400;
+    @include size(200px, 40px);
+    @include font(14px, 500, $fc_white);
+  }
   &.small_blue {
     background: $bg_blue100;
     @include size(90px, 40px);
@@ -35,6 +40,12 @@ button {
     @include size(90px, 40px);
     @include font(14px, 500, $fc_white);
   }
+  &.xsmall_blue {
+    background: $bg_blue200;
+    @include size(50px, 30px);
+    @include font(14px, 500, $fc_white);
+  }
+
   &.border_img {
     @include flex($j: center, $a: center, $g: 5px);
     @include size(auto, 40px);
@@ -45,5 +56,27 @@ button {
     img {
       @include size(20px, auto);
     }
+  }
+  &.border_small_blue {
+    border: 1px solid $lc_blue100;
+    @include size(90px, 40px);
+    @include font(14px, 500, $fc_blue100);
+  }
+  &.border_medium_gray {
+    border: 1px solid $lc_blue400;
+    @include size(100%, 40px);
+    @include font(14px, 500, $fc_blue400);
+  }
+  &.medium_modal_hide {
+    border: 1px solid $lc_gray500;
+    border-radius: 0 0 0 5px;
+    @include size(100%, 40px);
+    @include font(14px, 500, $fc_gray500);
+  }
+  &.medium_modal_success {
+    background: $bg_gray500;
+    border-radius: 0 0 5px 0;
+    @include size(100%, 40px);
+    @include font(14px, 500, $fc_white);
   }
 }
