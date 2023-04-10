@@ -20,4 +20,19 @@ button {
     @include size(335px, 52px);
     @include font(16px, 500, $fc_blue400);
   }
+  &.medium_blue {
+    background: $bg_blue100;
+    @include size(200px, 40px);
+    @include font(14px, 500, $fc_white);
+  }
+  &.small_blue {
+    background: $bg_blue100;
+    @include size(90px, 40px);
+    @include font(14px, 500, $fc_white);
+  }
+  &.small_gray {
+    background: $bg_blue400;
+    @include size(90px, 40px);
+    @include font(14px, 500, $fc_white);
+  }
 }

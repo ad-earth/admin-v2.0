@@ -51,3 +51,4 @@ export interface IAdSummaryRes {
 export interface IBizMoneyRes {
   a_Charge: number;
 }
+
