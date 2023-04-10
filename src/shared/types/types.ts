@@ -72,7 +72,6 @@ export interface IBizMoneyRes {
   a_Charge: number;
 }
 
-//배송관리 조회
 export interface IServiceList {
   id: number;
   o_No: number;
