@@ -1,4 +1,4 @@
-import type { TOptionList } from './../types/types';
+import type { TOptionList } from '../types/types';
 import axiosInstance from './instance';
 
 export const login = (id: string, pwd: string) =>
@@ -15,7 +15,6 @@ export const resetPwd = (confirmId: number, newPassword: string) =>
     a_Idx: confirmId,
     a_Pw: newPassword,
   });
-
 
 export const postProd = (
   p_Category: string,
@@ -77,7 +76,6 @@ export const getProducts = () => axiosInstance.get('/admin-products/list');
 export const getReport = (date: string, productNumber: number) =>
   axiosInstance.get(`/ad-report?date=${date}&p_No=${productNumber}`);
 
-
 export const getDashboard = (queryFnName: string) =>
   axiosInstance.get(`/admin-main/${queryFnName}`);
 
@@ -86,3 +84,20 @@ export const putBiz = () => axiosInstance.put('/admin-main/charge');
 
 export const delUser = () => axiosInstance.delete('/admins');
 
+export const getOrders = (
+  page: number,
+  postQty: string,
+  date: string,
+  product: string,
+  status: string
+) =>
+  axiosInstance.get(
+    `/order-list?page=${page}&maxpost=${postQty}&date=${date}&p_Name=${product}&o_Status=${status}`
+  );
+
+export const putOrderConfirm = (
+  confirmList: { o_No: number; p_No: number }[]
+) =>
+  axiosInstance.put('/order-list', {
+    confirm: confirmList,
+  });

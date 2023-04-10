@@ -1,0 +1,18 @@
+@use '../shared/styles/mixins' as *;
+@use '../shared/styles/colors' as *;
+
+#Service {
+  @include size(100%, auto);
+  @include flex($d: column);
+  .title {
+    @include title;
+  }
+  .service_container {
+    @include flex($d: column, $j: center);
+    margin: 0 auto;
+  }
+  .filter_letter {
+    @include font(14px, 400, $fc_blue400);
+    margin: 10px 0 0 10px;
+  }
+}

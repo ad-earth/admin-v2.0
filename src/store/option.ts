@@ -1,6 +1,6 @@
 import { atom, selector } from 'recoil';
 
-type TOptionList = {
+export type TOptionList = {
   id: number;
   colorCheck: boolean;
   optionCheck: boolean;

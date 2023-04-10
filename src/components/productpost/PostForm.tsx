@@ -1,6 +1,9 @@
-import { useState } from 'react';
-// import { CATEGORY } from '../../constants';
-// import { MediumDropdown } from '../../elements/DropDown';
+import { useMemo, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useRecoilValue } from 'recoil';
+import { CATEGORY } from '../../constants';
+import Button from '../../elements/Button';
+import { GeneralDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
 import useProduct from '../../query/useProduct';
 import { optionList } from '../../store/option';
@@ -10,9 +13,14 @@ import styles from './postForm.module.scss';
 import Thumbnail from './Thumbnail';
 
 export default function PostForm() {
-  // const [category, setCategory] = useState<string>('');
-  const [thumb1Url, setThumb1Url] = useState<string | undefined>('');
-  const [thumb2Url, setThumb2Url] = useState<string | undefined>('');
+  const [category, setCategory] = useState<string>('');
+  const [prodName, setProdName] = useState<string>('');
+  const [prodPrice, setProdPrice] = useState<string>('');
+  const [isDiscount, setIsDiscount] = useState<boolean>(false);
+  const [prodDiscount, setProdDiscount] = useState<string>('');
+  const [prodDesc, setProdDesc] = useState<string>('');
+  const [thumb1Url, setThumb1Url] = useState<string>('');
+  const [thumb2Url, setThumb2Url] = useState<string>('');
   const [contents, setContents] = useState<string>('');
   const [isErrorCheck, SetIsErrorCheck] = useState<boolean>(false);
   const option = useRecoilValue(optionList);
@@ -82,13 +90,13 @@ export default function PostForm() {
             </section>
             <section className={styles.right}>
               <div className={styles.content}>
-                {/* <MediumDropdown
+                <GeneralDropdown
                   id="상품선택"
                   placeholder="상품선택"
                   itemList={CATEGORY}
                   selected={category}
                   setSelected={setCategory}
-                /> */}
+                />
               </div>
               <div className={styles.content}>
                 <Input

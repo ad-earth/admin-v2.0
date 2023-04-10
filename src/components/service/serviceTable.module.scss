@@ -1,0 +1,92 @@
+@use '../../shared/styles/mixins' as *;
+@use '../../shared/styles/colors' as *;
+
+#Service_table {
+  .btn_wrapper {
+    @include flex($j: flex-end, $g: 10px);
+    margin-top: 40px;
+    .download {
+      @include flex($j: center, $a: center, $g: 5px);
+      @include size(auto, 40px);
+      border: 1px solid $lc_gray500;
+      border-radius: 5px;
+      background: $bg_white;
+      text-decoration: none;
+      img {
+        @include size(20px, 20px);
+      }
+    }
+  }
+  .service_table {
+    @include size(83vw, auto);
+    min-height: 550px;
+    margin-top: 16px;
+    border-radius: 5px;
+    background: $bg_white;
+    table {
+      width: inherit;
+      border-collapse: collapse;
+      th:nth-child(1),
+      th:nth-child(2),
+      th:nth-child(6),
+      td:nth-child(1),
+      td:nth-child(2),
+      td:nth-child(6) {
+        width: 2%;
+      }
+      th:nth-child(7),
+      th:nth-child(8),
+      th:nth-child(12),
+      th:nth-child(13),
+      td:nth-child(7),
+      td:nth-child(8),
+      td:nth-child(12),
+      td:nth-child(13) {
+        width: 5%;
+      }
+      th:nth-child(3),
+      th:nth-child(4),
+      th:nth-child(10),
+      td:nth-child(3),
+      td:nth-child(4),
+      td:nth-child(10) {
+        width: 7%;
+      }
+      th:nth-child(5),
+      th:nth-child(11),
+      td:nth-child(5),
+      td:nth-child(11) {
+        width: 12%;
+      }
+      th:nth-child(9),
+      td:nth-child(9) {
+        width: 17%;
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid $lc_gray300;
+        &:last-child {
+          border-radius: 0px 0px 5px 5px;
+        }
+      }
+      td {
+        @include font(12px);
+        @include size(auto, 50px);
+        text-align: center;
+        input {
+          @include size(12px, 12px);
+          border: 1px solid $lc_gray400;
+          cursor: pointer;
+          &:checked {
+            accent-color: $bg_blue100;
+          }
+        }
+      }
+    }
+  }
+  .pagination {
+    @include flex($j: center);
+    margin: 0 auto;
+  }
+}
