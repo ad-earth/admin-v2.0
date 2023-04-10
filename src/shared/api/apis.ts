@@ -1,4 +1,4 @@
-import type { TOptionList } from './../types/types';
+import type { TOptionList } from '../types/types';
 import axiosInstance from './instance';
 
 export const login = (id: string, pwd: string) =>
