@@ -47,7 +47,6 @@ export interface IList {
   k_Trans: number;
   p_Price: number;
 }
-
 export interface INewOrdersRes {
   newOrders: number;
 }
@@ -93,4 +92,17 @@ export interface IServiceList {
 export interface IServiceResponse {
   cnt: number;
   list: IServiceList[];
+}
+
+export interface IProductSetList {
+  id: number;
+  p_Category: string;
+  p_Name: string;
+  p_No: number;
+  p_Status: boolean;
+}
+
+export interface IProductSetRes {
+  cnt: number;
+  list: IProductSetList[];
 }

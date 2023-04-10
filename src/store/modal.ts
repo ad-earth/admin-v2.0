@@ -1,24 +1,32 @@
 import { atom } from 'recoil';
 import type { modalTypes } from '../components/modal/GlobalModal';
+import type { ILogoutType } from '../components/modal/LogoutModal';
+import type { IPostAdType } from '../components/modal/PostAdModal';
+import type { IProductStatusType } from '../components/modal/ProductStatusModal';
+import type { IWithdrawalType } from '../components/modal/WithdrawalModal';
 
-import type { LogoutType } from '../components/modal/LogoutModal';
-import type { PostAdType } from '../components/modal/PostAdModal';
-import type { WithdrawalType } from '../components/modal/WithdrawalModal';
-
-export interface ConfirmModalType {
+interface ConfirmModalType {
   modalType: typeof modalTypes.WithdrawalModal;
-  modalProps: WithdrawalType;
+  modalProps: IWithdrawalType;
 }
-export interface LogoutModalType {
+interface LogoutModalType {
   modalType: typeof modalTypes.LogoutModal;
-  modalProps: LogoutType;
+  modalProps: ILogoutType;
 }
-export interface PostAdModalType {
+interface PostAdModalType {
   modalType: typeof modalTypes.PostAdModal;
-  modalProps: PostAdType;
+  modalProps: IPostAdType;
+}
+interface ProductStatusModalType {
+  modalType: typeof modalTypes.ProductStatusModal;
+  modalProps: IProductStatusType;
 }
 
-export type ModalType = ConfirmModalType | LogoutModalType | PostAdModalType;
+export type ModalType =
+  | ConfirmModalType
+  | LogoutModalType
+  | PostAdModalType
+  | ProductStatusModalType;
 
 export const modalState = atom<ModalType | null>({
   key: 'modalState',

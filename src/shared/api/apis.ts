@@ -101,3 +101,12 @@ export const putOrderConfirm = (
   axiosInstance.put('/order-list', {
     confirm: confirmList,
   });
+
+export const getProductSet = (category: string, page: string) =>
+  axiosInstance.get(
+    `/admin-products?p_Category=${category}&page=${page}&maxpost=10`
+  ); //상품관리
+export const delProducts = (item: number[]) =>
+  axiosInstance.delete('/admin-products', { data: { p_No: item } });
+export const putProducts = (p_No: number) =>
+  axiosInstance.put(`/admin-products/status/${p_No}`);

@@ -120,3 +120,30 @@ export const ADHEADS = [
     tooltip: '(판매금액 / 총 광고비) *100',
   },
 ];
+
+export const SET_HEADS_LIST = [
+  {
+    id: 0,
+    val: 'No',
+  },
+  {
+    id: 1,
+    val: '상품번호',
+  },
+  {
+    id: 2,
+    val: '카테고리',
+  },
+  {
+    id: 3,
+    val: '상품명',
+  },
+  {
+    id: 4,
+    val: '상품on/off',
+  },
+  {
+    id: 5,
+    val: '상품수정',
+  },
+];

@@ -3,18 +3,21 @@ import { modalState } from '../../store/modal';
 
 import LogoutModal from './LogoutModal';
 import PostAdModal from './PostAdModal';
+import ProductStatusModal from './ProductStatusModal';
 import WithdrawalModal from './WithdrawalModal';
 
 export const modalTypes = {
   WithdrawalModal: 'WithdrawalModal',
   LogoutModal: 'LogoutModal',
   PostAdModal: 'PostAdModal',
+  ProductStatusModal: 'ProductStatusModal',
 } as const;
 
 const modalComponents = {
   [modalTypes.WithdrawalModal]: WithdrawalModal,
   [modalTypes.LogoutModal]: LogoutModal,
   [modalTypes.PostAdModal]: PostAdModal,
+  [modalTypes.ProductStatusModal]: ProductStatusModal,
 };
 
 function GlobalModal() {
