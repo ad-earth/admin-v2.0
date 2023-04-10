@@ -15,6 +15,11 @@ export const resetPwd = (confirmId: number, newPassword: string) =>
     a_Pw: newPassword,
   });
 
+export const getProducts = () => axiosInstance.get('/admin-products/list');
+
+export const getReport = (date: string, productNumber: number) =>
+  axiosInstance.get(`/ad-report?date=${date}&p_No=${productNumber}`);
+
 export const getDashboard = (queryFnName: string) =>
   axiosInstance.get(`/admin-main/${queryFnName}`);
 

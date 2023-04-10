@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CATEGORY } from '../../constants';
-import { MediumDropdown } from '../../elements/DropDown';
+// import { CATEGORY } from '../../constants';
+// import { MediumDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
 import Editor from './Editor';
 import Option from './Option';
@@ -8,7 +8,7 @@ import styles from './postForm.module.scss';
 import Thumbnail from './Thumbnail';
 
 export default function PostForm() {
-  const [category, setCategory] = useState<string>('');
+  // const [category, setCategory] = useState<string>('');
   const [thumb1Url, setThumb1Url] = useState<string | undefined>('');
   const [thumb2Url, setThumb2Url] = useState<string | undefined>('');
   const [contents, setContents] = useState<string>('');
@@ -30,13 +30,13 @@ export default function PostForm() {
             </section>
             <section className={styles.right}>
               <div className={styles.content}>
-                <MediumDropdown
+                {/* <MediumDropdown
                   id="상품선택"
                   placeholder="상품선택"
                   itemList={CATEGORY}
                   selected={category}
                   setSelected={setCategory}
-                />
+                /> */}
               </div>
               <div className={styles.content}>
                 <Input placeholder="상품명" styleName="input500" />

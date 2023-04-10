@@ -3,14 +3,14 @@ import FormControl from '@mui/material/FormControl';
 import MenuItem from '@mui/material/MenuItem';
 import type { SelectChangeEvent } from '@mui/material/Select';
 import Select from '@mui/material/Select';
+import { useSearchParams } from 'react-router-dom';
 import styles from './dropDown.module.scss';
 
 export interface IProps {
   id?: string;
   itemList: (string | number)[];
   placeholder?: string;
-  selected?: string;
-  setSelected?: (val: string) => void;
+  queryKey: string;
   onChange?: () => void;
 }
 
@@ -25,6 +25,15 @@ const MenuProps = {
 };
 
 export function MediumDropdown(props: IProps) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const setParams = (queryKey: string, value: string) => {
+    searchParams.set(queryKey, value);
+    setSearchParams(searchParams);
+  };
+
+  const selected = searchParams.get(props.queryKey);
+
   return (
     <FormControl>
       <InputLabel id={props.id} size="small">
@@ -33,11 +42,11 @@ export function MediumDropdown(props: IProps) {
       <Select
         className={styles.select}
         labelId={props.id}
-        value={props.selected}
+        value={selected ? selected : ''}
         MenuProps={MenuProps}
         input={<OutlinedInput label={props.placeholder} />}
         onChange={(e: SelectChangeEvent<string>) =>
-          props.setSelected && props.setSelected(e.target.value)
+          setParams(props.queryKey, e.target.value)
         }
       >
         {props.itemList.map((item, idx) => (
