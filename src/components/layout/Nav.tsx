@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
+import Button from '../../elements/Button';
 import useMinDate from '../../hooks/useMinDate';
 import useModal from '../../hooks/useModal';
 import { BizMoneyNav } from '../main/BizMoney';
@@ -53,7 +54,11 @@ export default function Nav() {
         ))}
       </ul>
       <div className={styles.withdrawalBtnBox}>
-        <button onClick={withdrawalClcik}>회원탈퇴</button>
+        <Button
+          styleClass="border_medium_gray"
+          text="회원탈퇴"
+          onClick={withdrawalClcik}
+        />
       </div>
     </nav>
   );

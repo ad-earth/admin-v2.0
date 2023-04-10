@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import Button from '../../elements/Button';
 import useModal from '../../hooks/useModal';
 import styles from './header.module.scss';
 
@@ -22,9 +23,11 @@ export default function Header() {
         alt="logo"
       />
       <div className={styles.asideBtnMenu}>
-        {/* <SmallWhiteBtn onClick={() => navigate('/PostProd')}> */}
-        <button onClick={() => navigate('/PostProd')}>상품등록</button>
-        {/* </SmallWhiteBtn> */}
+        <Button
+          styleClass="border_small_blue"
+          text="상품등록"
+          onClick={() => navigate('/PostProd')}
+        />
         <span onClick={logoutClcik}>로그아웃</span>
       </div>
     </header>

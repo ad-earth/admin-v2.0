@@ -1,3 +1,4 @@
+import Button from '../../elements/Button';
 import useBizMoney from '../../query/useBizMoney';
 import styles from './bizMoney.module.scss';
 
@@ -12,7 +13,7 @@ function BizMoneyNav() {
         />
         <h3>Biz money</h3>
       </div>
-      <MoneyBox boxSize={true} />
+      <MoneyBox boxSize="xsmall" />
     </article>
   );
 }
@@ -28,22 +29,25 @@ function BizMoneyHome() {
     >
       <h3>내 비즈머니</h3>
       <p className={styles.subtitle}>{subtitle}</p>
-      <MoneyBox boxSize={false} />
+      <MoneyBox boxSize="medium" />
     </article>
   );
 }
 export { BizMoneyNav, BizMoneyHome };
 
 //base
-function MoneyBox({ boxSize }: { boxSize: boolean }) {
-  const button = boxSize ? '충전' : '충전하기';
+function MoneyBox({ boxSize }: { boxSize: string }) {
   const { bizQuery } = useBizMoney();
   return (
     <div className={styles.money}>
       <p>
         {bizQuery?.data?.toLocaleString()} <span>원</span>
       </p>
-      {boxSize ? <button>{button}</button> : <button>{button}</button>}
+      {boxSize === 'xsmall' ? (
+        <Button styleClass="xsmall_blue" text="충전" />
+      ) : (
+        <Button styleClass="small_blue" text="충전하기" />
+      )}
     </div>
   );
 }
