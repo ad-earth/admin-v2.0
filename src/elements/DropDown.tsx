@@ -43,6 +43,7 @@ export function MediumDropdown(props: IProps) {
         className={styles.select}
         labelId={props.id}
         value={selected ? selected : ''}
+        defaultValue={selected ? selected : ''}
         MenuProps={MenuProps}
         input={<OutlinedInput label={props.placeholder} />}
         onChange={(e: SelectChangeEvent<string>) =>

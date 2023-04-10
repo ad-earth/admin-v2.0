@@ -35,4 +35,15 @@ button {
     @include size(90px, 40px);
     @include font(14px, 500, $fc_white);
   }
+  &.border_img {
+    @include flex($j: center, $a: center, $g: 5px);
+    @include size(130px, 40px);
+    border: 1px solid $lc_gray500;
+    border-radius: 5px;
+    background: $bg_white;
+    text-decoration: none;
+    img {
+      @include size(20px, 20px);
+    }
+  }
 }
