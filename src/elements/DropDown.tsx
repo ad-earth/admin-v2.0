@@ -43,10 +43,46 @@ export function MediumDropdown(props: IProps) {
         className={styles.select}
         labelId={props.id}
         value={selected ? selected : ''}
+        defaultValue={selected ? selected : ''}
         MenuProps={MenuProps}
         input={<OutlinedInput label={props.placeholder} />}
         onChange={(e: SelectChangeEvent<string>) =>
           setParams(props.queryKey, e.target.value)
+        }
+      >
+        {props.itemList.map((item, idx) => (
+          <MenuItem selected className={styles.menuItem} key={idx} value={item}>
+            {item}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
+  );
+}
+
+export interface IGeneralProps {
+  id?: string;
+  itemList: (string | number)[];
+  placeholder?: string;
+  selected?: string;
+  setSelected?: (val: string) => void;
+  onChange?: () => void;
+}
+
+export function GeneralDropdown(props: IGeneralProps) {
+  return (
+    <FormControl>
+      <InputLabel id={props.id} size="small">
+        {props.placeholder}
+      </InputLabel>
+      <Select
+        className={styles.select}
+        labelId={props.id}
+        value={props.selected}
+        MenuProps={MenuProps}
+        input={<OutlinedInput label={props.placeholder} />}
+        onChange={(e: SelectChangeEvent<string>) =>
+          props.setSelected && props.setSelected(e.target.value)
         }
       >
         {props.itemList.map((item, idx) => (

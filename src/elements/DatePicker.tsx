@@ -1,21 +1,20 @@
+import { useEffect, useMemo } from 'react';
 import type { ChangeEvent } from 'react';
-import React, { useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import useMinDate from '../hooks/useMinDate';
 import styles from './datePicker.module.scss';
 
 export default function DatePicker() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const minDate = useMinDate();
+  const today = useMemo(() => new Date().toISOString().substring(0, 10), []);
+
   const startDate = searchParams.get('start');
   const endDate = searchParams.get('end');
 
-  const minDate = useMinDate();
-
-  const today = useMemo(() => new Date().toISOString().substring(0, 10), []);
-
   useEffect(() => {
-    searchParams.set('start', minDate);
-    searchParams.set('end', today);
+    searchParams.set('start', startDate);
+    searchParams.set('end', endDate);
     setSearchParams(searchParams);
   }, []);
 
@@ -34,7 +33,7 @@ export default function DatePicker() {
       <input
         type="date"
         className={styles.date}
-        value={startDate}
+        defaultValue={startDate}
         min={minDate}
         max={endDate}
         onChange={handleStartDate}
@@ -43,7 +42,7 @@ export default function DatePicker() {
       <input
         type="date"
         className={styles.date}
-        value={endDate}
+        defaultValue={endDate}
         min={startDate}
         max={today}
         onChange={handleEndDate}

@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import queryKeys from '../constants/queryKeys';
 import { getProducts } from '../shared/api/apis';
-import type { IProductsResponse } from '../shared/types/types';
+import type { IProduct, IProductsResponse } from '../shared/types/types';
 
 const useProducts = () => {
   const { data } = useQuery<AxiosResponse<IProductsResponse>, AxiosError>(
@@ -13,7 +13,13 @@ const useProducts = () => {
 
   const productList = useMemo(() => data?.data.productList, [data]);
 
-  return { productList };
+  const parcelList = useMemo(() => {
+    const newList = productList?.map((el: IProduct) => el.p_Name);
+    newList?.unshift('전체');
+    return newList;
+  }, [productList]);
+
+  return { productList, parcelList };
 };
 
 export default useProducts;

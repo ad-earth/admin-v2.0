@@ -4,13 +4,13 @@ import styles from './input.module.scss';
 export interface IProps {
   styleName: string;
   placeholder: string;
+  id?: string;
   type?: string;
   name?: string;
   value?: string | number;
   defaultValue?: string;
   disabled?: boolean;
   min?: number;
-  ref?: any;
   setInput?: (val: string) => void;
   setInputNum?: (val: number) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -21,6 +21,7 @@ export default function Input(props: IProps) {
   const {
     styleName,
     placeholder,
+    id,
     type,
     name,
     value,
@@ -32,12 +33,14 @@ export default function Input(props: IProps) {
     <input
       className={styles[`${styleName}`]}
       placeholder={placeholder}
+      id={id}
       type={type}
       name={name}
       value={value}
       defaultValue={defaultValue}
       disabled={disabled}
       onChange={onChange}
+      autoComplete="off"
     />
   );
 }
