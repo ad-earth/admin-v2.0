@@ -5,7 +5,7 @@ import type { IPostAdType } from '../components/modal/PostAdModal';
 import type { IProductStatusType } from '../components/modal/ProductStatusModal';
 import type { IWithdrawalType } from '../components/modal/WithdrawalModal';
 
-interface ConfirmModalType {
+interface WithdrawalModalType {
   modalType: typeof modalTypes.WithdrawalModal;
   modalProps: IWithdrawalType;
 }
@@ -23,7 +23,7 @@ interface ProductStatusModalType {
 }
 
 export type ModalType =
-  | ConfirmModalType
+  | WithdrawalModalType
   | LogoutModalType
   | PostAdModalType
   | ProductStatusModalType;
