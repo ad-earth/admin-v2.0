@@ -37,16 +37,21 @@ export { BizMoneyNav, BizMoneyHome };
 
 //base
 function MoneyBox({ boxSize }: { boxSize: string }) {
-  const { bizQuery } = useBizMoney();
+  const { bizQuery, addBiz } = useBizMoney();
+
   return (
     <div className={styles.money}>
       <p>
         {bizQuery?.data?.toLocaleString()} <span>원</span>
       </p>
       {boxSize === 'xsmall' ? (
-        <Button styleClass="xsmall_blue" text="충전" />
+        <Button styleClass="xsmall_blue" text="충전" onClick={addBiz.mutate} />
       ) : (
-        <Button styleClass="small_blue" text="충전하기" />
+        <Button
+          styleClass="small_blue"
+          text="충전하기"
+          onClick={addBiz.mutate}
+        />
       )}
     </div>
   );
