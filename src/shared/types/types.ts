@@ -47,6 +47,7 @@ export interface IList {
   k_Trans: number;
   p_Price: number;
 }
+
 export interface INewOrdersRes {
   newOrders: number;
 }
