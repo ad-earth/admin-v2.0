@@ -27,8 +27,12 @@ const MenuProps = {
 export function MediumDropdown(props: IProps) {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  function getFilterParams(params: string): string | null {
+    return searchParams.get(params);
+  }
   const setParams = (queryKey: string, value: string) => {
     searchParams.set(queryKey, value);
+    getFilterParams('page') && searchParams.set('page', '1');
     setSearchParams(searchParams);
   };
 
