@@ -28,7 +28,7 @@ export default function Nav() {
       path: `/shipping_service?start=${startDate}&end=${endDate}&products=전체&parcel=전체&page=1`,
     },
     { id: 3, name: '상품 등록', path: '/postProd' },
-    { id: 4, name: '상품 관리', path: '/setProd' },
+    { id: 4, name: '상품 관리', path: '/setProd?category=전체&page=1' },
     { id: 5, name: '광고 관리', path: '/setAd' },
     { id: 6, name: '광고 보고서', path: '/ad_report' },
   ];
