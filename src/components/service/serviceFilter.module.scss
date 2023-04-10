@@ -1,0 +1,6 @@
+@use '../../shared/styles/mixins' as *;
+@use '../../shared/styles/colors' as *;
+
+.filter_wrapper {
+  @include filter_wrapper;
+}
