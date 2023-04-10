@@ -16,6 +16,7 @@ export const resetPwd = (confirmId: number, newPassword: string) =>
     a_Pw: newPassword,
   });
 
+
 export const postProd = (
   p_Category: string,
   p_Thumbnail: string[],
@@ -70,6 +71,12 @@ export const deleteProd = (p_No: number[]) =>
 
 export const getProdInfo = (p_No: number) =>
   axiosInstance.get(`/admin-products/${p_No}`);
+
+export const getProducts = () => axiosInstance.get('/admin-products/list');
+
+export const getReport = (date: string, productNumber: number) =>
+  axiosInstance.get(`/ad-report?date=${date}&p_No=${productNumber}`);
+
 
 export const getDashboard = (queryFnName: string) =>
   axiosInstance.get(`/admin-main/${queryFnName}`);
