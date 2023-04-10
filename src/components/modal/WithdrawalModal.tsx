@@ -3,10 +3,10 @@ import useModal from '../../hooks/useModal';
 import useUser from '../../query/useUser';
 import styles from './withdrawalModal.module.scss';
 
-export interface WithdrawalType {
-  title?: string;
+export interface IWithdrawalType {
+  title: string;
 }
-function WithdrawalModal({ title }: WithdrawalType) {
+function WithdrawalModal({ title }: IWithdrawalType) {
   const navigate = useNavigate();
   const { hideModal } = useModal();
   const { removeUser } = useUser();

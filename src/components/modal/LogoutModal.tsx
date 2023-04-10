@@ -3,12 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import useModal from '../../hooks/useModal';
 import styles from './logoutModal.module.scss';
 
-export interface LogoutType {
-  title?: string;
+export interface ILogoutType {
+  title: string;
 }
 const queryCache = new QueryCache();
 
-function LogoutModal(props: LogoutType) {
+function LogoutModal(props: ILogoutType) {
   const navigate = useNavigate();
   const { hideModal } = useModal();
 
