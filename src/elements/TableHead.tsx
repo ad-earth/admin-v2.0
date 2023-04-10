@@ -1,9 +1,17 @@
+import InfoIcon from '@mui/icons-material/Info';
+import Tooltip from '@mui/material/Tooltip';
 import styles from './tableHead.module.scss';
 
 interface IProps {
-  headList: string[];
+  headList: THead[];
   isCheck: boolean;
 }
+
+type THead = {
+  id: number;
+  val: string;
+  tooltip?: string;
+};
 
 export default function TableHead({ headList, isCheck }: IProps) {
   return (
@@ -14,9 +22,17 @@ export default function TableHead({ headList, isCheck }: IProps) {
             <input type="checkbox" />
           </th>
         )}
-
-        {headList.map((item, idx) => (
-          <th key={idx}>{item}</th>
+        {headList.map(({ id, val, tooltip }) => (
+          <th key={id}>
+            <div className={styles.infoWrapper}>
+              {val}
+              {tooltip && (
+                <Tooltip title={tooltip} placement="top" arrow>
+                  <InfoIcon />
+                </Tooltip>
+              )}
+            </div>
+          </th>
         ))}
       </tr>
     </thead>

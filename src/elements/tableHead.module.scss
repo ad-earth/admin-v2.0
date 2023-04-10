@@ -5,6 +5,7 @@
   @include size(83vw, 50px);
   @include font(12px, 700);
   background: $bg_gray300;
+
   input {
     @include size(12px, 12px);
     border: 1px solid $lc_gray400;
@@ -21,4 +22,8 @@
       border-radius: 0px 5px 0px 0px;
     }
   }
+}
+
+.infoWrapper {
+  @include flex($j: center, $g: 3px);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AdHeads } from '../../constants';
+import { ADHEADS } from '../../constants';
 import TableHead from '../../elements/TableHead';
 import type { IList } from '../../shared/types/types';
 import styles from './adTable.module.scss';
@@ -11,11 +11,11 @@ type TProps = {
 export default function AdTable({ dataList }: TProps) {
   return (
     <table id={styles.table}>
-      <TableHead headList={AdHeads} isCheck={false} />
+      <TableHead headList={ADHEADS} isCheck={false} />
       {dataList?.length ? (
         <tbody>
           {dataList?.map((data, idx) => (
-            <tr>
+            <tr key={idx}>
               <td>{idx + 1}</td>
               <td>{data.keyword}</td>
               <td>{data.k_Click}</td>
