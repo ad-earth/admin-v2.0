@@ -35,7 +35,7 @@ const useProduct = () => {
     {
       onSuccess: () => {
         toast.success('상품이 등록되었습니다.');
-        navigate('/setProd');
+        navigate('/setProd?category=전체&page=1');
       },
     }
   );
@@ -61,7 +61,7 @@ const useProduct = () => {
     {
       onSuccess: () => {
         toast.success('상품이 수정되었습니다.');
-        navigate('/setProd');
+        navigate('/setProd?category=전체&page=1');
       },
     }
   );
@@ -73,7 +73,7 @@ const useProduct = () => {
   >(data => deleteProd(data.p_No), {
     onSuccess: () => {
       toast.success('상품을 삭제하였습니다.');
-      navigate('/setProd');
+      navigate('/setProd?category=전체&page=1');
     },
   });
 

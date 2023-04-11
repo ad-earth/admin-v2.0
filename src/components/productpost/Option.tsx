@@ -1,11 +1,33 @@
+import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Button from '../../elements/Button';
 import Input from '../../elements/Input';
 import { optionListState } from '../../store/option';
 import styles from './option.module.scss';
 
-export default function Option() {
+interface IProps {
+  isProd: boolean;
+}
+
+export default function Option({ isProd }: IProps) {
   const [optionList, setOptionList] = useRecoilState(optionListState);
+
+  useEffect(() => {
+    if (!isProd)
+      setOptionList([
+        {
+          id: 1,
+          colorCheck: false,
+          optionCheck: false,
+          color: null,
+          colorCode: null,
+          option: null,
+          optionPrice: null,
+          optionCnt: null,
+        },
+      ]);
+    else return;
+  }, [isProd]);
 
   const handleAdd = () => {
     const newOption = {
@@ -115,7 +137,9 @@ export default function Option() {
               type="color"
               name={String(item.id)}
               disabled={item.colorCheck !== true ? true : false}
-              value={item.colorCode !== null ? item.colorCode : '#ffffff'}
+              defaultValue={
+                item.colorCode && item.colorCode ? item.colorCode : '#ffffff'
+              }
               onChange={e =>
                 handleSetInput(e.target.id, e.target.name, e.target.value)
               }

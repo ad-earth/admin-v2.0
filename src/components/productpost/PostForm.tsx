@@ -1,10 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { CATEGORY } from '../../constants';
 import Button from '../../elements/Button';
 import { GeneralDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
+import useGetProduct from '../../query/useGetProduct';
 import useProduct from '../../query/useProduct';
 import { optionList } from '../../store/option';
 import Editor from './Editor';
@@ -13,6 +15,8 @@ import styles from './postForm.module.scss';
 import Thumbnail from './Thumbnail';
 
 export default function PostForm() {
+  const navigate = useNavigate();
+  const { state } = useLocation();
   const [category, setCategory] = useState<string>('');
   const [prodName, setProdName] = useState<string>('');
   const [prodPrice, setProdPrice] = useState<string>('');
@@ -24,6 +28,21 @@ export default function PostForm() {
   const [contents, setContents] = useState<string>('');
   const [isErrorCheck, SetIsErrorCheck] = useState<boolean>(false);
   const option = useRecoilValue(optionList);
+
+  const { prodList } = useGetProduct(state?.p_Number);
+
+  useEffect(() => {
+    if (prodList) {
+      setCategory(prodList.p_Category);
+      setProdName(prodList.p_Name);
+      setProdPrice(String(prodList.p_Cost));
+      setProdDiscount(String(prodList.p_Discount));
+      setProdDesc(prodList.p_Desc);
+      setThumb1Url(prodList.p_Thumbnail[0]);
+      setThumb2Url(prodList.p_Thumbnail[1]);
+      setContents(prodList.p_Content);
+    }
+  }, [state?.isProd, prodList]);
 
   const ErrorCheck = () => {
     if (!category) toast.error('상품의 카테고리를 선택해주세요!');
@@ -39,14 +58,13 @@ export default function PostForm() {
     else return SetIsErrorCheck(true);
   };
 
-  const {
-    postProduct: { mutate },
-  } = useProduct();
+  const { postProduct, editProduct, removeProduct } = useProduct();
 
   const handlePost = () => {
     ErrorCheck();
     if (isErrorCheck) {
       const postData = {
+        p_No: state?.p_Number,
         p_Category: category,
         p_Thumbnail: [thumb1Url, thumb2Url],
         p_Name: prodName,
@@ -57,8 +75,15 @@ export default function PostForm() {
         p_Desc: prodDesc,
         p_Content: contents,
       };
-      mutate(postData);
+      if (!state?.isProd) postProduct.mutate(postData);
+      else editProduct.mutate(postData);
     }
+  };
+
+  const handleRemove = () => {
+    if (window.confirm('상품을 정말 삭제하시겠습니까?')) {
+      removeProduct.mutate({ p_No: [state?.p_Number] });
+    } else return;
   };
 
   const discountPrice = useMemo(() => {
@@ -143,7 +168,7 @@ export default function PostForm() {
                 />
               </div>
               <div className={styles.content}>
-                <Option />
+                <Option isProd={state?.isProd} />
               </div>
             </section>
           </div>
@@ -151,7 +176,31 @@ export default function PostForm() {
         </div>
       </div>
       <div className={styles.btnWrap}>
-        <Button styleClass="medium_blue" text="상품등록" onClick={handlePost} />
+        {!state?.isProd ? (
+          <Button
+            styleClass="medium_blue"
+            text="상품등록"
+            onClick={handlePost}
+          />
+        ) : (
+          <div className={styles.btn_edit}>
+            <Button
+              styleClass="medium_blue"
+              text="상품수정"
+              onClick={handlePost}
+            />
+            <Button
+              styleClass="medium_white"
+              text="상품삭제"
+              onClick={handleRemove}
+            />
+            <Button
+              styleClass="medium_gray"
+              text="취소"
+              onClick={() => navigate('/setProd?category=전체&page=1')}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
