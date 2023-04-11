@@ -5,16 +5,10 @@
   .btn_wrapper {
     @include flex($j: flex-end, $g: 10px);
     margin-top: 40px;
-    .download {
+    .excel {
       @include flex($j: center, $a: center, $g: 5px);
       @include size(auto, 40px);
-      border: 1px solid $lc_gray500;
-      border-radius: 5px;
-      background: $bg_white;
-      text-decoration: none;
-      img {
-        @include size(20px, 20px);
-      }
+      @include font(14px, 500, $fc_gray500);
     }
   }
   .service_table {
