@@ -41,7 +41,7 @@ export default function Nav() {
     {
       id: 6,
       name: '광고 보고서',
-      path: `ad_report?term=3개월&product=${nameList[0]}`,
+      path: `ad_report?term=3개월&product=${nameList ? nameList[0] : ''}`,
     },
   ];
 
