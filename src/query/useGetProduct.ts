@@ -1,4 +1,5 @@
 import type { AxiosResponse } from 'axios';
+import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil';
 import queryKeys from '../constants/queryKeys';
@@ -14,6 +15,7 @@ const useGetProduct = (p_No: number) => {
     {
       refetchOnWindowFocus: false,
       enabled: !!p_No,
+      cacheTime: 1000 * 1,
       onSuccess: ({ data }) => {
         let result = data.p_Option;
         let resultList = result.map((item: TOptionList, idx: number) => ({
@@ -30,7 +32,13 @@ const useGetProduct = (p_No: number) => {
       },
     }
   );
-  return { prodData };
+  const { prodList } = useMemo(
+    () => ({
+      prodList: prodData?.data,
+    }),
+    [prodData]
+  );
+  return { prodList };
 };
 
 export default useGetProduct;

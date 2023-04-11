@@ -57,7 +57,7 @@ export default function ProductSetTabel(props: TProps) {
         <TableHead
           headList={SET_HEADS_LIST}
           isCheck={true}
-          dataLenght={prodList.length}
+          dataLength={prodList.length}
           checkedLength={checkedItems.length}
           AllCheckedHandler={AllCheckedHandler}
         />
