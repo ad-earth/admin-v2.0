@@ -6,23 +6,16 @@ const useTerm = () => {
   const term = searchParams.get('term');
   const now = new Date();
 
-  const startDate = useMemo(
-    () =>
-      term === '3개월'
-        ? new Date(now.setMonth(now.getMonth() - 3))
-            .toISOString()
-            .substring(0, 10)
-        : term === '2개월'
-        ? new Date(now.setMonth(now.getMonth() - 2))
-            .toISOString()
-            .substring(0, 10)
-        : term === '1개월'
-        ? new Date(now.setMonth(now.getMonth() - 1))
-            .toISOString()
-            .substring(0, 10)
-        : null,
-    [term]
-  );
+  let subtractNumber;
+  const startDate = useMemo(() => {
+    if (term === '3개월') subtractNumber = 3;
+    else if (term === '2개월') subtractNumber = 2;
+    else if (term === '1개월') subtractNumber = 1;
+    else return null;
+    return new Date(now.setMonth(now.getMonth() - subtractNumber))
+      .toISOString()
+      .substring(0, 10);
+  }, [term]);
 
   const endDate = useMemo(() => new Date().toISOString().substring(0, 10), []);
 
