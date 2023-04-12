@@ -1,4 +1,5 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 $height_size: 80px;
 $pointer: pointer;
@@ -7,13 +8,12 @@ $pointer: pointer;
 }
 
 header {
-  width: 100%;
-  height: $height_size;
+  @include size(100%, $height_size);
   line-height: $height_size;
   position: fixed;
   z-index: 99;
-  background-color: colors.$bg_white;
-  border-bottom: 1px solid colors.$lc_gray400;
+  background-color: $bg_white;
+  border-bottom: 1px solid $lc_gray400;
   img {
     @extend %cursor_pointer;
     margin: calc((#{$height_size} - 35px) / 2) 53px;

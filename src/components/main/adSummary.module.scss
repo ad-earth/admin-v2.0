@@ -1,22 +1,22 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
-$title: colors.$fc_blue300;
+$title: $fc_blue300;
 
 .base {
-  width: 100%;
-  height: 362px;
-  background-color: colors.$bg_white;
+  @include size(100%, 362px);
+  background-color: $bg_white;
   padding: 20px;
   border-radius: 5px;
   position: relative;
 }
 .title {
+  @include font(14px, bold, $fc_blue400);
   color: $title;
-  font-size: 14px;
   margin-bottom: 4px;
 }
 .subTitle {
-  color: colors.$fc_blue400;
+  color: $fc_blue400;
   margin-bottom: 20px;
 }
 .adChart {

@@ -1,6 +1,5 @@
-@use '../../shared/styles/colors';
-
-$number_Size: 26px;
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 @mixin color($font_color, $bg_color) {
   color: $font_color;
@@ -8,37 +7,36 @@ $number_Size: 26px;
 }
 
 .base {
-  @include color(colors.$fc_blue300, colors.$bg_white);
-  height: 100%;
+  @include size(100%, 100%);
+  @include color($fc_blue300, $bg_white);
   padding: 20px;
   border-radius: 5px;
 }
 .title {
-  font-size: 14px;
+  @include font(14px, bold, $fc_blue300);
   margin-bottom: 14px;
 }
 .rankingBox {
-  height: 45px;
+  @include size(100%, 45px);
   margin-bottom: 10px;
   padding: 10px 16px;
   border-radius: 5px;
-  font-weight: 700;
+  @include font(14px, bold, $fc_blue300);
   &:first-of-type {
-    @include color(colors.$fc_blue100, colors.$bg_gray100);
-    border: 1px solid colors.$fc_blue100;
+    @include color($fc_blue100, $bg_gray100);
+    border: 1px solid $fc_blue100;
   }
   &:first-of-type span {
-    @include color(colors.$fc_white, colors.$bg_blue100);
+    @include color($fc_white, $bg_blue100);
   }
   &:last-of-type {
     margin-bottom: 0;
   }
 }
 .rankingText {
-  @include color(colors.$fc_blue400, colors.$bg_gray100);
-  width: $number_Size;
-  height: $number_Size;
-  line-height: $number_Size;
+  @include size(26px, 26px);
+  @include color($fc_blue400, $bg_gray100);
+  line-height: 26px;
   display: inline-block;
   text-align: center;
   border-radius: 5px;

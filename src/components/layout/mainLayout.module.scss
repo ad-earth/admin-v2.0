@@ -1,14 +1,15 @@
+@use '../../shared/styles/mixins' as *;
+
 #MainWrap {
+  @include size(100%, auto);
   position: relative;
-  height: 100%;
   main {
     position: absolute;
     top: 80px;
-    width: 100%;
     min-height: calc(100vh - 80px);
   }
 }
 .mainSection {
-  width: 87%;
-  float: right;
+  @include size(86vw, auto);
+  margin-left: 13vw;
 }

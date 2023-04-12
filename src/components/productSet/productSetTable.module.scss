@@ -1,38 +1,39 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 .base {
-  width: 100%;
+  @include size(100%, auto);
   min-height: 550px;
-  background-color: colors.$bg_white;
+  background-color: $bg_white;
   margin-bottom: 30px;
   position: relative;
   border-radius: 5px;
 }
 .table {
-  width: inherit;
+  @include size(inherit, auto);
   border-collapse: collapse;
 }
 .table tr {
+  @include size(100%, 50px);
   -moz-border-radius: 5px 5px 0 0;
   -webkit-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
-  width: 100%;
 }
 
 .table td {
+  @include size(inherit, 50px);
+  @include font(12px, 500);
   text-align: center;
-  font-size: 12px;
   white-space: nowrap;
-  height: 50px;
-  border-bottom: 1px solid colors.$lc_gray300;
+  border-bottom: 1px solid $lc_gray300;
 }
 
 .none {
-  width: 100%;
+  @include size(100%, inherit);
   position: absolute;
   top: 50%;
   text-align: center;
-  color: colors.$fc_gray500;
+  color: $fc_gray500;
   td {
     font-size: 16px;
     border-bottom: none;
@@ -43,14 +44,14 @@
 .table td:nth-child(1),
 .table th:nth-child(2),
 .table td:nth-child(2) {
+  @include size(5%, inherit);
   text-align: center;
-  width: 5%;
 }
 //상품번호
 .table th:nth-child(3),
 .table td:nth-child(3) {
+  @include size(15%, inherit);
   text-align: center;
-  width: 15%;
 }
 
 // 상품노출 , 수정버튼
@@ -58,42 +59,36 @@
 .table td:nth-child(6),
 .table th:nth-child(7),
 .table td:nth-child(7) {
-  width: 10%;
+  @include size(10%, inherit);
 }
 //카테고리
 .table th:nth-child(4),
 .table td:nth-child(4) {
-  width: 15%;
+  @include size(15%, inherit);
 }
 //상품명
 .table th:nth-child(5),
 .table td:nth-child(5) {
+  @include size(40%, inherit);
   text-align: left;
-  width: 40%;
 }
 .hover a {
   cursor: pointer;
-  color: colors.$fc_blue300;
-  font-weight: 400;
+  @include font(12px, 400);
+  color: $fc_blue300;
   &:hover {
     text-decoration: underline;
   }
   &:visited {
-    color: colors.$fc_blue300;
+    color: $fc_blue300;
   }
 }
 .link a {
-  color: colors.$fc_blue300;
+  color: $fc_blue300;
   &:hover {
     text-decoration: none;
   }
 }
 .checkbox[type='checkbox'] {
-  cursor: pointer;
-  width: 12px !important;
-  height: 12px !important;
-  border: 1px solid colors.$lc_gray400;
-  &:checked {
-    accent-color: colors.$bg_blue100;
-  }
+  @include checkbox;
 }

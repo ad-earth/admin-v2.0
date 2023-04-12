@@ -19,7 +19,7 @@ export default function AccordionItem(props: TProps) {
           className={active === index ? styles.active : styles.inactive}
           onClick={handleToggle}
         >
-          <span className={styles.title}>{title}</span>
+          <span>{title}</span>
           <span className={active === index ? styles.minus : styles.plus} />
         </button>
       </div>

@@ -1,7 +1,8 @@
 import { toast } from 'react-hot-toast';
+import Button from '../../elements/Button';
 import useModal from '../../hooks/useModal';
 import useProdManagement from '../../query/useProdManagement';
-import styles from './productStatusModal.module.scss';
+import styles from './confirmModal.module.scss';
 
 export interface IProductStatusType {
   title: string;
@@ -26,8 +27,16 @@ export default function ProductStatusModal(props: IProductStatusType) {
         <h2>{props.title}</h2>
         <p className={styles.subTitle}> 미 노출시 상품 노출이 불가능합니다.</p>
         <div>
-          <button onClick={hideModal}>취소</button>
-          <button onClick={changeStatus}>확인</button>
+          <Button
+            styleClass="medium_modal_hide"
+            text="취소"
+            onClick={hideModal}
+          />
+          <Button
+            styleClass="medium_modal_success"
+            text="확인"
+            onClick={changeStatus}
+          />
         </div>
       </div>
     </div>

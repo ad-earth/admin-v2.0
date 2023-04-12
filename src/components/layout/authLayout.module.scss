@@ -1,21 +1,20 @@
-@use '../../shared/styles/colors';
-@use '../../shared/styles/mixins';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 #authWrap {
-  @include mixins.layoutBase;
+  @include layoutBase;
   main {
-    width: 100vw;
-    display: flex;
-    height: 100vh;
+    @include size(100vw, 100vh);
+    @include flex;
   }
 }
+.authSection,
+.bannerSection {
+  @include size(50vw, 100vh);
+}
 .authSection {
-  width: 50vw;
-  height: 100vh;
-  background: colors.$bg_white;
+  background: $bg_white;
 }
 .bannerSection {
-  width: 50vw;
-  height: 100vh;
-  background: colors.$bg_blue500;
+  background: $bg_blue500;
 }

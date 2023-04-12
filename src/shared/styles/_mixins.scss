@@ -39,3 +39,12 @@
   @include font($s: 30px, $w: 700);
   padding: 24px 32px;
 }
+@mixin checkbox {
+  cursor: pointer;
+  width: 12px !important;
+  height: 12px !important;
+  border: 1px solid $lc_gray400;
+  &:checked {
+    accent-color: $bg_blue100;
+  }
+}

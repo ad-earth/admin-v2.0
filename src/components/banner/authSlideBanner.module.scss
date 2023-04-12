@@ -1,34 +1,29 @@
-@use '../../shared/styles/colors';
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
 
 .base {
-  width: 100%;
-  height: 100vh;
+  @include size(100%, 100vh);
   overflow: hidden;
 }
 .container {
   position: relative;
-  width: 100%;
-  height: 100vh;
 }
 
 .carouselList {
+  @include size(100%, 100vh);
+  @include flex;
   position: absolute;
   list-style: none;
-  width: 100%;
-  height: 100vh;
   margin: 0;
   padding: 0;
-  display: flex;
   overflow: hidden;
 }
 
 .carouselListItem {
-  width: 100%;
   flex: 1 0 100%;
   transition: 200ms ease;
   img {
-    flex: 1 0 100%;
-    width: 100%;
+    @include size(100%, auto);
     transition: 200ms ease;
   }
 }
@@ -51,10 +46,9 @@
   display: inline-block;
 }
 .navBtn {
-  width: 15px;
-  height: 15px;
+  @include size(15px, 15px);
   border-radius: 80%;
-  background-color: colors.$bg_white;
+  background-color: $bg_white;
   opacity: 0.3;
   margin-left: 5px;
 }
