@@ -5,7 +5,7 @@ import styles from './tableHead.module.scss';
 interface IProps {
   headList: THead[];
   isCheck: boolean;
-  dataLenght?: number;
+  dataLength?: number;
   checkedLength?: number;
   AllCheckedHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -19,7 +19,7 @@ type THead = {
 export default function TableHead({
   headList,
   isCheck,
-  dataLenght,
+  dataLength,
   checkedLength,
   AllCheckedHandler,
 }: IProps) {
@@ -30,7 +30,7 @@ export default function TableHead({
           <th>
             <input
               type="checkbox"
-              checked={checkedLength !== 0 && dataLenght === checkedLength}
+              checked={checkedLength !== 0 && dataLength === checkedLength}
               onChange={AllCheckedHandler}
             />
           </th>
