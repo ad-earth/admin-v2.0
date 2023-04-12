@@ -38,7 +38,7 @@ export default function PostForm() {
     showModal({
       modalType: 'ProductDeleteModal',
       modalProps: {
-        title: '상품 노출을 변경하시겠습니까?',
+        title: '상품을 삭제하시겠습니까?',
         productNo: { p_No: [state?.p_Number] },
       },
     });
