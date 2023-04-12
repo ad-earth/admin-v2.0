@@ -25,6 +25,12 @@ button {
     @include size(200px, 40px);
     @include font(14px, 500, $fc_white);
   }
+  &.medium_white {
+    background: $fc_white;
+    border: 1px solid $bg_blue100;
+    @include size(200px, 40px);
+    @include font(14px, 500, $bg_blue100);
+  }
   &.medium_gray {
     background: $bg_gray400;
     @include size(200px, 40px);

@@ -6,6 +6,7 @@ import { CATEGORY } from '../../constants';
 import Button from '../../elements/Button';
 import { GeneralDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
+import useModal from '../../hooks/useModal';
 import useGetProduct from '../../query/useGetProduct';
 import useProduct from '../../query/useProduct';
 import { optionList } from '../../store/option';
@@ -31,6 +32,17 @@ export default function PostForm() {
 
   const { prodList } = useGetProduct(state?.p_Number);
 
+  const { showModal } = useModal();
+
+  const handleRemove = () => {
+    showModal({
+      modalType: 'ProductDeleteModal',
+      modalProps: {
+        title: '상품 노출을 변경하시겠습니까?',
+        productNo: { p_No: [state?.p_Number] },
+      },
+    });
+  };
   useEffect(() => {
     if (prodList) {
       setCategory(prodList.p_Category);
@@ -58,7 +70,7 @@ export default function PostForm() {
     else return SetIsErrorCheck(true);
   };
 
-  const { postProduct, editProduct, removeProduct } = useProduct();
+  const { postProduct, editProduct } = useProduct();
 
   const handlePost = () => {
     ErrorCheck();
@@ -78,12 +90,6 @@ export default function PostForm() {
       if (!state?.isProd) postProduct.mutate(postData);
       else editProduct.mutate(postData);
     }
-  };
-
-  const handleRemove = () => {
-    if (window.confirm('상품을 정말 삭제하시겠습니까?')) {
-      removeProduct.mutate({ p_No: [state?.p_Number] });
-    } else return;
   };
 
   const discountPrice = useMemo(() => {
