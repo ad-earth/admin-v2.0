@@ -2,6 +2,7 @@ import { atom } from 'recoil';
 import type { modalTypes } from '../components/modal/GlobalModal';
 import type { ILogoutType } from '../components/modal/LogoutModal';
 import type { IPostAdType } from '../components/modal/PostAdModal';
+import type { IProductDeleteType } from '../components/modal/ProductDeleteModal';
 import type { IProductStatusType } from '../components/modal/ProductStatusModal';
 import type { IWithdrawalType } from '../components/modal/WithdrawalModal';
 
@@ -21,12 +22,16 @@ interface ProductStatusModalType {
   modalType: typeof modalTypes.ProductStatusModal;
   modalProps: IProductStatusType;
 }
-
+interface ProductDeleteModalType {
+  modalType: typeof modalTypes.ProductDeleteModal;
+  modalProps: IProductDeleteType;
+}
 export type ModalType =
   | WithdrawalModalType
   | LogoutModalType
   | PostAdModalType
-  | ProductStatusModalType;
+  | ProductStatusModalType
+  | ProductDeleteModalType;
 
 export const modalState = atom<ModalType | null>({
   key: 'modalState',
