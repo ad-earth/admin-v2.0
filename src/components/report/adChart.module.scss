@@ -5,3 +5,7 @@
   @include filter_wrapper;
   @include flex($d: column, $a: center);
 }
+
+.chartContainer {
+  @include size(80%, auto);
+}

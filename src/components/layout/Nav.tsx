@@ -3,6 +3,8 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../elements/Button';
 import useMinDate from '../../hooks/useMinDate';
 import useModal from '../../hooks/useModal';
+import useProducts from '../../query/useProducts';
+import type { IProduct } from '../../shared/types/types';
 import { BizMoneyNav } from '../main/BizMoney';
 import styles from './nav.module.scss';
 
@@ -21,6 +23,12 @@ export default function Nav() {
       },
     });
 
+  const { productList } = useProducts();
+  const nameList = useMemo(
+    () => productList?.map((el: IProduct) => el.p_Name),
+    [productList]
+  );
+
   const nav = [
     { id: 1, name: '메인', path: '/' },
     {
@@ -31,7 +39,11 @@ export default function Nav() {
     { id: 3, name: '상품 등록', path: '/postProd' },
     { id: 4, name: '상품 관리', path: '/setProd?category=전체&page=1' },
     { id: 5, name: '광고 관리', path: '/setAd' },
-    { id: 6, name: '광고 보고서', path: '/ad_report' },
+    {
+      id: 6,
+      name: '광고 보고서',
+      path: `ad_report?term=3개월&product=${nameList ? nameList[0] : ''}`,
+    },
   ];
 
   return (

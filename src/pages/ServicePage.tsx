@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import ServiceFilter from '../components/service/ServiceFilter';
 import ServiceTable from '../components/service/ServiceTable';
+import { useConvertExcel } from '../hooks/useConvertExcel';
 import useProducts from '../query/useProducts';
 import useService from '../query/useService';
 import styles from './servicePage.module.scss';
@@ -22,6 +23,14 @@ export default function ServicePage() {
     status === '전체' ? null : status
   );
 
+  const { excelList } = useService(
+    0,
+    `[${startDate},${endDate}]`,
+    selectedProduct === '전체' ? null : selectedProduct,
+    status === '전체' ? null : status
+  );
+  const excel = useConvertExcel(excelList);
+
   useEffect(() => {
     if (parcelList?.length) {
       searchParams.set('products', parcelList[0]);
@@ -41,7 +50,7 @@ export default function ServicePage() {
           기간 동안 <strong>'{selectedProduct}'</strong> 상품에 대한{' '}
           <strong>배송상태({status})</strong>의 내역입니다.
         </p>
-        <ServiceTable cnt={totalPages} list={serviceList} />
+        <ServiceTable cnt={totalPages} list={serviceList} excel={excel} />
       </div>
     </div>
   );

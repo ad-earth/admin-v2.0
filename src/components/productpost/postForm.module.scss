@@ -20,6 +20,9 @@
   .btnWrap {
     justify-content: center;
     margin: 60px auto;
+    .btn_edit {
+      @include flex($g: 100px);
+    }
   }
 }
 
