@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
 import ProductSetButtonBox from '../components/productSet/ProductSetButtonBox';
-import ProductSetTabel from '../components/productSet/ProductSetTable';
+import ProductSetTable from '../components/productSet/ProductSetTable';
 import { MediumDropdown } from '../elements/DropDown';
 import Pagination from '../elements/Pagination';
 import useModal from '../hooks/useModal';
@@ -43,7 +43,7 @@ export default function ProductSetPage() {
         />
       </div>
       <ProductSetButtonBox setDelHandler={setDelHandler} />
-      <ProductSetTabel
+      <ProductSetTable
         prodList={productQuery?.data?.tableList}
         checkedItems={checkedItems}
         setCheckedItems={setCheckedItems}

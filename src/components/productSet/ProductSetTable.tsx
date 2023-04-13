@@ -7,7 +7,7 @@ import TableHead from '../../elements/TableHead';
 import useModal from '../../hooks/useModal';
 import type { IProductSetList } from '../../shared/types/types';
 import styles from './productSetTable.module.scss';
-import { AntSwitch } from './tabelSwitch.style';
+import { AntSwitch } from './tableSwitch.style';
 
 type TProps = {
   prodList: IProductSetList[];
@@ -15,7 +15,7 @@ type TProps = {
   setCheckedItems: Dispatch<SetStateAction<number[]>>;
 };
 
-export default function ProductSetTabel(props: TProps) {
+export default function ProductSetTable(props: TProps) {
   const { prodList = [], checkedItems, setCheckedItems } = props;
 
   const openLink = (status: boolean, prodNum: number) => {
