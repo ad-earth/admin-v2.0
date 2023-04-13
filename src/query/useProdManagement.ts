@@ -15,11 +15,11 @@ export default function useProdManagement() {
     () => getProductSet(category, page),
     {
       refetchOnWindowFocus: false,
-      // staleTime: 60 * 1000,
       enabled: !!(category && page),
       select: (data: AxiosResponse<IProductSetRes>) => ({
         tableList: data.data.list,
         cnt: data.data.cnt,
+        tableLength: data.data.list.length,
       }),
     }
   );

@@ -18,7 +18,7 @@ export default function ProductSetPage() {
 
   useEffect(() => {
     setCheckedItems([]);
-  }, [page]);
+  }, [page, productQuery.data?.tableLength]);
 
   const setDelHandler = () => {
     checkedItems.length === 0
