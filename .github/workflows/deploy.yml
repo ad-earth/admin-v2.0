@@ -1,0 +1,70 @@
+name: Deploy to AWS
+
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  deploy-production:
+    name: Deploy(Production)
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Cache node modules
+        id: npm-cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      - if: steps.npm-cache.outputs.cache-hit == 'true'
+        run: echo 'npm cache hit!'
+      - if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: echo 'npm cache missed!'
+      - run: npm ci
+
+      - name: Generate Environment Variables File for Production
+        run: |
+          echo "REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL" >> .env.production
+          echo "REACT_APP_BUCKET_NAME=$REACT_APP_BUCKET_NAME" >> .env.production
+          echo "REACT_APP_REGION=$REACT_APP_REGION" >> .env.production
+          echo "REACT_APP_ACCESS=$REACT_APP_ACCESS" >> .env.production
+          echo "REACT_APP_SECRET=$REACT_APP_SECRET" >> .env.production
+        env:
+          REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
+          REACT_APP_BUCKET_NAME: ${{ secrets.REACT_APP_BUCKET_NAME }}
+          REACT_APP_REGION: ${{ secrets.REACT_APP_REGION }}
+          REACT_APP_ACCESS: ${{ secrets.REACT_APP_ACCESS }}
+          REACT_APP_SECRET: ${{ secrets.REACT_APP_SECRET }}
+
+      - name: Build
+        run: unset CI && npm run build
+
+      - name: deploy to s3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --delete
+        env:
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME}}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'ap-northeast-2'
+          SOURCE_DIR: 'build'
+
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION_ID }}
+          PATHS: '/index.html'
+          AWS_REGION: 'ap-northeast-2'
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
