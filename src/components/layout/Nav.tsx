@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import Button from '../../elements/Button';
 import useMinDate from '../../hooks/useMinDate';
 import useModal from '../../hooks/useModal';
+import useAdFilter from '../../query/useAdFilter';
 import useProducts from '../../query/useProducts';
 import type { IProduct } from '../../shared/types/types';
 import { BizMoneyNav } from '../main/BizMoney';
@@ -10,6 +11,7 @@ import styles from './nav.module.scss';
 
 export default function Nav() {
   const { showModal } = useModal();
+  const { AdFilterList } = useAdFilter();
 
   const startDate = useMinDate();
   const endDate = useMemo(() => new Date().toISOString().substring(0, 10), []);
@@ -38,7 +40,11 @@ export default function Nav() {
     },
     { id: 3, name: '상품 등록', path: '/postProd' },
     { id: 4, name: '상품 관리', path: '/setProd?category=전체&page=1' },
-    { id: 5, name: '광고 관리', path: '/setAd' },
+    {
+      id: 5,
+      name: '광고 관리',
+      path: `/setAd?product=${AdFilterList[0]}`,
+    },
     {
       id: 6,
       name: '광고 보고서',

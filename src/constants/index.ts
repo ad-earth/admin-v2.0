@@ -147,3 +147,37 @@ export const SET_HEADS_LIST = [
     val: '상품수정',
   },
 ];
+export const AD_HEADS_LIST = [
+  {
+    id: 0,
+    val: 'No',
+  },
+  {
+    id: 1,
+    val: '키워드',
+  },
+  {
+    id: 2,
+    val: '현재순위',
+  },
+  {
+    id: 3,
+    val: '입찰가',
+  },
+  {
+    id: 4,
+    val: '순위별 클릭 수',
+  },
+  {
+    id: 5,
+    val: '순위별 총 광고비',
+  },
+  {
+    id: 6,
+    val: '노출 상태',
+  },
+  {
+    id: 7,
+    val: '광고 수정',
+  },
+];

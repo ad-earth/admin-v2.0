@@ -1,0 +1,9 @@
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
+
+.base {
+  @include size(100%, auto);
+  @include flex($j: space-between);
+  padding: 0 20px;
+  margin-bottom: 16px;
+}

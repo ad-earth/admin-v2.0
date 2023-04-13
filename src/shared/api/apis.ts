@@ -110,3 +110,11 @@ export const delProducts = (item: number[]) =>
   axiosInstance.delete('/admin-products', { data: { p_No: item } });
 export const putProducts = (p_No: number) =>
   axiosInstance.put(`/admin-products/status/${p_No}`);
+
+export const getAd = () => axiosInstance.get('/admin-products/list');
+export const getAdProd = (p_No: number) =>
+  axiosInstance.get(`/admin-keywords/${p_No}`);
+export const delAdProd = (p_No: number, k_No: number[]) =>
+  axiosInstance.delete(`/admin-keywords/${p_No}`, {
+    data: { keywordList: k_No },
+  });
