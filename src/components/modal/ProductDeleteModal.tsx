@@ -11,7 +11,7 @@ export interface IProductDeleteType {
   productNo?: TProductNumber;
 }
 
-export default function ProductStatusModal(props: IProductDeleteType) {
+export default function ProductDeleteModal(props: IProductDeleteType) {
   const { hideModal } = useModal();
   const { removeProduct } = useProduct();
 
