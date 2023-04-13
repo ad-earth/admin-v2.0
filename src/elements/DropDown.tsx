@@ -36,7 +36,7 @@ export function MediumDropdown(props: IProps) {
     setSearchParams(searchParams);
   };
 
-  const selected = searchParams.get(props.queryKey);
+  const selected = searchParams.get(props.queryKey) || '';
 
   return (
     <FormControl>
@@ -46,8 +46,8 @@ export function MediumDropdown(props: IProps) {
       <Select
         className={styles.select}
         labelId={props.id}
-        value={selected ? selected : ''}
-        defaultValue={selected ? selected : ''}
+        value={selected}
+        defaultValue={selected}
         MenuProps={MenuProps}
         input={<OutlinedInput label={props.placeholder} />}
         onChange={(e: SelectChangeEvent<string>) =>
