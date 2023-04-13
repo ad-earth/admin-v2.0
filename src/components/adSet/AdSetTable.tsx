@@ -3,7 +3,7 @@ import { AD_HEADS_LIST } from '../../constants';
 import TableHead from '../../elements/TableHead';
 import useModal from '../../hooks/useModal';
 import type { IAdProductSet } from '../../shared/types/types';
-import styles from './adSetTabel.module.scss';
+import styles from './adSetTable.module.scss';
 
 type TProps = {
   product: string;
@@ -13,7 +13,7 @@ type TProps = {
   setCheckedItems: Dispatch<SetStateAction<number[]>>;
 };
 
-export default function AdSetTabel(props: TProps) {
+export default function AdSetTable(props: TProps) {
   const {
     product,
     productNum,

@@ -3,7 +3,7 @@ import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
 
 import AdSetButtonBox from '../components/adSet/AdSetButtonBox';
-import AdSetTabel from '../components/adSet/AdSetTabel';
+import AdSetTable from '../components/adSet/AdSetTable';
 import { MediumDropdown } from '../elements/DropDown';
 import Pagination from '../elements/Pagination';
 import useAdFilter from '../query/useAdFilter';
@@ -63,7 +63,7 @@ export default function AdSetPage() {
         prodLength={productQuery.data?.keywordList.length}
         p_Status={productQuery.data?.p_Status}
       />
-      <AdSetTabel
+      <AdSetTable
         product={product}
         productNum={productNum}
         prodList={productQuery?.data?.keywordList}
