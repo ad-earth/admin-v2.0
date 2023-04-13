@@ -1,3 +1,4 @@
+import type { TAddProd } from '../../query/useAdManagement';
 import type { TOptionList } from '../types/types';
 import axiosInstance from './instance';
 
@@ -105,7 +106,7 @@ export const putOrderConfirm = (
 export const getProductSet = (category: string, page: string) =>
   axiosInstance.get(
     `/admin-products?p_Category=${category}&page=${page}&maxpost=10`
-  ); //상품관리
+  );
 export const putProducts = (p_No: number) =>
   axiosInstance.put(`/admin-products/status/${p_No}`);
 
@@ -116,3 +117,22 @@ export const delAdProd = (p_No: number, k_No: number[]) =>
   axiosInstance.delete(`/admin-keywords/${p_No}`, {
     data: { keywordList: k_No },
   });
+export const postAdProd = (addData: TAddProd) =>
+  axiosInstance.post(`/admin-keywords/${addData.p_No}`, {
+    keyword: addData.keyword,
+    k_Level: addData.k_Level,
+    k_Cost: addData.k_Cost,
+    k_Status: addData.k_Status,
+  });
+export const putAdProd = (addData: TAddProd) =>
+  axiosInstance.put(`/admin-keywords/${addData.p_No}`, {
+    keyword: addData.keyword,
+    k_Level: addData.k_Level,
+    k_Cost: addData.k_Cost,
+    k_Status: addData.k_Status,
+  });
+
+export const getAdLevel = (p_No: number, keyword: string, k_Level: number) =>
+  axiosInstance.get(
+    `/ad-keyword?p_No=${p_No}&keyword=${keyword}&k_Level=${k_Level}`
+  );

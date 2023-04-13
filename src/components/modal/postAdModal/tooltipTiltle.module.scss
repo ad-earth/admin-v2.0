@@ -1,0 +1,19 @@
+@use '../../../shared/styles/colors' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.info {
+  @include flex($d: column);
+  margin-bottom: 24px;
+  h5 {
+    @include font(16px, 600, $fc_blue300);
+    line-height: 16px;
+    padding-right: 4px;
+  }
+  img {
+    @include size(20px, 20px);
+  }
+}
+.infoTilte {
+  @include flex;
+  margin-bottom: 12px;
+}

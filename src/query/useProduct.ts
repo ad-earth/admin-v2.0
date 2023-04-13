@@ -1,6 +1,6 @@
 import type { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-hot-toast';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { deleteProd, editProd, postProd } from '../shared/api/apis';
 import type { IProdResponse, TError } from '../shared/types/types';
@@ -14,6 +14,7 @@ interface IRemoveProduct {
 
 const useProduct = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
   const postProduct = useMutation<
     AxiosResponse,
@@ -74,6 +75,7 @@ const useProduct = () => {
     onSuccess: () => {
       toast.success('상품을 삭제하였습니다.');
       navigate('/setProd?category=전체&page=1');
+      queryClient.invalidateQueries(['productSet']);
     },
   });
 

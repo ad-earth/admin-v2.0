@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
+
 import AdSetButtonBox from '../components/adSet/AdSetButtonBox';
 import AdSetTabel from '../components/adSet/AdSetTabel';
 import { MediumDropdown } from '../elements/DropDown';
@@ -28,6 +29,10 @@ export default function AdSetPage() {
 
   const { productQuery, removeProduct } = useAdManagement(productNum);
 
+  useEffect(() => {
+    setCheckedItems([]);
+  }, [productQuery.data?.keywordLength]);
+
   const setDelHandler = () => {
     checkedItems.length === 0
       ? toast.error('삭제할 상품이 없습니다.')
@@ -51,8 +56,16 @@ export default function AdSetPage() {
           queryKey="product"
         />
       </div>
-      <AdSetButtonBox setDelHandler={setDelHandler} />
+      <AdSetButtonBox
+        setDelHandler={setDelHandler}
+        product={product}
+        productNum={productNum}
+        prodLength={productQuery.data?.keywordList.length}
+        p_Status={productQuery.data?.p_Status}
+      />
       <AdSetTabel
+        product={product}
+        productNum={productNum}
         prodList={productQuery?.data?.keywordList}
         checkedItems={checkedItems}
         setCheckedItems={setCheckedItems}

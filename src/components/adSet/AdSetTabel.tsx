@@ -1,17 +1,27 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { AD_HEADS_LIST } from '../../constants';
 import TableHead from '../../elements/TableHead';
+import useModal from '../../hooks/useModal';
 import type { IAdProductSet } from '../../shared/types/types';
 import styles from './adSetTabel.module.scss';
 
 type TProps = {
+  product: string;
+  productNum: number;
   prodList: IAdProductSet[];
   checkedItems: number[];
   setCheckedItems: Dispatch<SetStateAction<number[]>>;
 };
 
 export default function AdSetTabel(props: TProps) {
-  const { prodList = [], checkedItems, setCheckedItems } = props;
+  const {
+    product,
+    productNum,
+    prodList = [],
+    checkedItems,
+    setCheckedItems,
+  } = props;
+  const { showModal } = useModal();
 
   const SingleCheckedHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target;
@@ -27,7 +37,17 @@ export default function AdSetTabel(props: TProps) {
       : setCheckedItems([]);
   };
 
-  const changeKeyword = () => {};
+  const changeKeyword = (item: IAdProductSet) => {
+    showModal({
+      modalType: 'PostAdModal',
+      modalProps: {
+        title: '광고수정',
+        product: product,
+        productNum: productNum,
+        data: item,
+      },
+    });
+  };
   return (
     <div className={styles.base}>
       <table className={styles.table}>
@@ -61,7 +81,7 @@ export default function AdSetTabel(props: TProps) {
                   <td>{item.clickCost}</td>
                   <td>{item.k_Status ? '노출' : '미노출'}</td>
                   <td className={(styles.hover, styles.link)}>
-                    <button value={i} onClick={changeKeyword}>
+                    <button value={i} onClick={() => changeKeyword(item)}>
                       수정
                     </button>
                   </td>

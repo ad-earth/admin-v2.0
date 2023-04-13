@@ -1,0 +1,37 @@
+@use '../../../shared/styles/colors' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.base {
+  @include size(100%, 100vh);
+  background-color: rgb(0, 0, 0, 0.7);
+  position: fixed;
+  z-index: 999;
+}
+.modalContent {
+  @include size(460px, auto);
+  @include flex($d: column);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -230px;
+  margin-top: -260px;
+  background-color: $bg_white;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 25px 30px;
+}
+.head {
+  @include size(100%, auto);
+  @include flex($j: space-between);
+  margin-bottom: 25px;
+  h3 {
+    @include font(24px, 500, $fc_blue300);
+  }
+  img {
+    cursor: pointer;
+  }
+}
+
+.btnBox {
+  margin: 0 auto;
+}

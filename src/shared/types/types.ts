@@ -120,4 +120,9 @@ export interface IAdProductSet {
 export interface IAdProductSetRes {
   cnt: number;
   keywordList: IAdProductSet[];
+  p_Status: boolean;
+}
+
+export interface ILevelRes {
+  levelCost: number;
 }

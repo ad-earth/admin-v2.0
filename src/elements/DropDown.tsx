@@ -71,6 +71,7 @@ export interface IGeneralProps {
   selected?: string;
   setSelected?: (val: string) => void;
   onChange?: () => void;
+  styleClass?: string;
 }
 
 export function GeneralDropdown(props: IGeneralProps) {
@@ -80,7 +81,7 @@ export function GeneralDropdown(props: IGeneralProps) {
         {props.placeholder}
       </InputLabel>
       <Select
-        className={styles.select}
+        className={(styles.select, styles[`${props.styleClass}`])}
         labelId={props.id}
         value={props.selected}
         MenuProps={MenuProps}

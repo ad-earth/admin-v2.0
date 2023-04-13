@@ -7,6 +7,7 @@ export const CATEGORY = [
   '화장품',
   '문구',
 ];
+export const KEYWORD_LEVEL = ['1', '2', '3', '4'];
 export const PARCEL_STATUS = ['전체', '신규주문', '배송완료', '주문취소'];
 export const SERVICE_HEAD_LIST = [
   {
@@ -179,5 +180,24 @@ export const AD_HEADS_LIST = [
   {
     id: 7,
     val: '광고 수정',
+  },
+];
+
+export const AD_MODAL_HEADS_LIST = [
+  {
+    id: 0,
+    val: '키워드',
+  },
+  {
+    id: 1,
+    val: '예상순위',
+  },
+  {
+    id: 2,
+    val: '예상금액',
+  },
+  {
+    id: 3,
+    val: '입찰가',
   },
 ];
