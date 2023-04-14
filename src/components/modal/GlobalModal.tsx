@@ -2,7 +2,7 @@ import { useRecoilState } from 'recoil';
 import { modalState } from '../../store/modal';
 
 import LogoutModal from './LogoutModal';
-import PostAdModal from './PostAdModal';
+import PostAdModal from './postAdModal/PostAdModal';
 import ProductDeleteModal from './ProductDeleteModal';
 import ProductStatusModal from './ProductStatusModal';
 import WithdrawalModal from './WithdrawalModal';

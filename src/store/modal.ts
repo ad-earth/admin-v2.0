@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import type { modalTypes } from '../components/modal/GlobalModal';
 import type { ILogoutType } from '../components/modal/LogoutModal';
-import type { IPostAdType } from '../components/modal/PostAdModal';
+import type { IPostAdType } from '../components/modal/postAdModal/PostAdModal';
 import type { IProductDeleteType } from '../components/modal/ProductDeleteModal';
 import type { IProductStatusType } from '../components/modal/ProductStatusModal';
 import type { IWithdrawalType } from '../components/modal/WithdrawalModal';

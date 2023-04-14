@@ -106,3 +106,23 @@ export interface IProductSetRes {
   cnt: number;
   list: IProductSetList[];
 }
+
+export interface IAdProductSet {
+  id: number;
+  k_No: number;
+  keyword: string;
+  k_Level: number;
+  k_Cost: number;
+  k_Click: number;
+  clickCost: number;
+  k_Status: boolean;
+}
+export interface IAdProductSetRes {
+  cnt: number;
+  keywordList: IAdProductSet[];
+  p_Status: boolean;
+}
+
+export interface ILevelRes {
+  levelCost: number;
+}

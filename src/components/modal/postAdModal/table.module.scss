@@ -1,0 +1,61 @@
+@use '../../../shared/styles/colors' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.base {
+  @include size(100%, 120px);
+  background-color: $bg_white;
+  margin-bottom: 30px;
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid $lc_gray300;
+}
+.table {
+  @include size(inherit, inherit);
+  border-collapse: collapse;
+}
+.table tr {
+  @include size(100%, 50px);
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
+}
+
+.table td {
+  @include size(auto, 70px);
+  @include font(12px, 500);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.none {
+  @include size(100%, 70px);
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  color: $fc_gray500;
+  td {
+    font-size: 16px;
+    border-bottom: none;
+  }
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  @include size(20%, inherit);
+  text-align: center;
+}
+.table th:nth-child(2),
+.table td:nth-child(2),
+.table th:nth-child(3),
+.table td:nth-child(3),
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  @include size(15%, inherit);
+  text-align: center;
+}
+.keyword {
+  @include size(100px, auto);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 0 auto;
+}

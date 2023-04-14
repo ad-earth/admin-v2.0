@@ -7,6 +7,7 @@ export const CATEGORY = [
   '화장품',
   '문구',
 ];
+export const KEYWORD_LEVEL = ['1', '2', '3', '4'];
 export const PARCEL_STATUS = ['전체', '신규주문', '배송완료', '주문취소'];
 export const SERVICE_HEAD_LIST = [
   {
@@ -145,5 +146,58 @@ export const SET_HEADS_LIST = [
   {
     id: 5,
     val: '상품수정',
+  },
+];
+export const AD_HEADS_LIST = [
+  {
+    id: 0,
+    val: 'No',
+  },
+  {
+    id: 1,
+    val: '키워드',
+  },
+  {
+    id: 2,
+    val: '현재순위',
+  },
+  {
+    id: 3,
+    val: '입찰가',
+  },
+  {
+    id: 4,
+    val: '순위별 클릭 수',
+  },
+  {
+    id: 5,
+    val: '순위별 총 광고비',
+  },
+  {
+    id: 6,
+    val: '노출 상태',
+  },
+  {
+    id: 7,
+    val: '광고 수정',
+  },
+];
+
+export const AD_MODAL_HEADS_LIST = [
+  {
+    id: 0,
+    val: '키워드',
+  },
+  {
+    id: 1,
+    val: '예상순위',
+  },
+  {
+    id: 2,
+    val: '예상금액',
+  },
+  {
+    id: 3,
+    val: '입찰가',
   },
 ];

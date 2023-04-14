@@ -2,28 +2,32 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
 import ProductSetButtonBox from '../components/productSet/ProductSetButtonBox';
-import ProductSetTabel from '../components/productSet/ProductSetTable';
+import ProductSetTable from '../components/productSet/ProductSetTable';
 import { MediumDropdown } from '../elements/DropDown';
 import Pagination from '../elements/Pagination';
+import useModal from '../hooks/useModal';
 import useProdManagement from '../query/useProdManagement';
 import styles from './productSetPage.module.scss';
 
 export default function ProductSetPage() {
+  const { showModal } = useModal();
   const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
-  const { productQuery, removeProduct } = useProdManagement();
+  const { productQuery } = useProdManagement();
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
 
   useEffect(() => {
     setCheckedItems([]);
-  }, [page]);
+  }, [page, productQuery.data?.tableLength]);
 
   const setDelHandler = () => {
     checkedItems.length === 0
       ? toast.error('삭제할 상품이 없습니다.')
-      : removeProduct.mutate(checkedItems, {
-          onSuccess: () => {
-            toast.success('상품이 삭제되었습니다.');
+      : showModal({
+          modalType: 'ProductDeleteModal',
+          modalProps: {
+            title: '상품을 삭제하시겠습니까?',
+            productNo: { p_No: checkedItems },
           },
         });
   };
@@ -39,7 +43,7 @@ export default function ProductSetPage() {
         />
       </div>
       <ProductSetButtonBox setDelHandler={setDelHandler} />
-      <ProductSetTabel
+      <ProductSetTable
         prodList={productQuery?.data?.tableList}
         checkedItems={checkedItems}
         setCheckedItems={setCheckedItems}

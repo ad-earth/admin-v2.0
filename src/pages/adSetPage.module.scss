@@ -1,0 +1,22 @@
+@use '../shared/styles/colors' as *;
+@use '../shared/styles/mixins' as *;
+
+#container {
+  margin: 24px 32px;
+}
+.title {
+  font-size: 30px;
+}
+
+.pagination ul {
+  justify-content: center;
+}
+.searchBox {
+  background-color: $bg_white;
+  padding: 20px 24px;
+  margin: 40px 0;
+  border-radius: 5px;
+}
+.paginationBox {
+  @include flex($j: center);
+}

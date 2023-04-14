@@ -26,7 +26,7 @@ export default function ProductStatusModal(props: IProductStatusType) {
       <div className={styles.modalContent}>
         <h2>{props.title}</h2>
         <p className={styles.subTitle}> 미 노출시 상품 노출이 불가능합니다.</p>
-        <div>
+        <div className={styles.btnBox}>
           <Button
             styleClass="medium_modal_hide"
             text="취소"
