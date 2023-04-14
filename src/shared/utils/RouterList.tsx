@@ -6,7 +6,7 @@ import ProductPostPage from '../../pages/ProductPostPage';
 import ProductSetPage from '../../pages/ProductSetPage';
 import ReportPage from '../../pages/ReportPage';
 import ServicePage from '../../pages/ServicePage';
-import SignUpPage from '../../pages/SignUpPage';
+import SignUpPage from '../../pages/SignupPage';
 
 export const AuthRouterData = [
   {

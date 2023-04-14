@@ -14,6 +14,11 @@ button {
     background: $bg_blue100;
     @include size(335px, 52px);
     @include font(16px, 500, $fc_white);
+    &:disabled {
+      background: $bg_gray200;
+      color: $fc_blue300;
+      cursor: initial;
+    }
   }
   &.big_gray {
     background: $bg_gray200;

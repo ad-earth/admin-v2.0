@@ -1,0 +1,16 @@
+@use '../shared/styles/mixins' as *;
+@use '../shared/styles/colors' as *;
+
+#container {
+  @include size(50vw, 100vh);
+  @include flex(column, center, center);
+  img {
+    width: 200px;
+    height: 50px;
+  }
+}
+
+.title {
+  @include font(24px, 500);
+  margin: 25px 0;
+}

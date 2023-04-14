@@ -201,3 +201,30 @@ export const AD_MODAL_HEADS_LIST = [
     val: '입찰가',
   },
 ];
+export const SIGNUP_INPUT = {
+  id: {
+    isCheck: false,
+    msg: '',
+  },
+  password: {
+    isCheck: false,
+    msg: '',
+    val: '',
+  },
+  passwordCheck: {
+    isCheck: false,
+    msg: '',
+  },
+  brand: {
+    isCheck: false,
+    msg: '',
+  },
+  buisness: {
+    isCheck: false,
+    msg: '',
+  },
+  tel: {
+    isCheck: false,
+    msg: '',
+  },
+};

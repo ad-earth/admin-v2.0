@@ -1,9 +1,18 @@
 import type { TAddProd } from '../../query/useAdManagement';
+import type { TAuthDataType } from '../../query/useAuth';
 import type { TOptionList } from '../types/types';
 import axiosInstance from './instance';
 
 export const login = (id: string, pwd: string) =>
   axiosInstance.post('/admins/login', { a_Id: id, a_Pw: pwd });
+export const postSingup = (authData: TAuthDataType) =>
+  axiosInstance.post('/admins/register', {
+    a_Id: authData.a_Id,
+    a_Pw: authData.a_Pw,
+    a_Brand: authData.a_Brand,
+    a_Number: authData.a_Number,
+    a_Phone: authData.a_Phone,
+  });
 
 export const findId = (brand: string, bNumber: string) =>
   axiosInstance.get(`/admins/find-id?a_Brand=${brand}&a_Number=${bNumber}`);
