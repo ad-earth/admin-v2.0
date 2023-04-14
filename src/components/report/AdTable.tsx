@@ -33,7 +33,7 @@ export default function AdTable({ dataList }: TProps) {
       ) : (
         <tbody>
           <tr>
-            <td className={styles.nodata}>해당하는 상품이 없습니다.</td>
+            <td className={styles.nodata}>등록된 광고 키워드가 없습니다.</td>
           </tr>
         </tbody>
       )}
