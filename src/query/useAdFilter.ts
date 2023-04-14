@@ -18,7 +18,10 @@ export default function useAdFilter() {
 
   const AdFilterList = useMemo(
     () =>
-      AdfilterQuery?.data?.productList.map(list => list.p_Name) || ['상품없음'],
+      (AdfilterQuery?.data?.productList.length > 0 &&
+        AdfilterQuery?.data?.productList.map(list => list.p_Name)) || [
+        '상품없음',
+      ],
     [AdfilterQuery]
   );
   return { AdfilterQuery, AdFilterList };

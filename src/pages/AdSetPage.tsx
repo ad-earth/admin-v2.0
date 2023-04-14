@@ -19,11 +19,11 @@ export default function AdSetPage() {
 
   const productNum = useMemo(
     () =>
-      product !== ''
+      product !== '상품없음'
         ? AdfilterQuery?.data?.productList.filter(
             el => el.p_Name === product
           )[0].p_No
-        : 0,
+        : null,
     [AdfilterQuery, product]
   );
 
