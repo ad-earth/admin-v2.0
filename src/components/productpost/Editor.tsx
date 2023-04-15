@@ -25,7 +25,6 @@ export default function Editor({ contents, setContents }: IProps) {
           editorUploader(input.files).then(url => {
             const imgUrl = url;
             const quill = QuillRef.current?.getEditor();
-            console.log('quill: ', quill);
             const range = quill?.getSelection()?.index;
             if (typeof range !== 'number') return;
             quill?.setSelection(range, 1);
