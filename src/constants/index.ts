@@ -156,26 +156,32 @@ export const AD_HEADS_LIST = [
   {
     id: 1,
     val: '키워드',
+    tooltip: '해당 키워드를 검색했을 경우 상품이 노출됩니다.',
   },
   {
     id: 2,
     val: '현재순위',
+    tooltip: '적용된 순위로 상품이 상단에 노출됩니다.',
   },
   {
     id: 3,
     val: '입찰가',
+    tooltip: '해당 키워드 입찰 금액',
   },
   {
     id: 4,
     val: '순위별 클릭 수',
+    tooltip: '해당 키워드가 클릭된 횟수',
   },
   {
     id: 5,
     val: '순위별 총 광고비',
+    tooltip: '입찰가 + 순위별 클릭 수',
   },
   {
     id: 6,
     val: '노출 상태',
+    tooltip: '키워드 광고 노출 여부',
   },
   {
     id: 7,
