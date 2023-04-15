@@ -54,5 +54,5 @@ npm start
 
 ## 기타
 - [🤝 Convention](https://github.com/ad-earth/client-v2.0/issues/73)
-- [🧩 IA](https://www.figma.com/file/PhU5ITHbMHReiIQBqjD4IA/%EA%B4%91%EA%B3%A0%EC%A7%80%EA%B5%AC-%EC%9C%A0%EC%A0%80%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8%2F-%EC%A0%95%EB%B3%B4%EA%B5%AC%EC%A1%B0?node-id=0%3A1&t=KEFBC7Jlh6tXESbb-1)
+- [🧩 IA](https://www.figma.com/file/PhU5ITHbMHReiIQBqjD4IA/%EA%B4%91%EA%B3%A0%EC%A7%80%EA%B5%AC-%EC%9C%A0%EC%A0%80%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%B0%A8%ED%8A%B8%2F-%EC%A0%95%EB%B3%B4%EA%B5%AC%EC%A1%B0?node-id=0-1)
 - [📄 API](https://documenter.getpostman.com/view/18707207/2s7Z7ZnZDy)
