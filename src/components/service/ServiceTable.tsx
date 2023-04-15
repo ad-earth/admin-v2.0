@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { CSVLink } from 'react-csv';
+import toast from 'react-hot-toast';
 import { EXCEL_HEAD_LIST, SERVICE_HEAD_LIST } from '../../constants';
 import Button from '../../elements/Button';
 import Pagination from '../../elements/Pagination';
@@ -52,12 +53,14 @@ export default function ServiceTable({ cnt, list, excel }: IProps) {
     confirmService: { mutate },
   } = useService();
   const handleConfirm = () => {
-    mutate(
-      { confirmList },
-      {
-        onSuccess: () => setCheckedItems([]),
-      }
-    );
+    if (checkedItems.length > 0) {
+      mutate(
+        { confirmList },
+        {
+          onSuccess: () => setCheckedItems([]),
+        }
+      );
+    } else return toast.error('주문 확정하실 상품을 먼저 선택해주세요.');
   };
 
   return (
