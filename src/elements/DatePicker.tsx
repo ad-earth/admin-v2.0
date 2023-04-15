@@ -1,14 +1,15 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 import type { ChangeEvent } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import useMinDate from '../hooks/useMinDate';
+import useDate from '../hooks/useDate';
 import styles from './datePicker.module.scss';
 
 export default function DatePicker() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const minDate = useMinDate();
-  const today = useMemo(() => new Date().toISOString().substring(0, 10), []);
-
+  const { minTime } = useDate();
+  const { nowTime } = useDate();
+  const minDate = minTime();
+  const today = nowTime();
   const startDate = searchParams.get('start');
   const endDate = searchParams.get('end');
 
