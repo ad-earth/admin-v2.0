@@ -1,6 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { useMemo } from 'react';
 import { useQuery } from 'react-query';
+import queryKeys from '../constants/queryKeys';
 import { getAd } from '../shared/api/apis';
 
 interface IAdProduct {
@@ -11,7 +12,7 @@ interface IAdProductRes {
   productList: IAdProduct[];
 }
 export default function useAdFilter() {
-  const AdfilterQuery = useQuery('adProdFilter', getAd, {
+  const AdfilterQuery = useQuery(queryKeys.AD_PRODUCT_FILTER, getAd, {
     refetchOnWindowFocus: false,
     select: (data: AxiosResponse<IAdProductRes>) => data.data,
   });

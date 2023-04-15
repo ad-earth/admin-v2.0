@@ -1,6 +1,7 @@
 import type { AxiosError, AxiosResponse } from 'axios';
 import { toast } from 'react-hot-toast';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
+import queryKeys from '../constants/queryKeys';
 import useModal from '../hooks/useModal';
 import {
   delAdProd,
@@ -27,7 +28,7 @@ export default function useAdManagement(product?: number) {
   const { hideModal } = useModal();
 
   const productQuery = useQuery(
-    ['adProductSet', { filter: product }],
+    [queryKeys.AD_PRODUCT, { filter: product }],
     () => getAdProd(product),
     {
       refetchOnWindowFocus: false,
@@ -44,13 +45,13 @@ export default function useAdManagement(product?: number) {
     (delData: TRemove) => delAdProd(delData.p_No, delData.k_No),
     {
       onSuccess: () => {
-        queryClient.invalidateQueries(['adProductSet']);
+        queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
       },
     }
   );
   const addProduct = useMutation((addData: TAddProd) => postAdProd(addData), {
     onSuccess: () => {
-      queryClient.invalidateQueries(['adProductSet']);
+      queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
       toast.success('광고를 등록했습니다.');
       hideModal();
     },
@@ -60,7 +61,7 @@ export default function useAdManagement(product?: number) {
   });
   const changeProduct = useMutation((addData: TAddProd) => putAdProd(addData), {
     onSuccess: () => {
-      queryClient.invalidateQueries(['adProductSet']);
+      queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
       toast.success('광고를 수정했습니다.');
       hideModal();
     },
