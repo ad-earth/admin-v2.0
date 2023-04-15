@@ -6,12 +6,14 @@ import AdSetButtonBox from '../components/adSet/AdSetButtonBox';
 import AdSetTable from '../components/adSet/AdSetTable';
 import { MediumDropdown } from '../elements/DropDown';
 import Pagination from '../elements/Pagination';
+import useModal from '../hooks/useModal';
 import useAdFilter from '../query/useAdFilter';
 import useAdManagement from '../query/useAdManagement';
 
 import styles from './adSetPage.module.scss';
 
 export default function AdSetPage() {
+  const { showModal } = useModal();
   const { AdfilterQuery, AdFilterList } = useAdFilter();
   const [searchParams] = useSearchParams();
   const product = searchParams.get('product');
@@ -27,7 +29,7 @@ export default function AdSetPage() {
     [AdfilterQuery, product]
   );
 
-  const { productQuery, removeProduct } = useAdManagement(productNum);
+  const { productQuery } = useAdManagement(productNum);
 
   useEffect(() => {
     setCheckedItems([]);
@@ -36,14 +38,14 @@ export default function AdSetPage() {
   const setDelHandler = () => {
     checkedItems.length === 0
       ? toast.error('삭제할 상품이 없습니다.')
-      : removeProduct.mutate(
-          { p_No: productNum, k_No: checkedItems },
-          {
-            onSuccess: () => {
-              toast.success('상품이 삭제되었습니다.');
-            },
-          }
-        );
+      : showModal({
+          modalType: 'AdProductDeleteModal',
+          modalProps: {
+            title: '상품을 삭제하시겠습니까?',
+            p_No: productNum,
+            k_No: checkedItems,
+          },
+        });
   };
 
   return (

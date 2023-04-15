@@ -46,6 +46,8 @@ export default function useAdManagement(product?: number) {
     {
       onSuccess: () => {
         queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
+        toast.success('상품이 삭제되었습니다.');
+        hideModal();
       },
     }
   );

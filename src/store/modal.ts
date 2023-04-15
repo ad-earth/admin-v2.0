@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import type { IAdProductDeleteType } from '../components/modal/AdProductDeleteModal';
 import type { modalTypes } from '../components/modal/GlobalModal';
 import type { ILogoutType } from '../components/modal/LogoutModal';
 import type { IPostAdType } from '../components/modal/postAdModal/PostAdModal';
@@ -26,12 +27,17 @@ interface ProductDeleteModalType {
   modalType: typeof modalTypes.ProductDeleteModal;
   modalProps: IProductDeleteType;
 }
+interface AdProductDeleteModalType {
+  modalType: typeof modalTypes.AdProductDeleteModal;
+  modalProps: IAdProductDeleteType;
+}
 export type ModalType =
   | WithdrawalModalType
   | LogoutModalType
   | PostAdModalType
   | ProductStatusModalType
-  | ProductDeleteModalType;
+  | ProductDeleteModalType
+  | AdProductDeleteModalType;
 
 export const modalState = atom<ModalType | null>({
   key: 'modalState',
