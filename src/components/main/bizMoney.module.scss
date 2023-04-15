@@ -38,6 +38,7 @@ $radius: 5px;
   margin-bottom: 10px;
   h3,
   img {
+    @include size(20px, 20px);
     float: left;
   }
 }
