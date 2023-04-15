@@ -4,7 +4,7 @@ import Button from '../../../elements/Button';
 import useModal from '../../../hooks/useModal';
 import { useAdkeyword } from '../../../query/useAdkeyword';
 import useAdManagement from '../../../query/useAdManagement';
-import Form from './KeywordForm';
+import { AdSubmitForm, KeywordSubmitForm } from './KeywordForm';
 import styles from './postAdModal.module.scss';
 import AntSwitch from './Switch';
 import Table from './Table';
@@ -149,13 +149,13 @@ export default function PostAdModal(props: IPostAdType) {
         >
           {isChange ? (
             <span>{dataList.keyword}</span>
-          ) : (
-            <Form
+          ) : dataList.k_Status ? (
+            <KeywordSubmitForm
               keywordSubmit={keywordSubmit}
-              keywordInput={keywordInput}
               handleKeyword={handleKeyword}
-              adSubmit={adSubmit}
             />
+          ) : (
+            <AdSubmitForm adSubmit={adSubmit} handleKeyword={handleKeyword} />
           )}
         </TooltipTiltle>
         {dataList.k_Status && (

@@ -5,8 +5,7 @@
   @include size(50vw, 100vh);
   @include flex(column, center, center);
   img {
-    width: 200px;
-    height: 50px;
+    @include size(200px, 50px);
   }
 }
 

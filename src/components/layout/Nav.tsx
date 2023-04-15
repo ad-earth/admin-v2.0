@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '../../elements/Button';
-import useMinDate from '../../hooks/useMinDate';
+import useDate from '../../hooks/useDate';
 import useModal from '../../hooks/useModal';
 import useAdFilter from '../../query/useAdFilter';
 import useProducts from '../../query/useProducts';
@@ -13,8 +13,10 @@ export default function Nav() {
   const { showModal } = useModal();
   const { AdFilterList } = useAdFilter();
 
-  const startDate = useMinDate();
-  const endDate = useMemo(() => new Date().toISOString().substring(0, 10), []);
+  const { minTime } = useDate();
+  const { nowTime } = useDate();
+  const startDate = minTime();
+  const endDate = nowTime();
 
   const withdrawalClcik = () =>
     showModal({
