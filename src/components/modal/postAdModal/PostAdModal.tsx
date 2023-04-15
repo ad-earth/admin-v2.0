@@ -4,8 +4,7 @@ import Button from '../../../elements/Button';
 import useModal from '../../../hooks/useModal';
 import { useAdkeyword } from '../../../query/useAdkeyword';
 import useAdManagement from '../../../query/useAdManagement';
-import type { IAdProductSet } from '../../../shared/types/types';
-import Form from './Form';
+import Form from './KeywordForm';
 import styles from './postAdModal.module.scss';
 import AntSwitch from './Switch';
 import Table from './Table';
@@ -15,7 +14,12 @@ export interface IPostAdType {
   title: string;
   product?: string;
   productNum?: number;
-  data?: IAdProductSet;
+  data?: {
+    keyword?: string;
+    k_Level?: number;
+    k_Cost?: number;
+    k_Status?: boolean;
+  };
 }
 export interface IData {
   p_No: number;
@@ -33,23 +37,22 @@ export interface IFormTarget extends React.FormEvent<HTMLFormElement> {
 
 export default function PostAdModal(props: IPostAdType) {
   const { title, product, productNum, data } = props;
-  const isChange = title === '광고수정';
   const { hideModal } = useModal();
   const { addProduct, changeProduct } = useAdManagement();
   const [keywordInput, setKeywordInput] = useState<string>('');
-  const space = /\s/;
+
+  const isChange = title === '광고수정';
 
   const [dataList, setDataList] = useState<IData>({
     p_No: productNum,
     keyword: data?.keyword || null,
-    k_Level:
-      data?.k_Status && data?.k_Level
-        ? data.k_Level === 5
-          ? 1
-          : data.k_Level
-        : null,
+    k_Level: data?.k_Level
+      ? data.k_Level === 5
+        ? 1
+        : data.k_Level
+      : undefined,
     k_Cost: data?.k_Cost || 0,
-    k_Status: data?.k_Status || !isChange,
+    k_Status: data?.k_Status,
   });
   const { keywordLevelQuery } = useAdkeyword({
     p_No: dataList.p_No,
@@ -57,6 +60,7 @@ export default function PostAdModal(props: IPostAdType) {
     k_Level: dataList.k_Level,
   });
 
+  const space = /\s/;
   function handleKeyword(e: React.ChangeEvent<HTMLInputElement>) {
     const val = e.target.value;
     space.exec(val)
@@ -64,44 +68,60 @@ export default function PostAdModal(props: IPostAdType) {
       : setKeywordInput(e.target.value);
   }
 
-  function keywordSubmit(e: IFormTarget) {
+  const keywordSubmit = (e: IFormTarget) => {
     e.preventDefault();
-    let form = e.target.keyword.value;
-    !dataList.k_Status &&
-      toast('광고 스위치가 on 상태에서 광고등록이 가능합니다.');
     !space.exec(keywordInput) && keywordInput.length > 0
-      ? setDataList({ ...dataList, keyword: form, k_Level: 1 })
+      ? setDataList({ ...dataList, keyword: keywordInput, k_Level: 1 })
       : toast.error('키워드를 입력해주세요');
-  }
-
-  function adSubmit(e: IFormTarget) {
+  };
+  const adSubmit = (e?: IFormTarget) => {
     e.preventDefault();
-    if (dataList.k_Cost < keywordLevelQuery.data?.levelCost) {
+    if (
+      dataList.k_Status &&
+      dataList.k_Cost < keywordLevelQuery.data?.levelCost
+    )
       return toast.error('입찰가가 예상금액보다 낮습니다.');
-    }
+
     switch (title) {
       case '광고등록':
-        addProduct.mutate({
-          p_No: dataList.p_No,
-          keyword: dataList.keyword,
-          k_Level: dataList.k_Level,
-          k_Cost: dataList.k_Cost,
-          k_Status: dataList.k_Status,
-        });
+        dataList.k_Level
+          ? addProduct.mutate({
+              p_No: dataList.p_No,
+              keyword: dataList.keyword,
+              k_Level: dataList.k_Level,
+              k_Cost: dataList.k_Cost,
+              k_Status: dataList.k_Status,
+            })
+          : addProduct.mutate({
+              p_No: dataList.p_No,
+              keyword: keywordInput,
+              k_Level: 5,
+              k_Cost: 0,
+              k_Status: false,
+            });
         break;
       case '광고수정':
-        changeProduct.mutate({
-          p_No: dataList.p_No,
-          keyword: dataList.keyword,
-          k_Level: dataList.k_Level,
-          k_Cost: dataList.k_Cost,
-          k_Status: dataList.k_Status,
-        });
+        dataList.k_Status
+          ? changeProduct.mutate({
+              p_No: dataList.p_No,
+              keyword: dataList.keyword,
+              k_Level: dataList.k_Level,
+              k_Cost: dataList.k_Cost,
+              k_Status: dataList.k_Status,
+            })
+          : changeProduct.mutate({
+              p_No: dataList.p_No,
+              keyword: dataList.keyword,
+              k_Level: 5,
+              k_Cost: 0,
+              k_Status: false,
+            });
         break;
       default:
         toast.error(`err : ${title}`);
     }
-  }
+  };
+  const isDisabled = isChange ? !dataList.keyword : !keywordInput.length;
 
   return (
     <div className={styles.base}>
@@ -134,27 +154,28 @@ export default function PostAdModal(props: IPostAdType) {
               keywordSubmit={keywordSubmit}
               keywordInput={keywordInput}
               handleKeyword={handleKeyword}
+              adSubmit={adSubmit}
             />
           )}
         </TooltipTiltle>
-        {dataList.k_Status && keywordLevelQuery?.data && (
+        {dataList.k_Status && (
           <Table
-            levelCost={keywordLevelQuery.data?.levelCost}
+            levelCost={keywordLevelQuery?.data?.levelCost}
             keyword={dataList.keyword}
             kLevel={dataList.k_Level}
+            kCost={data.k_Cost}
             setDataList={setDataList}
             adSubmit={adSubmit}
           />
         )}
         <div className={styles.btnBox}>
           <Button
-            styleClass="medium_blue"
             type="submit"
-            disabled={
-              !dataList.keyword || !dataList.k_Level || !dataList.k_Status
-            }
+            form="adForm"
+            styleClass="medium_blue"
+            disabled={isDisabled}
             text={title}
-            form="levelForm"
+            onClick={adSubmit}
           />
         </div>
       </div>

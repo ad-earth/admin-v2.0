@@ -35,6 +35,9 @@ export default function AdSetButtonBox({
           title: '광고등록',
           product: product,
           productNum: productNum,
+          data: {
+            k_Status: true,
+          },
         },
       });
     }

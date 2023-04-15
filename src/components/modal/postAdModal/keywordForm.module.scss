@@ -1,7 +1,7 @@
 @use '../../../shared/styles/colors' as *;
 @use '../../../shared/styles/mixins' as *;
 
-.form {
+.base {
   @include size(100%, auto);
   @include flex;
 }
