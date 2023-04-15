@@ -15,7 +15,10 @@ const useReport = (date: string, productNumber: number) => {
     }
   );
 
-  const dataList = useMemo(() => data?.data.list, [data]);
+  const dataList = useMemo(
+    () => data?.data.list.sort((a, b) => b.k_Trans - a.k_Trans),
+    [data]
+  );
 
   return { dataList };
 };
