@@ -13,12 +13,13 @@ export default function ProductSetPage() {
   const { showModal } = useModal();
   const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
+  const category = searchParams.get('category');
   const { productQuery } = useProdManagement();
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
 
   useEffect(() => {
     setCheckedItems([]);
-  }, [page, productQuery.data?.tableLength]);
+  }, [category, page, productQuery.data?.tableLength]);
 
   const setDelHandler = () => {
     checkedItems.length === 0

@@ -36,7 +36,7 @@ export default function AdSetButtonBox({
           product: product,
           productNum: productNum,
           data: {
-            k_Status: true,
+            k_Status: false,
           },
         },
       });
@@ -49,7 +49,7 @@ export default function AdSetButtonBox({
           src={process.env.PUBLIC_URL + 'assets/icon/delete.png'}
           alt="deleteIcon"
         />
-        상품 삭제
+        키워드 삭제
       </Button>
       <Button styleClass="small_gray" onClick={keywordBtnClcik}>
         광고 등록

@@ -28,6 +28,7 @@
     @include font(24px, 500, $fc_blue300);
   }
   img {
+    @include size(20px, 22px);
     cursor: pointer;
   }
 }
