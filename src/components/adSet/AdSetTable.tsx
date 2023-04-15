@@ -1,5 +1,6 @@
 import type { Dispatch, SetStateAction } from 'react';
 import { AD_HEADS_LIST } from '../../constants';
+import Button from '../../elements/Button';
 import TableHead from '../../elements/TableHead';
 import useModal from '../../hooks/useModal';
 import type { IAdProductSet } from '../../shared/types/types';
@@ -80,10 +81,13 @@ export default function AdSetTable(props: TProps) {
                   <td>{item.k_Click.toLocaleString('ko-KR')}</td>
                   <td>{item.clickCost.toLocaleString('ko-KR')}</td>
                   <td>{item.k_Status ? '노출' : '미노출'}</td>
-                  <td className={(styles.hover, styles.link)}>
-                    <button value={i} onClick={() => changeKeyword(item)}>
+                  <td className={styles.hover}>
+                    <Button
+                      styleClass="xsmall_gray"
+                      onClick={() => changeKeyword(item)}
+                    >
                       수정
-                    </button>
+                    </Button>
                   </td>
                 </tr>
               );

@@ -61,6 +61,11 @@ button {
     @include size(50px, 30px);
     @include font(14px, 500, $fc_white);
   }
+  &.xsmall_gray {
+    background: $bg_gray400;
+    @include size(50px, 30px);
+    @include font(14px, 500, $fc_white);
+  }
 
   &.border_img {
     @include flex($j: center, $a: center, $g: 5px);
