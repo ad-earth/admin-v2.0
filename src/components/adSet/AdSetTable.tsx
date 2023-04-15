@@ -76,9 +76,9 @@ export default function AdSetTable(props: TProps) {
                   <td>{item.id}</td>
                   <td>{item.keyword}</td>
                   <td>{item.k_Level === 5 ? '-' : item.k_Level}</td>
-                  <td>{item.k_Cost}</td>
-                  <td>{item.k_Click}</td>
-                  <td>{item.clickCost}</td>
+                  <td>{item.k_Cost.toLocaleString('ko-KR')}</td>
+                  <td>{item.k_Click.toLocaleString('ko-KR')}</td>
+                  <td>{item.clickCost.toLocaleString('ko-KR')}</td>
                   <td>{item.k_Status ? '노출' : '미노출'}</td>
                   <td className={(styles.hover, styles.link)}>
                     <button value={i} onClick={() => changeKeyword(item)}>
