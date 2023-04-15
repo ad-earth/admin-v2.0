@@ -18,6 +18,7 @@ import Thumbnail from './Thumbnail';
 export default function PostForm() {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const { prodList } = useGetProduct(state?.p_Number);
   const [category, setCategory] = useState<string>('');
   const [prodName, setProdName] = useState<string>('');
   const [prodPrice, setProdPrice] = useState<string>('');
@@ -30,10 +31,7 @@ export default function PostForm() {
   const [isErrorCheck, SetIsErrorCheck] = useState<boolean>(false);
   const option = useRecoilValue(optionList);
 
-  const { prodList } = useGetProduct(state?.p_Number);
-
   const { showModal } = useModal();
-
   const handleRemove = () => {
     showModal({
       modalType: 'ProductDeleteModal',
@@ -43,6 +41,7 @@ export default function PostForm() {
       },
     });
   };
+
   useEffect(() => {
     if (prodList) {
       setCategory(prodList.p_Category);
@@ -71,7 +70,6 @@ export default function PostForm() {
   };
 
   const { postProduct, editProduct } = useProduct();
-
   const handlePost = () => {
     ErrorCheck();
     if (isErrorCheck) {
