@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Button from '../../elements/Button';
 import Input from '../../elements/Input';
+import type { TOptionList } from '../../store/option';
 import { optionListState } from '../../store/option';
 import styles from './option.module.scss';
 
@@ -30,15 +31,15 @@ export default function Option({ isProd }: IProps) {
   }, [isProd]);
 
   const handleAdd = () => {
-    const newOption = {
+    const newOption: TOptionList = {
       id: optionList.length + 1,
       colorCheck: false,
       optionCheck: false,
-      color: '',
-      colorCode: '',
-      option: '',
-      optionPrice: 0,
-      optionCnt: 0,
+      color: null,
+      colorCode: null,
+      option: null,
+      optionPrice: null,
+      optionCnt: null,
     };
     setOptionList([...optionList, newOption]);
   };
