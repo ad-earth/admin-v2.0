@@ -55,7 +55,6 @@ export default function Table(props: TProps) {
                   itemList={KEYWORD_LEVEL}
                   selected={levelSelected}
                   setSelected={setLevelSelected}
-                  styleClass="xsm"
                 />
               </td>
               <td>{levelCost.toLocaleString('ko-KR')} 원</td>
