@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import Button from '../../elements/Button';
 import Input from '../../elements/Input';
-import type { TOptionList } from '../../store/option';
+import useOption from '../../hooks/useOption';
 import { optionListState } from '../../store/option';
 import styles from './option.module.scss';
 
@@ -30,63 +30,14 @@ export default function Option({ isProd }: IProps) {
     else return;
   }, [isProd]);
 
-  const handleAdd = () => {
-    const newOption: TOptionList = {
-      id: optionList.length + 1,
-      colorCheck: false,
-      optionCheck: false,
-      color: null,
-      colorCode: null,
-      option: null,
-      optionPrice: null,
-      optionCnt: null,
-    };
-    setOptionList([...optionList, newOption]);
-  };
-
-  const handleRemove = (id: number) => {
-    if (optionList.length < 2) return;
-    setOptionList(optionList.filter(el => el.id !== id));
-  };
-
-  const handleCheck = (id: string, name: string, checked: boolean) => {
-    let copy = [...optionList];
-    const findIndex = copy.findIndex(el => el.id === Number(name));
-    if (findIndex !== -1 && id === 'color') {
-      copy[findIndex] = { ...copy[findIndex], colorCheck: checked };
-      if (!checked) {
-        copy[findIndex] = { ...copy[findIndex], color: null, colorCode: null };
-      }
-    }
-    if (findIndex !== -1 && id === 'option') {
-      copy[findIndex] = { ...copy[findIndex], optionCheck: checked };
-      if (!checked) {
-        copy[findIndex] = { ...copy[findIndex], option: null };
-      }
-    }
-    setOptionList(copy);
-  };
-
-  const handleSetInput = (id: string, name: string, value: string) => {
-    let copy = [...optionList];
-    const findIndex = copy.findIndex(el => el.id === Number(name));
-    if (findIndex !== -1 && id === 'colorName') {
-      copy[findIndex] = { ...copy[findIndex], color: value };
-    }
-    if (findIndex !== -1 && id === 'colorPicker') {
-      copy[findIndex] = { ...copy[findIndex], colorCode: value };
-    }
-    if (findIndex !== -1 && id === 'optionName') {
-      copy[findIndex] = { ...copy[findIndex], option: value };
-    }
-    if (findIndex !== -1 && id === 'optionPrice') {
-      copy[findIndex] = { ...copy[findIndex], optionPrice: Number(value) };
-    }
-    if (findIndex !== -1 && id === 'optionCnt') {
-      copy[findIndex] = { ...copy[findIndex], optionCnt: Number(value) };
-    }
-    setOptionList(copy);
-  };
+  const { addOptionItem, removeOptionItem, optionCheck, optionInput } =
+    useOption();
+  const handleAdd = () => addOptionItem();
+  const handleRemove = (id: number) => removeOptionItem(id);
+  const handleCheck = (id: string, name: string, checked: boolean) =>
+    optionCheck({ id, name, checked });
+  const handleSetInput = (id: string, name: string, value: string) =>
+    optionInput({ id, name, value });
 
   return (
     <div id={styles.Option}>
