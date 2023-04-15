@@ -15,6 +15,7 @@ header {
   background-color: $bg_white;
   border-bottom: 1px solid $lc_gray400;
   img {
+    @include size(150px, 35px);
     @extend %cursor_pointer;
     margin: calc((#{$height_size} - 35px) / 2) 53px;
   }
