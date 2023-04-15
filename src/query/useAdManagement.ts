@@ -15,7 +15,7 @@ type TRemove = {
   p_No: number;
   k_No: number[];
 };
-export type TAddProd = {
+export type TProductData = {
   p_No: number;
   keyword: string;
   k_Level: number;
@@ -51,25 +51,31 @@ export default function useAdManagement(product?: number) {
       },
     }
   );
-  const addProduct = useMutation((addData: TAddProd) => postAdProd(addData), {
-    onSuccess: () => {
-      queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
-      toast.success('광고를 등록했습니다.');
-      hideModal();
-    },
-    onError: (error: AxiosError<TError>) => {
-      toast.error(error.response.data.errorMessage);
-    },
-  });
-  const changeProduct = useMutation((addData: TAddProd) => putAdProd(addData), {
-    onSuccess: () => {
-      queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
-      toast.success('광고를 수정했습니다.');
-      hideModal();
-    },
-    onError: (error: AxiosError<TError>) => {
-      toast.error(error.response.data.errorMessage);
-    },
-  });
+  const addProduct = useMutation(
+    (productData: TProductData) => postAdProd(productData),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
+        toast.success('광고를 등록했습니다.');
+        hideModal();
+      },
+      onError: (error: AxiosError<TError>) => {
+        toast.error(error.response.data.errorMessage);
+      },
+    }
+  );
+  const changeProduct = useMutation(
+    (productData: TProductData) => putAdProd(productData),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(queryKeys.AD_PRODUCT);
+        toast.success('광고를 수정했습니다.');
+        hideModal();
+      },
+      onError: (error: AxiosError<TError>) => {
+        toast.error(error.response.data.errorMessage);
+      },
+    }
+  );
   return { productQuery, removeProduct, addProduct, changeProduct };
 }
