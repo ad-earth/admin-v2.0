@@ -32,3 +32,15 @@ input {
     @include size(500px, 40px);
   }
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  appearance: input;
+  -moz-appearance: input;
+  -webkit-appearance: input;
+}

@@ -11,34 +11,40 @@ type TProps = {
   levelCost: number;
   keyword: string | null;
   kLevel: number;
+  kCost: number;
   setDataList: Dispatch<SetStateAction<IData>>;
   adSubmit: (e: IFormTarget) => void;
 };
 
 export default function Table(props: TProps) {
-  const { levelCost, keyword, kLevel, setDataList, adSubmit } = props;
-  const [levelSelected, setLevelSelected] = useState(String(kLevel));
-  const [levelInput, setLevelInput] = useState<string>(String(levelCost));
+  const { levelCost, keyword, kLevel, kCost, setDataList, adSubmit } = props;
+  const [levelSelected, setLevelSelected] = useState(() =>
+    kLevel ? String(kLevel) : '1'
+  );
+  const [levelInput, setLevelInput] = useState<string>(() =>
+    kCost ? String(kCost) : '0'
+  );
+
+  useEffect(() => {
+    if (!kLevel || kLevel === Number(levelSelected)) return;
+    setDataList(prev => ({ ...prev, k_Level: Number(levelSelected) }));
+  }, [levelSelected]);
+
   const changeLevelInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value.replaceAll(',', ''));
-    isNaN(value)
-      ? setLevelInput('0')
-      : setLevelInput(value.toLocaleString('ko-KR'));
+    if (isNaN(value)) {
+      setLevelInput('0');
+      setDataList(prev => ({ ...prev, k_Cost: 0 }));
+    } else {
+      setLevelInput(value.toLocaleString('ko-KR'));
+      setDataList(prev => ({ ...prev, k_Cost: value }));
+    }
   };
-  useEffect(() => {
-    if (Number(levelSelected) === kLevel) return;
-    setDataList(prev => ({ ...prev, k_Level: Number(levelSelected) }));
-  }, [levelSelected, kLevel, setDataList]);
-
-  useEffect(() => {
-    setDataList(prev => ({ ...prev, k_Cost: Number(levelInput) }));
-  }, [levelInput, setDataList]);
-
   return (
     <div className={styles.base}>
       <table className={styles.table}>
         <TableHead headList={AD_MODAL_HEADS_LIST} isCheck={false} />
-        {keyword ? (
+        {keyword && levelCost ? (
           <tbody>
             <tr>
               <td>
@@ -49,16 +55,15 @@ export default function Table(props: TProps) {
                   itemList={KEYWORD_LEVEL}
                   selected={levelSelected}
                   setSelected={setLevelSelected}
-                  styleClass="xsm"
                 />
               </td>
               <td>{levelCost.toLocaleString('ko-KR')} 원</td>
               <td>
-                <form onSubmit={adSubmit} id="levelForm">
+                <form onSubmit={adSubmit} id="adForm">
                   <Input
                     type="text"
                     styleName="input100"
-                    placeholder={`${levelCost.toLocaleString('ko-KR')}`}
+                    placeholder={levelInput}
                     value={levelInput || ''}
                     onChange={changeLevelInput}
                     name="level"
@@ -69,10 +74,8 @@ export default function Table(props: TProps) {
           </tbody>
         ) : (
           <tbody>
-            <tr>
-              <td className={styles.none}>
-                키워드를 입력후 조회가 가능합니다.
-              </td>
+            <tr className={styles.none}>
+              <td>키워드를 입력후 조회가 가능합니다.</td>
             </tr>
           </tbody>
         )}

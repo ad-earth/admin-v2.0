@@ -1,0 +1,15 @@
+@use '../../shared/styles/mixins' as *;
+@use '../../shared/styles/colors' as *;
+
+.success {
+  color: $fc_green;
+}
+.error {
+  color: $fc_red;
+}
+#msg {
+  @include size(335px, 25px);
+  display: block;
+  margin-bottom: 7px;
+  text-align: left;
+}

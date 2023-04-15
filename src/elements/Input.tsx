@@ -15,6 +15,7 @@ export interface IProps {
   setInputNum?: (val: number) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onKeyDown?: (e: React.KeyboardEvent) => void;
+  onBlur?: (e?: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 export default function Input(props: IProps) {
@@ -28,6 +29,7 @@ export default function Input(props: IProps) {
     defaultValue,
     disabled,
     onChange,
+    onBlur,
   } = props;
   return (
     <input
@@ -41,6 +43,7 @@ export default function Input(props: IProps) {
       disabled={disabled}
       onChange={onChange}
       autoComplete="off"
+      onBlur={onBlur}
     />
   );
 }

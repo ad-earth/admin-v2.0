@@ -3,6 +3,7 @@ import type { Dispatch, SetStateAction } from 'react';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { SET_HEADS_LIST } from '../../constants';
+import Button from '../../elements/Button';
 import TableHead from '../../elements/TableHead';
 import useModal from '../../hooks/useModal';
 import type { IProductSetList } from '../../shared/types/types';
@@ -118,7 +119,7 @@ export default function ProductSetTable(props: TProps) {
                         p_Number: item.p_No,
                       }}
                     >
-                      수정
+                      <Button styleClass="xsmall_gray" text="수정" />
                     </Link>
                   </td>
                 </tr>

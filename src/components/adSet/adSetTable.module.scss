@@ -73,11 +73,6 @@
   @include size(10%, inherit);
   text-align: center;
 }
-
-.link button {
-  @include font(12px, 500);
-  color: $fc_blue300;
-}
 .checkbox[type='checkbox'] {
   @include checkbox;
 }

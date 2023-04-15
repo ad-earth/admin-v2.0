@@ -1,0 +1,30 @@
+@use '../../shared/styles/colors' as *;
+@use '../../shared/styles/mixins' as *;
+
+.base {
+  display: contents;
+  max-width: 335px;
+  :is(.success, .error) {
+    width: 335px;
+    height: 14px;
+    margin: 0px 0 16px 0;
+    text-align: left;
+  }
+  input {
+    margin-bottom: 4px;
+    &[type='submit'] {
+      cursor: pointer;
+    }
+  }
+}
+
+.findeWrap {
+  text-align: center;
+  margin-top: 32px;
+  color: $fc_gray500;
+  span {
+    color: $fc_blue100;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
