@@ -25,6 +25,10 @@
   @include font(12px, 500);
   text-align: center;
   white-space: nowrap;
+  div > div {
+    @include size(60px, 40px);
+    border-radius: 10px;
+  }
 }
 
 .none {
@@ -34,7 +38,7 @@
   text-align: center;
   color: $fc_gray500;
   td {
-    font-size: 16px;
+    @include font(12px, 500);
     border-bottom: none;
   }
 }

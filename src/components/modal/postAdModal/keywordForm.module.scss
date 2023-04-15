@@ -3,5 +3,8 @@
 
 .base {
   @include size(100%, auto);
-  @include flex;
+  @include flex($d: row);
+  form {
+    @include flex($d: row);
+  }
 }

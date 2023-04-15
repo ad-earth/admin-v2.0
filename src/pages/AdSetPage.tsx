@@ -33,15 +33,15 @@ export default function AdSetPage() {
 
   useEffect(() => {
     setCheckedItems([]);
-  }, [productQuery.data?.keywordLength]);
+  }, [productQuery.data?.keywordLength, product]);
 
   const setDelHandler = () => {
     checkedItems.length === 0
-      ? toast.error('삭제할 상품이 없습니다.')
+      ? toast.error('삭제할 광고가 없습니다.')
       : showModal({
           modalType: 'AdProductDeleteModal',
           modalProps: {
-            title: '상품을 삭제하시겠습니까?',
+            title: '해당 광고를 삭제하시겠습니까?',
             p_No: productNum,
             k_No: checkedItems,
           },
