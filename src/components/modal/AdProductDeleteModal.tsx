@@ -1,19 +1,25 @@
 import Button from '../../elements/Button';
 import useModal from '../../hooks/useModal';
-import useAuth from '../../query/useAuth';
+import useAdManagement from '../../query/useAdManagement';
 import styles from './confirmModal.module.scss';
 
-export interface IWithdrawalType {
+export interface IAdProductDeleteType {
   title: string;
+  p_No?: number;
+  k_No?: number[];
 }
-function WithdrawalModal({ title }: IWithdrawalType) {
+
+export default function AdProductDeleteModal(props: IAdProductDeleteType) {
   const { hideModal } = useModal();
-  const { removeUser } = useAuth();
+  const { removeProduct } = useAdManagement();
+
+  const changeStatus = () =>
+    removeProduct.mutate({ p_No: props.p_No, k_No: props.k_No });
 
   return (
     <div className={styles.base}>
       <div className={styles.modalContent}>
-        <h2>{title}</h2>
+        <h2>{props.title}</h2>
         <div className={styles.btnBox}>
           <Button
             styleClass="medium_modal_hide"
@@ -22,13 +28,11 @@ function WithdrawalModal({ title }: IWithdrawalType) {
           />
           <Button
             styleClass="medium_modal_success"
-            text="탈퇴하기"
-            onClick={removeUser.mutate}
+            text="확인"
+            onClick={changeStatus}
           />
         </div>
       </div>
     </div>
   );
 }
-
-export default WithdrawalModal;

@@ -1,6 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { useMutation, useQuery, useQueryClient } from 'react-query';
 import { useSearchParams } from 'react-router-dom';
+import queryKeys from '../constants/queryKeys';
 import { getProductSet, putProducts } from '../shared/api/apis';
 import type { IProductSetRes } from '../shared/types/types';
 
@@ -11,7 +12,7 @@ export default function useProdManagement() {
   const page = searchParams.get('page');
 
   const productQuery = useQuery(
-    ['productSet', { category: category, page: page }],
+    [queryKeys.PRODUCTS_TABLE, { category: category, page: page }],
     () => getProductSet(category, page),
     {
       refetchOnWindowFocus: false,
@@ -26,7 +27,7 @@ export default function useProdManagement() {
 
   const updateProduct = useMutation((no: number) => putProducts(no), {
     onSuccess: () => {
-      queryClient.invalidateQueries('productSet');
+      queryClient.invalidateQueries(queryKeys.PRODUCTS_TABLE);
     },
   });
 

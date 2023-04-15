@@ -1,6 +1,7 @@
 import type { AxiosResponse } from 'axios';
 import { useMemo } from 'react';
 import { useQueries } from 'react-query';
+import queryKeys from '../constants/queryKeys';
 import { getDashboard } from '../shared/api/apis';
 import type {
   IAdSummaryRes,
@@ -13,31 +14,31 @@ import type {
 const useMainDashboard = () => {
   const results = useQueries([
     {
-      queryKey: ['newOrder'],
+      queryKey: queryKeys.NEW_ORDER,
       queryFn: () => getDashboard('new-orders'),
       staleTime: Infinity,
       select: (data: AxiosResponse<INewOrdersRes>) => data?.data?.newOrders,
     },
     {
-      queryKey: ['lastMonth'],
+      queryKey: queryKeys.LAST_SALES,
       queryFn: () => getDashboard('last-sales'),
       staleTime: Infinity,
       select: (data: AxiosResponse<ILastSalesRes>) => data?.data?.lastSales,
     },
     {
-      queryKey: ['exposedProd'],
+      queryKey: queryKeys.ON_PRODUCT,
       queryFn: () => getDashboard('on-products'),
       staleTime: Infinity,
       select: (data: AxiosResponse<IOnProductRes>) => data?.data?.productsCnt,
     },
     {
-      queryKey: ['ranking'],
+      queryKey: queryKeys.POPULAR_KEYWORDS,
       queryFn: () => getDashboard('popular-keywords'),
       staleTime: Infinity,
       select: (data: AxiosResponse<IKeywordsRes>) => data?.data?.keywords,
     },
     {
-      queryKey: ['adSummary'],
+      queryKey: queryKeys.EXPENSE_REPORTS,
       queryFn: () => getDashboard('expense-reports'),
       staleTime: Infinity,
       select: (data: AxiosResponse<IAdSummaryRes>) => data?.data?.data,

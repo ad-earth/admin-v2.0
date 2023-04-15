@@ -1,6 +1,7 @@
 import { useRecoilState } from 'recoil';
 import { modalState } from '../../store/modal';
 
+import AdProductDeleteModal from './AdProductDeleteModal';
 import LogoutModal from './LogoutModal';
 import PostAdModal from './postAdModal/PostAdModal';
 import ProductDeleteModal from './ProductDeleteModal';
@@ -13,6 +14,7 @@ export const modalTypes = {
   PostAdModal: 'PostAdModal',
   ProductStatusModal: 'ProductStatusModal',
   ProductDeleteModal: 'ProductDeleteModal',
+  AdProductDeleteModal: 'AdProductDeleteModal',
 } as const;
 
 const modalComponents = {
@@ -21,6 +23,7 @@ const modalComponents = {
   [modalTypes.PostAdModal]: PostAdModal,
   [modalTypes.ProductStatusModal]: ProductStatusModal,
   [modalTypes.ProductDeleteModal]: ProductDeleteModal,
+  [modalTypes.AdProductDeleteModal]: AdProductDeleteModal,
 };
 
 function GlobalModal() {

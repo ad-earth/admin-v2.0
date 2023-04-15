@@ -1,9 +1,18 @@
-import type { TAddProd } from '../../query/useAdManagement';
+import type { TProductData } from '../../query/useAdManagement';
+import type { TAuthDataType } from '../../query/useAuth';
 import type { TOptionList } from '../types/types';
 import axiosInstance from './instance';
 
 export const login = (id: string, pwd: string) =>
   axiosInstance.post('/admins/login', { a_Id: id, a_Pw: pwd });
+export const postSingup = (authData: TAuthDataType) =>
+  axiosInstance.post('/admins/register', {
+    a_Id: authData.a_Id,
+    a_Pw: authData.a_Pw,
+    a_Brand: authData.a_Brand,
+    a_Number: authData.a_Number,
+    a_Phone: authData.a_Phone,
+  });
 
 export const findId = (brand: string, bNumber: string) =>
   axiosInstance.get(`/admins/find-id?a_Brand=${brand}&a_Number=${bNumber}`);
@@ -117,19 +126,19 @@ export const delAdProd = (p_No: number, k_No: number[]) =>
   axiosInstance.delete(`/admin-keywords/${p_No}`, {
     data: { keywordList: k_No },
   });
-export const postAdProd = (addData: TAddProd) =>
-  axiosInstance.post(`/admin-keywords/${addData.p_No}`, {
-    keyword: addData.keyword,
-    k_Level: addData.k_Level,
-    k_Cost: addData.k_Cost,
-    k_Status: addData.k_Status,
+export const postAdProd = (productData: TProductData) =>
+  axiosInstance.post(`/admin-keywords/${productData.p_No}`, {
+    keyword: productData.keyword,
+    k_Level: productData.k_Level,
+    k_Cost: productData.k_Cost,
+    k_Status: productData.k_Status,
   });
-export const putAdProd = (addData: TAddProd) =>
-  axiosInstance.put(`/admin-keywords/${addData.p_No}`, {
-    keyword: addData.keyword,
-    k_Level: addData.k_Level,
-    k_Cost: addData.k_Cost,
-    k_Status: addData.k_Status,
+export const putAdProd = (productData: TProductData) =>
+  axiosInstance.put(`/admin-keywords/${productData.p_No}`, {
+    keyword: productData.keyword,
+    k_Level: productData.k_Level,
+    k_Cost: productData.k_Cost,
+    k_Status: productData.k_Status,
   });
 
 export const getAdLevel = (p_No: number, keyword: string, k_Level: number) =>
