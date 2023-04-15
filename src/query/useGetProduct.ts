@@ -15,7 +15,7 @@ const useGetProduct = (p_No: number) => {
     {
       refetchOnWindowFocus: false,
       enabled: !!p_No,
-      cacheTime: 1000 * 1,
+      cacheTime: 100 * 1,
       onSuccess: ({ data }) => {
         let result = data.p_Option;
         let resultList = result.map((item: TOptionList, idx: number) => ({
