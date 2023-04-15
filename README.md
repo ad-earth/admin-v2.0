@@ -1,46 +1,58 @@
-# Getting Started with Create React App
+# 키워드 클릭 광고를 적용한 이커머스 플랫폼
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 배포 링크
+> AWS S3, CloudFront, Route53 배포 / Github Actions CICD 구축 
 
-## Available Scripts
+- [🌐 구매자 페이지](https://adearth.shop)
+- [🌐 어드민 페이지](https://adearth-admin.shop)
 
-In the project directory, you can run:
+## 실행 방법
+```
+git clone https://github.com/ad-earth/admin-v2.0.git
 
-### `npm start`
+npm install
+npm start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 서비스 개요 
+> 2023/02/28 ~  **v2.0 리팩토링 시작**
+#### 프로젝트 주제
+- 키워드 클릭 광고를 적용한 이커머스 플랫폼
+#### 개발 목적
+- 기존 키워드 클릭 광고주 페이지의 문제점들을 개선해 광고 입찰에 꼭 필요한 기능들만 선별하여 제공함으로써 사용자의 경험을 개선
+- 편리하고 간편한 서비스를 광고주들에게 제공함으로써 신규 광고주 유입 효과 기대
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## v2.0.0 주요 개선 사항
+#### 기능적 개선
+#### 기술적 개선
 
-### `npm test`
+## 페이지 주요 기능
+| 회원가입 및 로그인 페이지 | 메인 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| 배송관리 페이지 | 상품등록 & 수정 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-### `npm run build`
+| 상품관리 페이지 | 광고관리 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| 광고보고서 페이지 |
+|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 아키텍쳐 
+![광고지구아키텍쳐](https://user-images.githubusercontent.com/105091138/195766564-08299428-e979-49f0-97c8-7a130a7b106c.jpeg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## 기술 스택
+- React, TypeScript
+- React Query, Recoil, Axios
+- Sass
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 기타
+- [🤝 Convention](https://github.com/ad-earth/client-v2.0/issues/73)
+- [🧩 IA](https://www.figma.com/file/0cxWFuPwV5h23dWp4idH5k/%EA%B5%AC%EB%A7%A4%EC%9E%90-IA?node-id=0%3A1)
+- [📄 API](https://documenter.getpostman.com/view/18707207/2s7Z7ZnZDy)
