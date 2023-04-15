@@ -50,7 +50,7 @@ export default function AdSetPage() {
 
   return (
     <div id={styles.container}>
-      <h2 className={styles.title}>상품관리</h2>
+      <h2 className={styles.title}>광고관리</h2>
       <div className={styles.searchBox}>
         <MediumDropdown
           placeholder="상품명"
