@@ -154,7 +154,7 @@ export default function SignupForm() {
           } else if (errMsg === '중복된 아이디입니다.') {
             setInputData({
               ...inputData,
-              buisness: {
+              id: {
                 isCheck: false,
                 msg: error.response.data.errorMessage,
               },
@@ -162,7 +162,7 @@ export default function SignupForm() {
           } else if (errMsg === '중복된 사업자번호입니다.') {
             setInputData({
               ...inputData,
-              tel: {
+              buisness: {
                 isCheck: false,
                 msg: error.response.data.errorMessage,
               },
