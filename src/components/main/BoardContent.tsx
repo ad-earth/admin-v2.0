@@ -1,5 +1,5 @@
 import useMainDashboard from '../../query/useMainDashboard';
-import Board from '../common/Board';
+import Board from './Board';
 import styles from './boardContent.module.scss';
 
 export default function BoardContent() {
