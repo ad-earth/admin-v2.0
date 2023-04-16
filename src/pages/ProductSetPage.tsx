@@ -39,7 +39,7 @@ export default function ProductSetPage() {
       <h2 className={styles.title}>상품관리</h2>
       <div className={styles.searchBox}>
         <MediumDropdown
-          placeholder="전체"
+          placeholder="카테고리"
           itemList={selectList}
           queryKey="category"
         />
