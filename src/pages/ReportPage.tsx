@@ -15,13 +15,13 @@ export default function ReportPage() {
     () => productList?.map((el: IProduct) => el.p_Name),
     [productList]
   );
-  const [searchParams] = useSearchParams({ product: '' });
+  const [searchParams] = useSearchParams();
   const selectedProduct = searchParams.get('product');
   const { startDate, endDate } = useTerm();
 
   const productNumber = useMemo(
     () =>
-      selectedProduct !== ''
+      selectedProduct !== 'undefined'
         ? productList?.filter(
             (el: IProduct) => el.p_Name === selectedProduct
           )[0].p_No
