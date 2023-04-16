@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Button from '../../elements/Button';
 import useModal from '../../hooks/useModal';
 import useProduct from '../../query/useProduct';
@@ -8,16 +9,22 @@ type TProductNumber = {
 };
 export interface IProductDeleteType {
   title: string;
+  page?: string;
   productNo?: TProductNumber;
 }
 
 export default function ProductDeleteModal(props: IProductDeleteType) {
   const { hideModal } = useModal();
+  const navigate = useNavigate();
   const { removeProduct } = useProduct();
 
   const changeStatus = () => {
     removeProduct.mutate(props.productNo, {
-      onSuccess: () => hideModal(),
+      onSuccess: () => {
+        hideModal();
+        props.page === 'productPost' &&
+          navigate('/setProd?category=전체&page=1');
+      },
     });
   };
   return (

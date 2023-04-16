@@ -121,7 +121,11 @@ export default function PostAdModal(props: IPostAdType) {
         toast.error(`err : ${title}`);
     }
   };
-  const isDisabled = isChange ? !dataList.keyword : !keywordInput.length;
+  const isDisabled = isChange
+    ? !dataList.keyword || !dataList.k_Level || !dataList.k_Cost
+    : dataList.k_Status
+    ? !keywordInput.length || !dataList.k_Level || !dataList.k_Cost
+    : !keywordInput.length;
 
   return (
     <div className={styles.base}>
