@@ -69,8 +69,8 @@ export default function AdChart({ dataList }: TProps) {
   return (
     <div id={styles.container}>
       <h3>
-        {selectedProduct && `"${selectedProduct}"`} 광고 키워드 클릭 수 & 전환
-        수 {startDate && `(${startDate} ~ ${endDate})`}
+        {selectedProduct !== 'undefined' && `"${selectedProduct}"`} 광고 키워드
+        클릭 수 & 전환 수 {startDate && `(${startDate} ~ ${endDate})`}
       </h3>
       <div className={styles.chartContainer}>
         <Chart
