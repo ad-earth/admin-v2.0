@@ -1,11 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
-
 import AdSetButtonBox from '../components/adSet/AdSetButtonBox';
 import AdSetTable from '../components/adSet/AdSetTable';
 import { MediumDropdown } from '../elements/DropDown';
-import Pagination from '../elements/Pagination';
 import useModal from '../hooks/useModal';
 import useAdFilter from '../query/useAdFilter';
 import useAdManagement from '../query/useAdManagement';
@@ -72,9 +70,6 @@ export default function AdSetPage() {
         checkedItems={checkedItems}
         setCheckedItems={setCheckedItems}
       />
-      <div className={styles.paginationBox}>
-        <Pagination pageCnt={productQuery?.data?.cnt} />
-      </div>
     </div>
   );
 }
