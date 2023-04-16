@@ -37,6 +37,7 @@ export default function PostForm() {
       modalType: 'ProductDeleteModal',
       modalProps: {
         title: '상품을 삭제하시겠습니까?',
+        page: 'productPost',
         productNo: { p_No: [state?.p_Number] },
       },
     });

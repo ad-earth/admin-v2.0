@@ -28,6 +28,7 @@ export default function ProductSetPage() {
           modalType: 'ProductDeleteModal',
           modalProps: {
             title: '상품을 삭제하시겠습니까?',
+            page: 'productSet',
             productNo: { p_No: checkedItems },
           },
         });
