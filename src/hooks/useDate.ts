@@ -1,17 +1,17 @@
+import useOffsetDate from './useOffsetDate';
+
 const useDate = () => {
-  const date = new Date();
-  const offset = date.getTimezoneOffset() * 60000;
-  const dateOffset = new Date(date.getTime() - offset);
+  const offsetDate = useOffsetDate();
 
   const minTime = () => {
-    const minDate = new Date(dateOffset.setMonth(dateOffset.getMonth() - 1))
+    const minDate = new Date(offsetDate.setMonth(offsetDate.getMonth() - 1))
       .toISOString()
       .substring(0, 10);
     return minDate;
   };
 
   const nowTime = () => {
-    const today = dateOffset.toISOString().substring(0, 10);
+    const today = offsetDate.toISOString().substring(0, 10);
     return today;
   };
 

@@ -1,21 +1,27 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import useOffsetDate from './useOffsetDate';
 
 const useTerm = () => {
   const [searchParams] = useSearchParams();
   const term = searchParams.get('term');
-  const now = new Date();
+  const [termNumber, setTermNumber] = useState(3);
 
-  let subtractNumber;
+  const offsetDate = useOffsetDate();
+
+  useEffect(() => {
+    term === '3개월'
+      ? setTermNumber(3)
+      : term === '2개월'
+      ? setTermNumber(2)
+      : setTermNumber(1);
+  }, [term]);
+
   const startDate = useMemo(() => {
-    if (term === '3개월') subtractNumber = 3;
-    else if (term === '2개월') subtractNumber = 2;
-    else if (term === '1개월') subtractNumber = 1;
-    else return null;
-    return new Date(now.setMonth(now.getMonth() - subtractNumber))
+    return new Date(offsetDate.setMonth(offsetDate.getMonth() - termNumber))
       .toISOString()
       .substring(0, 10);
-  }, [term]);
+  }, [offsetDate, termNumber]);
 
   const endDate = useMemo(() => new Date().toISOString().substring(0, 10), []);
 
