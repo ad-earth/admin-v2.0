@@ -53,12 +53,12 @@ npm start
 
 | 메인 페이지 | 배송 관리 페이지 |
 |---|---|
-|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455581-c8a4f30b-e5fc-4413-8506-9b23e624c55c.gif' width="450">|
 |▪︎ 아코디언 광고배너 제공 <br/> ▪︎ 신규주문 & 전원매출액 & 노출상품 수 & 광고 키워드 순위 실시간 확인 <br/> ▪︎ 3개월 광고 요약 보고서 차트데이터 제공 <br/> ▪︎ 비즈머니 금액 확인 및 충전|▪︎ 페이지당 최대 10개의 배송상품 데이터 제공 <br/> ▪︎ 기간 & 상품 & 배송상태 다중 필터링 <br/> ▪︎ 단일 & 전체 배송상품 주문확정 <br/> ▪︎ 배송 리스트 현황 csv 파일 다운로드|
 
 | 상품 등록 & 수정 페이지 | 상품 관리 페이지 |
 |---|---|
-|<img src='https://user-images.githubusercontent.com/101298873/232450948-c739bbc8-7469-47ad-b705-d44b3aae515a.gif' width="450">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|
+|<img src='https://user-images.githubusercontent.com/101298873/232450948-c739bbc8-7469-47ad-b705-d44b3aae515a.gif' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455544-0561734e-eaf7-4df1-a9c6-e0115676f54c.gif' width="450">|
 | ▪︎ 상품 등록 & 수정 & 삭제 기능 제공 <br/> ▪︎ 상품 등록 & 수정 시 필수 입력사항에 대한 유효성 검사 |▪︎ 페이지당 최대 10개의 카테고리 별 상품 데이터 제공 <br/> ▪︎ 상품 노출 여부 선택 수정 <br/> ▪︎ 상품 단일 & 전체 삭제| 
 
 | 광고 관리 페이지 | 광고 보고서 페이지 |
