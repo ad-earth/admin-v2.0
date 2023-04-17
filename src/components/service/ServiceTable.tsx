@@ -1,5 +1,4 @@
 import { Tooltip } from '@mui/material';
-import React, { useState } from 'react';
 import { CSVLink } from 'react-csv';
 import toast from 'react-hot-toast';
 import { EXCEL_HEAD_LIST, SERVICE_HEAD_LIST } from '../../constants';
@@ -7,7 +6,7 @@ import Button from '../../elements/Button';
 import Pagination from '../../elements/Pagination';
 import TableHead from '../../elements/TableHead';
 import type { ExcelType } from '../../hooks/useConvertExcel';
-import type { TList } from '../../query/useService';
+import useServiceCheck from '../../hooks/useServiceCheck';
 import useService from '../../query/useService';
 import type { IServiceList } from '../../shared/types/types';
 import styles from './serviceTable.module.scss';
@@ -18,47 +17,28 @@ interface IProps {
 }
 
 export default function ServiceTable({ cnt, list, excel }: IProps) {
-  const [checkedItems, setCheckedItems] = useState<number[]>([]);
-  const [confirmList, setConfirmList] = useState<TList[]>([]);
-
+  const {
+    checkSingleItem,
+    checkAllItems,
+    checkNothing,
+    checkedItems,
+    confirmList,
+  } = useServiceCheck();
   const handleSingleChecked = (
     checked: boolean,
     id: number,
     o_No: number,
     p_No: number
-  ) => {
-    if (checked) {
-      setCheckedItems([...checkedItems, id]);
-      setConfirmList([...confirmList, { o_No, p_No }]);
-    } else {
-      setCheckedItems(checkedItems.filter(el => el !== id));
-      setConfirmList(confirmList.filter(el => el.o_No !== o_No));
-    }
-  };
+  ) => checkSingleItem(checked, id, o_No, p_No);
+  const AllCheckedHandler = (checked: boolean) => checkAllItems(checked, list);
 
-  const AllCheckedHandler = (checked: boolean) => {
-    if (checked) {
-      setCheckedItems(list?.map(el => el.id));
-      const allCheckedList = list?.map(el => ({
-        o_No: el.o_No,
-        p_No: el.p_No,
-      }));
-      setConfirmList(allCheckedList);
-    } else {
-      setCheckedItems([]);
-      setConfirmList([]);
-    }
-  };
-
-  const {
-    confirmService: { mutate },
-  } = useService();
+  const { confirmService } = useService();
   const handleConfirm = () => {
     if (checkedItems.length > 0) {
-      mutate(
+      confirmService.mutate(
         { confirmList },
         {
-          onSuccess: () => setCheckedItems([]),
+          onSuccess: () => checkNothing(),
         }
       );
     } else return toast.error('주문 확정하실 상품을 먼저 선택해주세요.');

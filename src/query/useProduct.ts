@@ -6,7 +6,7 @@ import queryKeys from '../constants/queryKeys';
 import { deleteProd, editProd, postProd } from '../shared/api/apis';
 import type { IProdResponse, TError } from '../shared/types/types';
 
-interface IEditProduct extends IProdResponse {
+export interface IEditProduct extends IProdResponse {
   p_No: number;
 }
 interface IRemoveProduct {
