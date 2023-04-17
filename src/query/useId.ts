@@ -13,6 +13,7 @@ const useId = (brand: string, bNumber: string) => {
     refetchOnWindowFocus: false,
     enabled: false,
     retry: 0,
+    cacheTime: 5,
   });
 
   const id = useMemo(() => data?.data.a_Id, [data]);
