@@ -12,6 +12,7 @@ interface IProps {
 
 export default function Option({ isProd }: IProps) {
   const [optionList, setOptionList] = useRecoilState(optionListState);
+  console.log('optionList: ', optionList);
 
   useEffect(() => {
     if (!isProd)
@@ -89,9 +90,7 @@ export default function Option({ isProd }: IProps) {
               type="color"
               name={String(item.id)}
               disabled={item.colorCheck !== true ? true : false}
-              defaultValue={
-                item.colorCode && item.colorCode ? item.colorCode : '#ffffff'
-              }
+              value={item.colorCode ? item.colorCode : '#ffffff'}
               onChange={e =>
                 handleSetInput(e.target.id, e.target.name, e.target.value)
               }
