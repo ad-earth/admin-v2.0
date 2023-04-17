@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { CATEGORY } from '../../constants';
+import { CATEGORY, PRICE_REG } from '../../constants';
 import Button from '../../elements/Button';
 import { GeneralDropdown } from '../../elements/DropDown';
 import Input from '../../elements/Input';
@@ -28,7 +28,6 @@ export default function PostForm() {
   const [thumb1Url, setThumb1Url] = useState<string>('');
   const [thumb2Url, setThumb2Url] = useState<string>('');
   const [contents, setContents] = useState<string>('');
-  const [isErrorCheck, SetIsErrorCheck] = useState<boolean>(false);
   const option = useRecoilValue(optionList);
 
   const { showModal } = useModal();
@@ -56,7 +55,8 @@ export default function PostForm() {
     }
   }, [state?.isProd, prodList]);
 
-  const ErrorCheck = () => {
+  const { postProduct, editProduct } = useProduct();
+  const handlePost = () => {
     if (!category) toast.error('상품의 카테고리를 선택해주세요!');
     else if (!prodName) toast.error('상품명을 입력해주세요!');
     else if (!prodPrice) toast.error('상품 가격을 입력해주세요!');
@@ -67,13 +67,7 @@ export default function PostForm() {
       toast.error('상품 이미지를 등록해주세요!(2개 필수)');
     else if (!option[0].optionCnt) toast.error('옵션 수량 입력은 필수입니다!');
     else if (!contents) toast.error('상품의 상세 설명을 입력해주세요!');
-    else return SetIsErrorCheck(true);
-  };
-
-  const { postProduct, editProduct } = useProduct();
-  const handlePost = () => {
-    ErrorCheck();
-    if (isErrorCheck) {
+    else {
       const postData = {
         p_No: state?.p_Number,
         p_Category: category,
@@ -91,12 +85,27 @@ export default function PostForm() {
     }
   };
 
+  const handleCheckPrice = (id: string, value: string) => {
+    if (value[0] === '0')
+      return toast.error('가격은 0부터 입력할 수 없습니다.');
+    else if (PRICE_REG.test(value))
+      return toast.error('숫자만 입력할 수 있습니다.');
+    else if (id === 'price') return setProdPrice(value);
+    else if (id === 'discount') return setProdDiscount(value);
+  };
+
   const discountPrice = useMemo(() => {
     if (prodPrice && prodDiscount) {
       setIsDiscount(true);
       const discountVal =
         Number(prodPrice) - (Number(prodPrice) / 100) * Number(prodDiscount);
-      return <p>{discountVal}원</p>;
+      return (
+        <p>
+          {discountVal < 0
+            ? '할인율 적용이 올바르지 않습니다.'
+            : `${discountVal}원`}
+        </p>
+      );
     } else {
       setIsDiscount(false);
       return null;
@@ -140,16 +149,20 @@ export default function PostForm() {
                 <Input
                   placeholder="상품 가격"
                   styleName="input200"
+                  type="text"
+                  id="price"
                   value={prodPrice}
-                  onChange={e => setProdPrice(e.target.value)}
+                  onChange={e => handleCheckPrice(e.target.id, e.target.value)}
                 />
                 <span>원</span>
                 <p className={styles.label}>할인율</p>
                 <Input
                   placeholder="0"
                   styleName="input100"
+                  type="text"
+                  id="discount"
                   value={prodDiscount}
-                  onChange={e => setProdDiscount(e.target.value)}
+                  onChange={e => handleCheckPrice(e.target.id, e.target.value)}
                 />
                 <span>%</span>
                 {discountPrice}

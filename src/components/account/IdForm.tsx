@@ -39,11 +39,11 @@ export default function IdForm() {
         onChange={handleBNumber}
         value={bNumber}
       />
-      {isSuccess && (
+      {isSuccess ? (
         <p>
           아이디는 <span className={styles.bold}>{id}</span>입니다.
         </p>
-      )}
+      ) : null}
       <Button styleClass="big_blue" text="아이디 찾기" type="submit" />
     </form>
   );
