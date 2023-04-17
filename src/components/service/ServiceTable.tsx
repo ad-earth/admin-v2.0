@@ -18,7 +18,6 @@ interface IProps {
 }
 
 export default function ServiceTable({ cnt, list, excel }: IProps) {
-  console.log('list: ', list && list[0].p_Option);
   const [checkedItems, setCheckedItems] = useState<number[]>([]);
   const [confirmList, setConfirmList] = useState<TList[]>([]);
 

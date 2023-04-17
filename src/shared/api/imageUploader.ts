@@ -1,5 +1,6 @@
 import ReactS3Client from 'react-aws-s3-typescript';
 import type { IConfig } from 'react-aws-s3-typescript/dist/types';
+import { toast } from 'react-hot-toast';
 import { editorConfig, thumbnailConfig } from '../utils/s3Config';
 
 const uploadFile = async (file: any, config: IConfig) => {
@@ -8,7 +9,7 @@ const uploadFile = async (file: any, config: IConfig) => {
     const data = await s3.uploadFile(file, file.name);
     return data.location;
   } catch (err) {
-    console.error(err);
+    toast.error(`${err}`);
   }
 };
 
