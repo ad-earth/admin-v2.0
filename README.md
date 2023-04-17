@@ -63,7 +63,7 @@ npm start
 
 | 광고 관리 페이지 | 광고 보고서 페이지 |
 |---|---|
-|<img src='' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232448560-90c37c67-a83d-461c-850d-ac668202bf1c.gif' width="450">|
+|<img src='https://user-images.githubusercontent.com/101298873/232457224-4e8357ee-4ad0-472e-a035-53cce45d60e3.gif' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232448560-90c37c67-a83d-461c-850d-ac668202bf1c.gif' width="450">|
 |▪︎ 상품별  최대 20개 키워드 데이터 제공 <br/> ▪︎ 키워드 단일 & 전체 삭제 <br/> ▪︎ 키워드 광고등록, 키워드 광고수정 |▪︎ 기간, 상품 다중 필터링 <br/> ▪︎ 최대 3개월의 키워드별 클릭 수 & 매출 전환 수 area chart 제공 <br/> ▪︎ 단일 상품에 대한 키워드별 매출 데이터 테이블 제공| 
 
 ## 아키텍쳐
