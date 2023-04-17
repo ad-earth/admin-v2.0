@@ -7,28 +7,24 @@ import useLogin from '../../query/useLogin';
 import styles from './logInForm.module.scss';
 
 export default function LogInForm() {
-  const [id, setId] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
   const { isValidId, isValidPassword } = useRegExp();
-  const { mutate } = useLogin(id, password);
+  const { mutate } = useLogin();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (isValidId(id) && isValidPassword(password)) mutate();
+  const login = (id: string, password: string) => {
+    if (isValidId(id) && isValidPassword(password))
+      mutate({ id: id, pwd: password });
     else setError(true);
   };
 
-  const handleIdInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setError(false);
-    setId(e.target.value);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    login(formData.get('id') as string, formData.get('password') as string);
   };
 
-  const handlePasswordInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setError(false);
-    setPassword(e.target.value);
-  };
+  const handleChange = () => setError(false);
 
   const navigate = useNavigate();
 
@@ -38,17 +34,17 @@ export default function LogInForm() {
         type="text"
         placeholder="아이디"
         styleName="login"
-        value={id}
-        onChange={handleIdInput}
+        name="id"
+        onChange={handleChange}
       />
       <Input
         type="password"
         placeholder="비밀번호"
         styleName="login"
-        value={password}
-        onChange={handlePasswordInput}
+        name="password"
+        onChange={handleChange}
       />
-      {id && password && error && (
+      {error && (
         <p className={styles.error}>아이디와 비밀번호를 다시 확인해주세요.</p>
       )}
       <Button text="로그인" styleClass={'big_blue'} type="submit" />
