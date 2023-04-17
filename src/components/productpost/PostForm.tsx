@@ -28,7 +28,6 @@ export default function PostForm() {
   const [thumb1Url, setThumb1Url] = useState<string>('');
   const [thumb2Url, setThumb2Url] = useState<string>('');
   const [contents, setContents] = useState<string>('');
-  const [isErrorCheck, SetIsErrorCheck] = useState<boolean>(false);
   const option = useRecoilValue(optionList);
 
   const { showModal } = useModal();
@@ -56,7 +55,8 @@ export default function PostForm() {
     }
   }, [state?.isProd, prodList]);
 
-  const ErrorCheck = () => {
+  const { postProduct, editProduct } = useProduct();
+  const handlePost = () => {
     if (!category) toast.error('상품의 카테고리를 선택해주세요!');
     else if (!prodName) toast.error('상품명을 입력해주세요!');
     else if (!prodPrice) toast.error('상품 가격을 입력해주세요!');
@@ -67,13 +67,7 @@ export default function PostForm() {
       toast.error('상품 이미지를 등록해주세요!(2개 필수)');
     else if (!option[0].optionCnt) toast.error('옵션 수량 입력은 필수입니다!');
     else if (!contents) toast.error('상품의 상세 설명을 입력해주세요!');
-    else return SetIsErrorCheck(true);
-  };
-
-  const { postProduct, editProduct } = useProduct();
-  const handlePost = () => {
-    ErrorCheck();
-    if (isErrorCheck) {
+    else {
       const postData = {
         p_No: state?.p_Number,
         p_Category: category,
