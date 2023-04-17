@@ -38,7 +38,7 @@ npm start
 ## 페이지 주요 기능
 | 회원가입 및 로그인 페이지 | 계정 찾기 페이지 |
 |---|---|
-|<img src='https://user-images.githubusercontent.com/101298873/232402764-698eb380-0976-41f9-8cd4-b195c8821721.gif' width="400">|<img src='https://user-images.githubusercontent.com/101298873/232403095-642a2ad1-77e7-46fe-b36d-33c66d8fba7c.gif' width="400">|
+|<img src='https://user-images.githubusercontent.com/101298873/232402764-698eb380-0976-41f9-8cd4-b195c8821721.gif' width="380">|<img src='https://user-images.githubusercontent.com/101298873/232403095-642a2ad1-77e7-46fe-b36d-33c66d8fba7c.gif' width="380">|
 
 | 메인 페이지 | 배송 관리 페이지 |
 |---|---|
