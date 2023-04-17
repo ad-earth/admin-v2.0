@@ -12,7 +12,6 @@ interface IProps {
 
 export default function Option({ isProd }: IProps) {
   const [optionList, setOptionList] = useRecoilState(optionListState);
-  console.log('optionList: ', optionList);
 
   useEffect(() => {
     if (!isProd)
@@ -35,8 +34,9 @@ export default function Option({ isProd }: IProps) {
     useOption();
   const handleAdd = () => addOptionItem();
   const handleRemove = (id: number) => removeOptionItem(id);
-  const handleCheck = (id: string, name: string, checked: boolean) =>
+  const handleCheck = (id: string, name: string, checked: boolean) => {
     optionCheck({ id, name, checked });
+  };
   const handleSetInput = (id: string, name: string, value: string) =>
     optionInput({ id, name, value });
 
@@ -55,7 +55,7 @@ export default function Option({ isProd }: IProps) {
                   handleCheck(e.target.id, e.target.name, e.target.checked)
                 }
               />
-              <label htmlFor="color">색상 사용</label>
+              <label htmlFor={String(item.id)}>색상 사용</label>
             </li>
             <li>
               <input
@@ -67,7 +67,7 @@ export default function Option({ isProd }: IProps) {
                   handleCheck(e.target.id, e.target.name, e.target.checked)
                 }
               />
-              <label htmlFor="option">옵션</label>
+              <label htmlFor={String(item.id)}>옵션</label>
             </li>
             <li>추가금액</li>
             <li>수량</li>
