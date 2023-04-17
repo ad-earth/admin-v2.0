@@ -53,7 +53,7 @@ npm start
 
 | 메인 페이지 | 배송 관리 페이지 |
 |---|---|
-|<img src='' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455581-c8a4f30b-e5fc-4413-8506-9b23e624c55c.gif' width="450">|
+|<img src='https://user-images.githubusercontent.com/101298873/232552094-bfad887b-a5e4-4b51-ad03-aa5e382e8249.gif' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455581-c8a4f30b-e5fc-4413-8506-9b23e624c55c.gif' width="450">|
 |▪︎ 아코디언 광고배너 제공 <br/> ▪︎ 신규주문 & 전원매출액 & 노출상품 수 & 광고 키워드 순위 실시간 확인 <br/> ▪︎ 3개월 광고 요약 보고서 차트데이터 제공 <br/> ▪︎ 비즈머니 금액 확인 및 충전|▪︎ 페이지당 최대 10개의 배송상품 데이터 제공 <br/> ▪︎ 기간 & 상품 & 배송상태 다중 필터링 <br/> ▪︎ 단일 & 전체 배송상품 주문확정 <br/> ▪︎ 배송 리스트 현황 csv 파일 다운로드|
 
 | 상품 등록 & 수정 페이지 | 상품 관리 페이지 |
