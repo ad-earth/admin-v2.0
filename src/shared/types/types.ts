@@ -70,7 +70,7 @@ export interface IAdSummaryRes {
 export interface IBizMoneyRes {
   a_Charge: number;
 }
-
+type TOption = [string, string, string, number, number, number];
 export interface IServiceList {
   id: number;
   o_No: number;
@@ -86,7 +86,7 @@ export interface IServiceList {
   d_Memo: string;
   o_Date: string;
   o_Status: string;
-  p_Option: TOptionList[];
+  p_Option: TOption[];
   p_Price: number;
 }
 export interface IServiceResponse {
