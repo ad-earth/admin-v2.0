@@ -58,12 +58,12 @@ npm start
 
 | 상품 등록 & 수정 페이지 | 상품 관리 페이지 |
 |---|---|
-|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|
+|<img src='https://user-images.githubusercontent.com/101298873/232450948-c739bbc8-7469-47ad-b705-d44b3aae515a.gif' width="450">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|
 | ▪︎ 상품 등록 & 수정 & 삭제 기능 제공 <br/> ▪︎ 상품 등록 & 수정 시 필수 입력사항에 대한 유효성 검사 |▪︎ 페이지당 최대 10개의 카테고리 별 상품 데이터 제공 <br/> ▪︎ 상품 노출 여부 선택 수정 <br/> ▪︎ 상품 단일 & 전체 삭제| 
 
 | 광고 관리 페이지 | 광고 보고서 페이지 |
 |---|---|
-|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232448560-90c37c67-a83d-461c-850d-ac668202bf1c.gif' width="450">|
 |▪︎ 상품별  최대 20개 키워드 데이터 제공 <br/> ▪︎ 키워드 단일 & 전체 삭제 <br/> ▪︎ 키워드 광고등록, 키워드 광고수정 |▪︎ 기간, 상품 다중 필터링 <br/> ▪︎ 최대 3개월의 키워드별 클릭 수 & 매출 전환 수 area chart 제공 <br/> ▪︎ 단일 상품에 대한 키워드별 매출 데이터 테이블 제공| 
 
 ## 아키텍쳐
