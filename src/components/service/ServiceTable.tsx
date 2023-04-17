@@ -1,3 +1,4 @@
+import { Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { CSVLink } from 'react-csv';
 import toast from 'react-hot-toast';
@@ -116,7 +117,16 @@ export default function ServiceTable({ cnt, list, excel }: IProps) {
                 <td>{val.id}</td>
                 <td>{val.o_No}</td>
                 <td>{val.p_No}</td>
-                <td>{val.p_Name}</td>
+                <Tooltip
+                  title={val.p_Option.map(option => {
+                    return `${option[0] ? option[0] : ''}${
+                      option[2] ? option[2] : ''
+                    } (수량:${option[4] ? option[4] : ''}) `;
+                  })}
+                  arrow
+                >
+                  <td>{val.p_Name}</td>
+                </Tooltip>
                 <td>{val.p_Cnt}</td>
                 <td>{val.u_Id}</td>
                 <td>{val.d_Name}</td>
