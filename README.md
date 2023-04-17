@@ -36,22 +36,24 @@ npm start
 #### 기술적 개선
 
 ## 페이지 주요 기능
+| 회원가입 및 로그인 페이지 | 계정 찾기 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-| 회원가입 및 로그인 페이지                                                                                                        | 메인 페이지                                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> | <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> |
+| 메인 페이지 | 배송 관리 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-| 배송관리 페이지                                                                                                                  | 상품등록 & 수정 페이지                                                                                                           |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> | <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> |
+| 상품 등록 & 수정 페이지 | 상품 관리 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-| 상품관리 페이지                                                                                                                  | 광고관리 페이지                                                                                                                  |
-| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> | <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> |
+| 광고 관리 페이지 | 광고 보고서 페이지 |
+|---|---|
+|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400">|
 
-| 광고보고서 페이지                                                                                                                |
-| -------------------------------------------------------------------------------------------------------------------------------- |
-| <img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="400"> |
+
+
 
 ## 아키텍쳐
 
