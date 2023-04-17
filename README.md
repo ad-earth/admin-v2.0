@@ -53,7 +53,7 @@ npm start
 
 | 메인 페이지 | 배송 관리 페이지 |
 |---|---|
-|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455581-c8a4f30b-e5fc-4413-8506-9b23e624c55c.gif' width="450">|
+|<img src='' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232455581-c8a4f30b-e5fc-4413-8506-9b23e624c55c.gif' width="450">|
 |▪︎ 아코디언 광고배너 제공 <br/> ▪︎ 신규주문 & 전원매출액 & 노출상품 수 & 광고 키워드 순위 실시간 확인 <br/> ▪︎ 3개월 광고 요약 보고서 차트데이터 제공 <br/> ▪︎ 비즈머니 금액 확인 및 충전|▪︎ 페이지당 최대 10개의 배송상품 데이터 제공 <br/> ▪︎ 기간 & 상품 & 배송상태 다중 필터링 <br/> ▪︎ 단일 & 전체 배송상품 주문확정 <br/> ▪︎ 배송 리스트 현황 csv 파일 다운로드|
 
 | 상품 등록 & 수정 페이지 | 상품 관리 페이지 |
@@ -63,7 +63,7 @@ npm start
 
 | 광고 관리 페이지 | 광고 보고서 페이지 |
 |---|---|
-|<img src='https://play-lh.googleusercontent.com/HrS1L-dZctdC0nwMbiibL69YTf-i3PkDiPnPhjoQPME6gsbJX7Vk0FaSiLzmGh8Q_Q' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232448560-90c37c67-a83d-461c-850d-ac668202bf1c.gif' width="450">|
+|<img src='' width="450">|<img src='https://user-images.githubusercontent.com/101298873/232448560-90c37c67-a83d-461c-850d-ac668202bf1c.gif' width="450">|
 |▪︎ 상품별  최대 20개 키워드 데이터 제공 <br/> ▪︎ 키워드 단일 & 전체 삭제 <br/> ▪︎ 키워드 광고등록, 키워드 광고수정 |▪︎ 기간, 상품 다중 필터링 <br/> ▪︎ 최대 3개월의 키워드별 클릭 수 & 매출 전환 수 area chart 제공 <br/> ▪︎ 단일 상품에 대한 키워드별 매출 데이터 테이블 제공| 
 
 ## 아키텍쳐
