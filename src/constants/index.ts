@@ -76,7 +76,7 @@ export const ID_REG = /^[a-zA-Z0-9]{5,10}$/;
 export const PWD_REG =
   /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$/;
 export const PHONE_REG = /^\d{3}-\d{3,4}-\d{4}$/;
-
+export const PRICE_REG = /[^0-9]/g;
 export const DATELIST = ['3개월', '2개월', '1개월'];
 
 export const ADHEADS = [
