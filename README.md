@@ -62,7 +62,7 @@ npm start
 ## 기술 스택
 
 - React, TypeScript
-- React Query, Recoil, Axios
+- React-Query, Recoil, Axios
 - Sass
 
 ## 기타
