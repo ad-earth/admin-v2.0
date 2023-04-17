@@ -29,6 +29,7 @@ export default function Option({ isProd }: IProps) {
       ]);
     else return;
   }, [isProd]);
+  console.log('isProd: ', isProd);
 
   const { addOptionItem, removeOptionItem, optionCheck, optionInput } =
     useOption();
