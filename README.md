@@ -4,7 +4,7 @@
 
 > AWS S3, CloudFront, Route53 배포 / Github Actions CICD 구축
 
-- [🌐 구매자 페이지](https://adearth.shop)
+- [🌐 구매자 페이지 (id: testuser / password: aaa1111!)](https://adearth.shop)
 - [🌐 어드민 페이지](https://adearth-admin.shop)
 
 ## 실행 방법
