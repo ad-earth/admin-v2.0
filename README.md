@@ -156,7 +156,12 @@
 
 ## 팀 광고지구 개발일지
 > 구매자와 판매자 프로젝트를 진행하면서 경험한 기술적 어려움, 새로운 기술과 개념에 대한 공부 내용을 담고 있습니다. 
-
+- [효율적인 페이지 라우팅 구현해보기! with. Outlet](https://www.notion.so/with-Outlet-d046cabd52c9487cbccaca97a13751ac?pvs=4)
+- [이미지 업로드 구현 전략, FE or BE](https://www.notion.so/FE-or-BE-8f65455088b9400e8f9bc6c500ea794d?pvs=4)
+- [Git Action을 사용하여 배포 속도 향상시키기](https://www.notion.so/Git-Action-bca50b319e4a471dbd12d2127fcfc5c5?pvs=4)
+- [Pagination 과 Infinite Scroll은 어떻게 구현할 수 있을까?](https://www.notion.so/Pagination-Infinite-Scroll-161ab422c41148b9aff810bff3bef955?pvs=4)
+- [독립적인 DOM 노드로 렌더링하기. with React Portal](https://www.notion.so/DOM-with-React-Portal-57e917acc1d249a48178dc68bb1ffe0e?pvs=4)
+- [URL Parameter를 활용한 데이터 필터링 개선](https://www.notion.so/URL-Parameter-78e3e123951f4827a5d8d2d5fdf1623b?pvs=4)
 
 <br/>
 
